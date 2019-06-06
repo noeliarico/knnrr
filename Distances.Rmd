@@ -1,0 +1,83 @@
+---
+title: "Distances"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+Given two vectors:
+
+* p = number of variables that are positive for both instances
+* q = number of variables that are positive for the $i_th$ object and negative for the $j_th$ object
+* r = number of variables that are negative for the $i_th$ object and positive for the $j_th$ object
+* s = number of variables that are positive for both instances
+* $t = p + q + r + s$
+
+
+# Distance for binary variables
+
+```{r}
+i <- factor("yes", "no", "yes", "no", "yes")
+j <- factor("no", "yes", "no", "no", "yes")
+```
+
+```{r}
+tribble(i, j)
+```
+
+
+## Simple matching distance
+
+Useful when both positive and negative values carry equal information. Counts the number of times that both are different (one positive and the other negative).
+
+$$d_{ij} = \frac{q+r}{p + q + r + s} = \frac{q+r}{t}$$
+
+## Jaccard's distance
+
+$$d_{ij} = \frac{q+r}{p + q + r}$$
+
+## Hamming distance
+
+Measures the leven of disagreement between two vectors. Count the number if digits in positions where they have a different digit. Distance is higher for values with bigger number of categories.
+
+$$d_{ij} = q + r$$
+
+## Simple matching coefficient
+
+Useful when both positive and negative values carry equal information. Counts the number of times that both are equals (both positive or both negative)
+
+$$d_{ij} = \frac{p+s}{p + q + r + s} = \frac{p+s}{t}$$
+
+## Jaccard's coefficient
+
+$$d_{ij} = \frac{p}{p + q + r} = \frac{p}{p + q + r}$$
+
+# Distance for nominal variables
+
+
+# Distance for ordinal variables
+
+## Normalized Rank Transformation
+
+## Spearman Distance
+
+## Footrule Distance
+
+## Kendall Distance
+
+## Cayley Distance
+
+## Hamming Distance
+
+## Ulam Distance
+
+## Chebyshev/Maximum distance
+
+## Miskowski Distance
+
+
+# Distance for quantitative variables
+

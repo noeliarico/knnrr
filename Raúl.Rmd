@@ -1,0 +1,63 @@
+---
+title: "Raúl"
+output: html_document
+---
+
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+set.seed(123)
+data <- read_csv("data/binary/numeric/lessthan10/weight-height.csv")
+indexes <- createDataPartition(data$Gender, p = 0.015, list = FALSE)
+data <- data[indexes,]
+```
+
+
+```{r}
+ggplot(data, aes(Weight, Height, col = Gender)) + 
+  geom_point()
+```
+
+```{r}
+set.seed(123)
+pdata <- preProcess(data)
+data <- predict(pdata, data)
+ggplot(data, aes(Weight, Height, col = Gender, shape = Gender)) + 
+  geom_point()
+```
+
+# Con distancia euclídea
+
+Con k = 7 diríamos azul
+
+```{r}
+number <- 85
+data$closest <- 0
+v <- rank(as.matrix(dist(data[,2:3]))[number,]) <= 6
+data[v, ]$closest <- 1
+data[number,]$closest <- 2
+data$closest <- factor(data$closest)
+```
+
+```{r}
+ggplot(data, aes(Weight, Height, col = Gender)) +
+  geom_point(aes(shape = closest))
+```
+
+# Con distancia manhattan
+
+```{r}
+number <- 85
+data$closest <- 0
+ranking <- rank(as.matrix(dist(data[,2:3], method = "canberra"))[number,])
+v <- ranking <= (min(ranking)+5)
+data[v, ]$closest <- 1
+data[number,]$closest <- 2
+data$closest <- factor(data$closest)
+ggplot(data, aes(Weight, Height, col = Gender)) + 
+  geom_point(aes(shape = closest))
+```
+

@@ -1,0 +1,167 @@
+---
+title: "Datasets"
+output: html_document
+---
+
+```{r}
+source("data/load_data.R")
+source("data/show_data.R")
+knitr::opts_chunk$set(out.width="100%")
+```
+
+
+# Binary
+
+* Less than 10 attributes
+  * Categorical attributes
+    * [Balance Scale](#Balance-Scale)
+    * [Breast Cancer](#Breast-Cancer)
+    * [Cars](#Cars)
+    * [Tic-Tac-Toe](#Tic-Tac-Toe)
+  * Mixed: categorical and numerical attributes
+    * 
+* 10 or more attributes
+
+
+
+
+## Less than 10
+### Categorical attributes
+
+#### Balance Scale
+
+This data set was generated to model psychological experimental results. Each example is classified as having the balance scale tip to the right, tip to the left, or be balanced. The attributes are the left weight, the left distance, the right weight, and the right distance. The correct way to find the class is the greater of $(left\_distance * left\_weight)$ and $(right\_distance * right\_weight)$. If they are equal, it is balanced.
+
+
+* __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Balance+Scale)
+* __Number of rows__: `r nrow(balance_scale)`
+* __Number of attributes__: `r ncol(balance_scale) - 1`
+
+__Description of the attributes:__
+
+```{r echo=FALSE}
+plot_dist_cols(balance_scale)
+```
+
+#### Breast Cancer
+
+This is one of three domains provided by the Oncology Institute that has repeatedly appeared in the machine learning literature.(See also lymphography and primary-tumor.)
+
+This data set includes 201 instances of one class and 85 instances of another class. The instances are described by 9 attributes, some of which are linear and some are nominal.
+
+* __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Breast+Cancer)
+* __Number of rows__: `r nrow(breast_cancer)`
+* __Number of attributes__: `r ncol(breast_cancer) - 1`
+
+__Description of the attributes:__
+
+```{r echo=FALSE}
+plot_dist_cols(breast_cancer)
+```
+
+#### Cars
+
+Car Evaluation Database was derived from a simple hierarchical decision model originally developed for the demonstration of DEX, M. Bohanec, V. Rajkovic: Expert system for decision making. Sistemica 1(1), pp. 145-157, 1990.). The model evaluates cars according to the following concept structure: 
+
+CAR car acceptability 
+. PRICE overall price 
+. . buying buying price 
+. . maint price of the maintenance 
+. TECH technical characteristics 
+. . COMFORT comfort 
+. . . doors number of doors 
+. . . persons capacity in terms of persons to carry 
+. . . lug_boot the size of luggage boot 
+. . safety estimated safety of the car 
+
+Input attributes are printed in lowercase. Besides the target concept (CAR), the model includes three intermediate concepts: PRICE, TECH, COMFORT. Every concept is in the original model related to its lower level descendants by a set of examples (for these examples sets see [Web Link]). 
+
+The Car Evaluation Database contains examples with the structural information removed, i.e., directly relates CAR to the six input attributes: buying, maint, doors, persons, lug_boot, safety. 
+Because of known underlying concept structure, this database may be particularly useful for testing constructive induction and structure discovery methods. 
+
+* __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Car+Evaluation)
+* __Number of rows__: `r nrow(cars)`
+* __Number of attributes__: `r ncol(cars) - 1`
+
+__Description of the attributes:__
+
+```{r echo=FALSE}
+plot_dist_cols(cars)
+```
+
+#### Tic-Tac-Toe
+
+This database encodes the complete set of possible board configurations at the end of tic-tac-toe games, where "x" is assumed to have played first. The target concept is "win for x" (i.e., true when "x" has one of 8 possible ways to create a "three-in-a-row"). 
+
+
+* __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame)
+* __Number of rows__: `r nrow(tic_tac_toe)`
+* __Number of attributes__: `r ncol(tic_tac_toe) - 1`
+
+__Description of the attributes:__
+
+```{r echo=FALSE}
+plot_dist_cols(tic_tac_toe)
+```
+
+## 10 or more
+
+# Multiclass
+
+
+This database encodes the complete set of possible board configurations at the end of tic-tac-toe games, where "x" is assumed to have played first. The target concept is "win for x" (i.e., true when "x" has one of 8 possible ways to create a "three-in-a-row"). 
+
+
+* __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame)
+* __Number of rows__: `r nrow(tic_tac_toe)`
+* __Number of attributes__: `r ncol(tic_tac_toe) - 1`
+
+__Description of the attributes:__
+
+```{r echo=FALSE}
+plot_dist_cols(tic_tac_toe)
+```
+
+## Mixed
+
+### Less than 10
+
+### Abalone
+
+Predicting the age of abalone from physical measurements. The age of abalone is determined by cutting the shell through the cone, staining it, and counting the number of rings through a microscope -- a boring and time-consuming task. Other measurements, which are easier to obtain, are used to predict the age. Further information, such as weather patterns and location (hence food availability) may be required to solve the problem. 
+
+From the original data examples with missing values were removed (the majority having the predicted value missing), and the ranges of the continuous values have been scaled for use with an ANN (by dividing by 200).
+
+
+* __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Abalone)
+* __Number of rows__: `r nrow(abalone_age)`
+* __Number of attributes__: `r ncol(abalone_age) - 1`
+
+__Description of the attributes:__
+
+```{r echo=FALSE}
+plot_dist_cols(abalone_age)
+```
+
+
+# Life expectancy
+
+```{r}
+ggplot(life_expectancy, aes(male, female)) + 
+  geom_point(aes(color = continent)) 
+```
+
+# Poker hand
+
+```{r echo=FALSE}
+plot_dist_cols(poker_hand)
+```
+
+# Travel insurance
+
+https://www.kaggle.com/mhdzahier/travel-insurance#travel%20insurance.csv
+
+```{r}
+plot_dist_cols(travel_insurance)
+```
+
