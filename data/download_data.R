@@ -71,9 +71,33 @@ URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/ecoli/ecoli.dat
 download.file(URL, destfile = file.path("data", "multiclass", "numeric", 
                                         "lessthan10", "ecoli.csv"))
 
+# Haberman's Survival -----------------------------------------------------
+
+# http://archive.ics.uci.edu/ml/datasets/Haberman%27s+Survival
+URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/haberman/haberman.data"
+download.file(URL, destfile = file.path("data", "binary", "numeric", 
+                                        "lessthan10", "haberman.csv"))
+
+
+# Iris --------------------------------------------------------------------
+
+# http://archive.ics.uci.edu/ml/datasets/Iris
+URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
+download.file(URL, destfile = file.path("data", "multiclass", "numeric", 
+                                        "lessthan10", "iris.csv"))
+
 # Life expectancy ---------------------------------------------------------
 
 # https://www.kaggle.com/amansaxena/lifeexpectancy
+
+
+
+# Mammographic Mass -------------------------------------------------------
+
+# http://archive.ics.uci.edu/ml/datasets/Mammographic+Mass
+URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/mammographic-masses/mammographic_masses.data"
+download.file(URL, destfile = file.path("data", "binary", "mixed", 
+                                        "lessthan10", "mammographic_masses.csv"))
 
 
 # Poker hand --------------------------------------------------------------
@@ -90,6 +114,30 @@ URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/postoperative-p
 download.file(URL, destfile = file.path("data", "multiclass", "categorical", 
                                         "lessthan10", "post_operative.csv"))
 
+
+
+# Seeds -------------------------------------------------------------------
+
+# http://archive.ics.uci.edu/ml/datasets/seeds
+URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/00236/seeds_dataset.txt"
+download.file(URL, destfile = file.path("data", "multiclass", "numeric", 
+                                        "lessthan10", "seeds.csv"))
+
+# Skin Segmentation -------------------------------------------------------
+
+# http://archive.ics.uci.edu/ml/datasets/Skin+Segmentation
+URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/00479/SomervilleHappinessSurvey2015.csv"
+download.file(URL, destfile = file.path("data", "binary", "categorical", 
+                                        "lessthan10", "somerville.csv"))
+
+
+
+# Somerville Happiness Survey ---------------------------------------------
+
+# http://archive.ics.uci.edu/ml/datasets/Somerville+Happiness+Survey
+URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/00229/Skin_NonSkin.txt"
+download.file(URL, destfile = file.path("data", "binary", "numeric", 
+                                        "lessthan10", "skin.csv"))
 
 # Tic-tac-toe -------------------------------------------------------------
 

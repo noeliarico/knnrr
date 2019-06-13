@@ -90,6 +90,24 @@ chess <- read_csv("data/multiclass/categorical/lessthan10/chess.csv",
                                "moves"))
 
 
+# Haberman's Survival -----------------------------------------------------
+
+haberman <- read_csv("data/binary/numeric/lessthan10/haberman.csv",
+                     col_types = cols(.default = col_double(), 
+                                      survival = col_factor()),
+                     col_names = c("age", "year", "nodes", "survival"))
+       
+
+
+# Iris --------------------------------------------------------------------
+
+iris <- read_csv("data/multiclass/numeric/lessthan10/iris.csv",
+                     col_types = cols(.default = col_double(), 
+                                      Species = col_factor()),
+                     col_names = c("Sepal.Length", "Sepal.Width", 
+                                   "Petal.Length", "Petal.Width", 
+                                   "Species"))
+
 # Life expectancy ---------------------------------------------------------
 
 life_expectancy <- read_csv("data/multiclass/numeric/lessthan10/life_expectancy.csv",
@@ -97,6 +115,20 @@ life_expectancy <- read_csv("data/multiclass/numeric/lessthan10/life_expectancy.
                             col_names = c("rank", "country", "overall", 
                                           "male", "female", "continent"),
                             skip = 1) %>% select(overall, male, female, continent)
+
+
+# Mammographic Mass -------------------------------------------------------
+
+mammograpic_masses <- read_csv("data/binary/mixed/lessthan10/mammographic_masses.csv",
+                               col_types = cols(.default = col_factor(NULL),
+                                                age = col_number()),
+                               col_names = c("bi_rads",
+                                             "age",
+                                             "shape",
+                                             "margin",
+                                             "density",
+                                             "severity"),
+                               na = "?") %>% drop_na 
 
 
 # Poker hand --------------------------------------------------------------
@@ -123,6 +155,33 @@ post_operative <- read_csv("data/multiclass/categorical/lessthan10/post_operativ
                                 "decision"),
                  na = "?") %>% drop_na 
 
+
+
+# Seeds -------------------------------------------------------------------
+
+seeds <- read.table("data/multiclass/numeric/lessthan10/seeds.csv") 
+colnames(seeds) <- c("area",
+                                "perimeter",
+                                "compactness",
+                                "length_kernel",
+                                "width_kernel",
+                                "asymmetry_coefficient",
+                                "length_kernel_groove",
+                                "class")
+seeds <- as_tibble(seeds) 
+
+
+# Skin Segmentation -------------------------------------------------------
+
+skin <- read.table("data/binary/numeric/lessthan10/skin.csv")
+colnames(skin) <- c("red", "green", "blue", "skin")
+skin <- as.tibble(skin) %>% mutate(skin = factor(skin))
+
+# Skin Segmentation -------------------------------------------------------
+
+somerville <- read_csv("data/binary/categorical/lessthan10/somerville.csv",
+                       )
+                        
 # Tic-tac-toe -------------------------------------------------------------
 
 tic_tac_toe <- read_csv("data/binary/categorical/lessthan10/tic-tac-toe.csv", 

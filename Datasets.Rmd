@@ -24,11 +24,14 @@ knitr::opts_chunk$set(out.width="100%")
   * Mixed: categorical and numerical attributes
     * Less than 10 attributes
       * [Caesarean](#Caesarean)
+      * [Mammographic masses](#mammographic)
     * 10 or more attributes
       * [Travel Insurance](#Travel-insurance)
   * Numeric attributes
     * Less than 10 attributes
+      * [Skin segmentation](#Skin)
       * [Banknote authentication](#Banknote)
+      * [Haberman's Survival](#Haberman)
       * [Weight, height, gender](#Weight-height-gender)
     * 10 or more attributes
 * **Multiclass**
@@ -44,6 +47,7 @@ knitr::opts_chunk$set(out.width="100%")
   * Numeric attributes
     * Less than 10 attributes
       * [Ecole](#Ecole)
+      * [Seeds](#Seeds)
     * 10 or more attributes
 
 # Binary
@@ -144,12 +148,19 @@ plot_dist_cols(tic_tac_toe)
 
 #### Cesarean
 
-<!-- Mixed > Categorical --> 
+<!-- Binary > Mixed > Less than 10 --> 
 
 ```{r echo=FALSE}
 plot_dist_cols(caesarian)
 ```
 
+#### Mammographic masses {#mammographic}
+
+<!-- Binary > Mixed > Less than 10 --> 
+
+```{r echo=FALSE}
+plot_dist_cols(mammograpic_masses)
+```
 
 ### 10 or more attributes
 
@@ -172,6 +183,17 @@ plot_dist_cols(travel_insurance)
 plot_dist_cols(bank_note)
 ```
 
+#### Haberman {#Haberman}
+
+```{r}
+plot_dist_cols(haberman)
+```
+
+#### Skin segmentation {#Skin}
+
+```{r}
+plot_dist_cols(skin)
+```
 
 ### 10 or more attributes
 
@@ -254,6 +276,15 @@ ggplot(life_expectancy, aes(male, female)) +
 ggplot(life_expectancy, aes(male, female)) + 
   geom_point(aes(color = continent)) 
 ```
+
+
+
+#### Seeds {#Seeds}
+
+```{r echo=FALSE}
+plot_dist_cols(seeds)
+```
+
 
 
 ### 10 or more attributes
