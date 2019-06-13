@@ -1,63 +1,121 @@
 ---
 title: "Raúl"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
-
-```{r}
+```{r echo=FALSE}
 library(tidyverse)
 ```
 
-```{r}
-set.seed(123)
-data <- read_csv("data/binary/numeric/lessthan10/weight-height.csv")
-indexes <- createDataPartition(data$Gender, p = 0.015, list = FALSE)
-data <- data[indexes,]
+
+```{r echo=FALSE}
+# Manhttan -> de más cercano a más lejano, A-B-D-C
+# Euclídea y Chebyshev -> A-B-C-D.
+
+data <- tribble(~x, ~y, ~name, ~class,
+                0, 0, "X", "to_classify",
+                1, 0, "A", "circle",
+                1, 2, "B", "triangle",
+                3, 2, "C", "circle",
+                0, 4, "D", "triangle")
+data$class <- factor(data$class, levels = c("circle", "triangle", "to_classify"))
+#rownames(data) <- c("x", letters[1:4])
+
 ```
 
-
-```{r}
-ggplot(data, aes(Weight, Height, col = Gender)) + 
-  geom_point()
+```{r echo=FALSE}
+circleFun <- function(center = c(0,0),diameter = 2, npoints = 100){
+    r = diameter / 2
+    tt <- seq(0,2*pi,length.out = npoints)
+    xx <- center[1] + r * cos(tt)
+    yy <- center[2] + r * sin(tt)
+    return(data.frame(x = xx, y = yy))
+}
+circle <- circleFun(c(0,0), 7.2, npoints = 100)
 ```
 
-```{r}
-set.seed(123)
-pdata <- preProcess(data)
-data <- predict(pdata, data)
-ggplot(data, aes(Weight, Height, col = Gender, shape = Gender)) + 
-  geom_point()
+```{r echo=FALSE}
+manhattan <- tibble(x = c(0,-4,0,4), y = c(4,0,-4,0))
 ```
 
-# Con distancia euclídea
+# Ejemplo 1
 
-Con k = 7 diríamos azul
-
-```{r}
-number <- 85
-data$closest <- 0
-v <- rank(as.matrix(dist(data[,2:3]))[number,]) <= 6
-data[v, ]$closest <- 1
-data[number,]$closest <- 2
-data$closest <- factor(data$closest)
+```{r echo=FALSE}
+ggplot(data, aes(x, y)) + 
+  geom_point(aes(shape = class), size = 6)  +
+  scale_x_continuous(limits = c(-5, 5), breaks = -5:5) +
+  scale_y_continuous(limits = c(-5, 5), breaks = -5:5) +
+  coord_fixed() +
+  geom_polygon(data = circle, fill = "black", color = "red", alpha = 0.05) +
+  geom_polygon(data = manhattan, fill = "black", color = "blue", alpha = 0.05) +
+  geom_rect(aes(xmin=-3, ymin=-3, xmax=3, ymax=3), fill = "black", color="green", alpha=0.01) +
+  theme_minimal() +
+  theme(legend.position="none")
+  
 ```
 
-```{r}
-ggplot(data, aes(Weight, Height, col = Gender)) +
-  geom_point(aes(shape = closest))
+# Ejemplo 2
+
+```{r echo=FALSE}
+ggplot(data, aes(x, y)) + 
+  scale_x_continuous(limits = c(-5, 5), breaks = -5:5) +
+  scale_y_continuous(limits = c(-5, 5), breaks = -5:5) +
+  coord_fixed() +
+  geom_polygon(data = circle, fill = "black", color = "red", alpha = 0.05) +
+  geom_polygon(data = manhattan, fill = "black", color = "blue", alpha = 0.05) +
+  geom_rect(aes(xmin=-3, ymin=-3, xmax=3, ymax=3), fill = "black", color="green", alpha=0.01) +
+  geom_point(aes(shape = class), size = 6)  +
+  theme_minimal() +
+  theme(legend.position="none")
 ```
 
-# Con distancia manhattan
+# Ejemplo 3
 
-```{r}
-number <- 85
-data$closest <- 0
-ranking <- rank(as.matrix(dist(data[,2:3], method = "canberra"))[number,])
-v <- ranking <= (min(ranking)+5)
-data[v, ]$closest <- 1
-data[number,]$closest <- 2
-data$closest <- factor(data$closest)
-ggplot(data, aes(Weight, Height, col = Gender)) + 
-  geom_point(aes(shape = closest))
+```{r echo=FALSE}
+ggplot(data, aes(x, y)) + 
+  scale_x_continuous(limits = c(-5, 5), breaks = -5:5) +
+  scale_y_continuous(limits = c(-5, 5), breaks = -5:5) +
+  coord_fixed() +
+  geom_polygon(data = circle, fill = "black", color = "red", alpha = 0) +
+  geom_polygon(data = manhattan, fill = "black", color = "blue", alpha = 0) +
+  geom_rect(aes(xmin=-3, ymin=-3, xmax=3, ymax=3), fill = "black", color="green", alpha=0) +
+  geom_point(aes(shape = class), size = 6)  +
+  theme_minimal() +
+  theme(legend.position="none")
 ```
 
+# V1: Remarcados A, B y D
+
+```{r echo=FALSE}
+data <- data %>% mutate(highlight = name %in% c("A","D","B"))
+ggplot(data, aes(x, y)) + 
+  scale_x_continuous(limits = c(-5, 5), breaks = -5:5) +
+  scale_y_continuous(limits = c(-5, 5), breaks = -5:5) +
+  coord_fixed() +
+  geom_polygon(data = circle, fill = "black", color = "red", alpha = 0) +
+  geom_polygon(data = manhattan, fill = "black", color = "blue", alpha = 0) +
+  geom_rect(aes(xmin=-3, ymin=-3, xmax=3, ymax=3), fill = "black", color="green", alpha=0) +
+  geom_point(aes(shape = class, color = highlight), size = 6)  +
+  theme_minimal() +
+  theme(legend.position="none") + 
+  scale_color_manual(values=c("#999999", "#E69F00"))
+```
+
+# V2: Remarcados A, B y C. 
+
+```{r echo=FALSE}
+data <- data %>% mutate(highlight = name %in% c("A","C","B"))
+ggplot(data, aes(x, y)) + 
+  scale_x_continuous(limits = c(-5, 5), breaks = -5:5) +
+  scale_y_continuous(limits = c(-5, 5), breaks = -5:5) +
+  coord_fixed() +
+  geom_polygon(data = circle, fill = "black", color = "red", alpha = 0) +
+  geom_polygon(data = manhattan, fill = "black", color = "blue", alpha = 0) +
+  geom_rect(aes(xmin=-3, ymin=-3, xmax=3, ymax=3), fill = "black", color="green", alpha=0) +
+  geom_point(aes(shape = class, color = highlight), size = 6)  +
+  theme_minimal() +
+  theme(legend.position="none") + 
+  scale_color_manual(values=c("#999999", "#E69F00"))
+```
