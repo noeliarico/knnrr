@@ -1,4 +1,5 @@
 library(tidyverse)
+library(foreign)
 
 # Abalone -----------------------------------------------------------------
 
@@ -31,6 +32,17 @@ balance_scale <- read_csv("data/binary/categorical/lessthan10/balance_dataset.cs
                                         "left_weight", "left_distance", 
                                         "right_weight", "right_distance"))
 
+# Bank note ---------------------------------------------------------------
+
+bank_note <- read_csv("data/binary/numeric/lessthan10/bank_note.csv", 
+                          col_types = cols(class = col_factor(NULL)),
+                          col_names = c("variance",
+                                        "skewness",
+                                        "curtosis",
+                                        "entropy",
+                                        "class"))
+
+
 # Breast Cancer -----------------------------------------------------------
 
 breast_cancer <- read_csv("data/binary/categorical/lessthan10/breast_cancer.csv", 
@@ -42,6 +54,13 @@ breast_cancer <- read_csv("data/binary/categorical/lessthan10/breast_cancer.csv"
                          na = "?") %>% drop_na 
 
 
+# Caesarian ---------------------------------------------------------------
+
+caesarian <- read.arff("data/binary/mixed/lessthan10/caesarian.arff") %>%
+              mutate(Age = as.numeric(Age))
+colnames(caesarian) <- make.names(colnames(caesarian))
+
+
 # Cars --------------------------------------------------------------------
 
 cars <- read_csv("data/binary/categorical/lessthan10/cars.csv", 
@@ -49,6 +68,26 @@ cars <- read_csv("data/binary/categorical/lessthan10/cars.csv",
                           col_names = c("buying", "maint", "doors", "persons", 
                                         "lug_boot", "safety", "class"))
 
+
+# Ecoli -------------------------------------------------------------------
+
+ecoli <- read_table("data/multiclass/numeric/lessthan10/ecoli.csv", 
+                 col_types = cols(class = col_factor(NULL)),
+                 col_names = c("sequence", "mcg", "gvh", "lip", "chg", 
+                               "aac", "alm1", "alm2", "class")) %>%
+                  mutate(sequence = NULL)
+
+# Chess -------------------------------------------------------------------
+
+chess <- read_csv("data/multiclass/categorical/lessthan10/chess.csv", 
+                 col_types = cols(.default = col_factor(NULL)),
+                 col_names = c("white_king_col",
+                               "white_king_row",
+                               "white_rook_col",
+                               "white_rook_row",
+                               "black_king_col",
+                               "black_king_row",
+                               "moves"))
 
 
 # Life expectancy ---------------------------------------------------------
@@ -71,20 +110,18 @@ poker_hand <- read_csv("data/multiclass/categorical/10ormore/poker_hand.csv",
 
 # Post-operative ----------------------------------------------------------
 
-post_operative <- read_csv("data/binary/categorical/lessthan10/cars.csv", 
+post_operative <- read_csv("data/multiclass/categorical/lessthan10/post_operative.csv", 
                  col_types = cols(.default = col_factor(NULL)),
-                 col_names = c("buying", "maint", "doors", "persons", 
-                               "lug_boot", "safety", "class"))
-
-c("internal_temperature",
-  "surface_temperature",
-  "oxygen",
-  "blood_preassure",
-  "stability_surface_temperature",
-  "stability_core_temperature",
-  "stability_blood_preassure",
-  "comfort",
-  "decision")
+                 col_names = c("internal_temperature",
+                                "surface_temperature",
+                                "oxygen",
+                                "blood_preassure",
+                                "stability_surface_temperature",
+                                "stability_core_temperature",
+                                "stability_blood_preassure",
+                                "comfort",
+                                "decision"),
+                 na = "?") %>% drop_na 
 
 # Tic-tac-toe -------------------------------------------------------------
 
