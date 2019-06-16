@@ -1,34 +1,62 @@
 ---
 title: "Datasets"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
-```{r}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 source("data/load_data.R")
 source("data/show_data.R")
 knitr::opts_chunk$set(out.width="100%")
 ```
 
+# Binary
+
+* **Binary**
+  * Categorical attributes
+    * Less than 10 attributes
+      * [Balance Scale](#Balance-Scale)
+      * [Breast Cancer](#Breast-Cancer)
+      * [Cars](#Cars)
+      * [Tic-Tac-Toe](#Tic-Tac-Toe)
+    * 10 or more attributes
+  * Mixed: categorical and numerical attributes
+    * Less than 10 attributes
+      * [Caesarean](#Caesarean)
+      * [Mammographic masses](#mammographic)
+    * 10 or more attributes
+      * [Travel Insurance](#Travel-insurance)
+  * Numeric attributes
+    * Less than 10 attributes
+      * [Skin segmentation](#Skin)
+      * [Banknote authentication](#Banknote)
+      * [Haberman's Survival](#Haberman)
+      * [Weight, height, gender](#Weight-height-gender)
+    * 10 or more attributes
+* **Multiclass**
+  * Categorical attributes
+    * Less than 10 attributes
+      * [Chess](#Chess)
+      * [Post-operative](#Post-operative)
+    * 10 or more attributes
+  * Mixed: categorical and numerical attributes
+    * Less than 10 attributes
+      * [Teaching assistant](#Teaching-assistant)
+    * 10 or more attributes
+  * Numeric attributes
+    * Less than 10 attributes
+      * [Ecole](#Ecole)
+      * [Seeds](#Seeds)
+    * 10 or more attributes
 
 # Binary
 
-* Less than 10 attributes
-  * Categorical attributes
-    * [Balance Scale](#Balance-Scale)
-    * [Breast Cancer](#Breast-Cancer)
-    * [Cars](#Cars)
-    * [Tic-Tac-Toe](#Tic-Tac-Toe)
-  * Mixed: categorical and numerical attributes
-    * 
-* 10 or more attributes
+## Categorical attributes
 
+#### Balance Scale {#Balance-Scale}
 
-
-
-## Less than 10
-### Categorical attributes
-
-#### Balance Scale
+<!-- Binary > Categorical --> 
 
 This data set was generated to model psychological experimental results. Each example is classified as having the balance scale tip to the right, tip to the left, or be balanced. The attributes are the left weight, the left distance, the right weight, and the right distance. The correct way to find the class is the greater of $(left\_distance * left\_weight)$ and $(right\_distance * right\_weight)$. If they are equal, it is balanced.
 
@@ -43,7 +71,9 @@ __Description of the attributes:__
 plot_dist_cols(balance_scale)
 ```
 
-#### Breast Cancer
+#### Breast Cancer {#Breast-Cancer}
+
+<!-- Binary > Categorical --> 
 
 This is one of three domains provided by the Oncology Institute that has repeatedly appeared in the machine learning literature.(See also lymphography and primary-tumor.)
 
@@ -59,7 +89,10 @@ __Description of the attributes:__
 plot_dist_cols(breast_cancer)
 ```
 
-#### Cars
+
+#### Cars {#Cars}
+
+<!-- Binary > Categorical --> 
 
 Car Evaluation Database was derived from a simple hierarchical decision model originally developed for the demonstration of DEX, M. Bohanec, V. Rajkovic: Expert system for decision making. Sistemica 1(1), pp. 145-157, 1990.). The model evaluates cars according to the following concept structure: 
 
@@ -89,7 +122,7 @@ __Description of the attributes:__
 plot_dist_cols(cars)
 ```
 
-#### Tic-Tac-Toe
+#### Tic-Tac-Toe {#Tic-Tac-Toe}
 
 This database encodes the complete set of possible board configurations at the end of tic-tac-toe games, where "x" is assumed to have played first. The target concept is "win for x" (i.e., true when "x" has one of 8 possible ways to create a "three-in-a-row"). 
 
@@ -104,29 +137,107 @@ __Description of the attributes:__
 plot_dist_cols(tic_tac_toe)
 ```
 
-## 10 or more
+
+### Less than 10 attributes
+
+### 10 or more attributes
+
+## Mixed: categorical and numerical attributes
+
+### Less than 10 attributes
+
+#### Cesarean
+
+<!-- Binary > Mixed > Less than 10 --> 
+
+```{r echo=FALSE}
+plot_dist_cols(caesarian)
+```
+
+#### Mammographic masses {#mammographic}
+
+<!-- Binary > Mixed > Less than 10 --> 
+
+```{r echo=FALSE}
+plot_dist_cols(mammograpic_masses)
+```
+
+### 10 or more attributes
+
+#### Travel insurance {#Travel-insurance}
+
+https://www.kaggle.com/mhdzahier/travel-insurance#travel%20insurance.csv
+
+```{r}
+plot_dist_cols(travel_insurance)
+```
+
+
+## Numeric attributes
+
+### Less than 10 attributes
+
+#### Banknote authentication {#Banknote}
+
+```{r}
+plot_dist_cols(bank_note)
+```
+
+#### Haberman {#Haberman}
+
+```{r}
+plot_dist_cols(haberman)
+```
+
+#### Skin segmentation {#Skin}
+
+```{r}
+plot_dist_cols(skin)
+```
+
+### 10 or more attributes
+
+
+--------------------------------------------------------------------------------
 
 # Multiclass
 
+## Categorical attributes
 
-This database encodes the complete set of possible board configurations at the end of tic-tac-toe games, where "x" is assumed to have played first. The target concept is "win for x" (i.e., true when "x" has one of 8 possible ways to create a "three-in-a-row"). 
+### Less than 10 attributes
 
+#### Chess {#Chess}
 
-* __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame)
-* __Number of rows__: `r nrow(tic_tac_toe)`
-* __Number of attributes__: `r ncol(tic_tac_toe) - 1`
-
-__Description of the attributes:__
-
-```{r echo=FALSE}
-plot_dist_cols(tic_tac_toe)
+```{r}
+plot_dist_cols(chess)
 ```
 
-## Mixed
 
-### Less than 10
+#### Post operative data {#Post-operative}
 
-### Abalone
+```{r}
+plot_dist_cols(post_operative)
+```
+
+
+### 10 or more attributes
+
+#### Poker hand {#Poker-hand}
+
+```{r echo=FALSE}
+plot_dist_cols(poker_hand)
+```
+
+
+## Mixed: categorical and numerical attributes
+
+### Less than 10 attributes
+
+#### Teaching-assistant
+
+* __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Teaching+Assistant+Evaluation)
+
+#### Abalone
 
 Predicting the age of abalone from physical measurements. The age of abalone is determined by cutting the shell through the cone, staining it, and counting the number of rings through a microscope -- a boring and time-consuming task. Other measurements, which are easier to obtain, are used to predict the age. Further information, such as weather patterns and location (hence food availability) may be required to solve the problem. 
 
@@ -144,24 +255,56 @@ plot_dist_cols(abalone_age)
 ```
 
 
-# Life expectancy
+#### Life expectancy
 
 ```{r}
 ggplot(life_expectancy, aes(male, female)) + 
   geom_point(aes(color = continent)) 
 ```
 
-# Poker hand
 
-```{r echo=FALSE}
-plot_dist_cols(poker_hand)
-```
 
-# Travel insurance
+### 10 or more attributes
 
-https://www.kaggle.com/mhdzahier/travel-insurance#travel%20insurance.csv
+## Numeric attributes
+
+### Less than 10 attributes
+
+#### Life expectancy
 
 ```{r}
-plot_dist_cols(travel_insurance)
+ggplot(life_expectancy, aes(male, female)) + 
+  geom_point(aes(color = continent)) 
 ```
+
+
+
+#### Seeds {#Seeds}
+
+```{r echo=FALSE}
+plot_dist_cols(seeds)
+```
+
+
+
+### 10 or more attributes
+
+This database encodes the complete set of possible board configurations at the end of tic-tac-toe games, where "x" is assumed to have played first. The target concept is "win for x" (i.e., true when "x" has one of 8 possible ways to create a "three-in-a-row"). 
+
+
+* __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame)
+* __Number of rows__: `r nrow(tic_tac_toe)`
+* __Number of attributes__: `r ncol(tic_tac_toe) - 1`
+
+__Description of the attributes:__
+
+```{r echo=FALSE}
+plot_dist_cols(tic_tac_toe)
+```
+
+
+
+# Notes
+
+Changes to the original datasets if any:
 
