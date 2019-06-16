@@ -7,6 +7,19 @@ output: html_notebook
 library(tidyverse)
 ```
 
+For similarity in [0, 1] when 1 is exactly similar the dissimilarity is zero when the similarity is zero, i.e. very different, the dissimilarity is one.
+
+$$s_{ij} = 1 - d_{ij}$$
+
+If the value of similarity has range of -1 to +1 and the dissimilarity is measured with range 0 and 1 then:
+
+$$s_{ij} = 1 - 2d_{ij}$$
+
+because when the dissimilarity is one i.e. very different the similarity is minus one and when the dissimilarity is zero i.e. very similar the similarity is 1-
+
+
+# Distance for binary variables
+
 
 Given two vectors:
 
@@ -16,16 +29,30 @@ Given two vectors:
 * s = number of variables that are positive for both instances
 * $t = p + q + r + s$
 
-
-# Distance for binary variables
+| i / j | Yes | No |
+|-------|-----|----|
+| Yes   | p   | q  |
+| No    | r   | s  |
 
 ```{r}
-i <- factor("yes", "no", "yes", "no", "yes")
-j <- factor("no", "yes", "no", "no", "yes")
+i <- factor(c("yes", "no", "yes", "no", "yes"), levels = c("yes", "no"))
+j <- factor(c("no", "yes", "no", "no", "yes"), levels = c("yes", "no"))
 ```
 
 ```{r}
-tribble(i, j)
+table(i, j)
+```
+
+```{r}
+createTable <- function(i, j) {
+  vtable <- list()
+  vtable$table <- table(i, j)
+  vtable$p <- vtable$table[1, 1]
+  vtable$q <- vtable$table[1, 2]
+  vtable$r <- vtable$table[2, 1]
+  vtable$s <- vtable$table[2, 2]
+  vtable
+}
 ```
 
 
@@ -34,6 +61,14 @@ tribble(i, j)
 Useful when both positive and negative values carry equal information. Counts the number of times that both are different (one positive and the other negative).
 
 $$d_{ij} = \frac{q+r}{p + q + r + s} = \frac{q+r}{t}$$
+
+```{r}
+simple_matching_distance <- function(i, j) {
+  d <- createTable(i, j)
+  t <- d$p + d$q + d$r + d$s
+  return((d$q + d$r) / t)
+}
+```
 
 ## Jaccard's distance
 
