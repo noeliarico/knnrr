@@ -123,7 +123,7 @@ URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/00236/seeds_dat
 download.file(URL, destfile = file.path("data", "multiclass", "numeric", 
                                         "lessthan10", "seeds.csv"))
 
-# Skin Segmentation -------------------------------------------------------
+# Somerville Happiness Survey ---------------------------------------------
 
 # http://archive.ics.uci.edu/ml/datasets/Skin+Segmentation
 URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/00479/SomervilleHappinessSurvey2015.csv"
@@ -132,7 +132,8 @@ download.file(URL, destfile = file.path("data", "binary", "categorical",
 
 
 
-# Somerville Happiness Survey ---------------------------------------------
+
+# Skin Segmentation -------------------------------------------------------
 
 # http://archive.ics.uci.edu/ml/datasets/Somerville+Happiness+Survey
 URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/00229/Skin_NonSkin.txt"

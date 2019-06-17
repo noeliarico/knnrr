@@ -1,0 +1,36 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r include=FALSE}
+library(tidyverse)
+library(caret)
+library(knitr)
+library(kableExtra)
+```
+
+```{r}
+set.seed(123)
+indexes <- createDataPartition(iris$Species, times = 1, p = 0.08, list = FALSE)
+mini_iris <- iris[indexes,]
+```
+
+
+```{r}
+set.seed(123)
+mini_iris <- as.data.frame(mini_iris)
+fit <- train(x =  mini_iris[,-5],
+      y = mini_iris[,5],
+      data = mini_iris,
+      method = rknn,
+      trControl = fitControl)
+```
+
+```{r}
+data <- fit$modelInfo$grid()
+kable(data) %>%
+  kable_styling("striped", full_width = F) %>%
+  row_spec(which(data$k == 3), bold = T, color = "black", background = "#fdfd96")
+```
+

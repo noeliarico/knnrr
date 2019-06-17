@@ -180,7 +180,7 @@ skin <- as.tibble(skin) %>% mutate(skin = factor(skin))
 # Skin Segmentation -------------------------------------------------------
 
 somerville <- read_csv("data/binary/categorical/lessthan10/somerville.csv",
-                       )
+                       col_types = cols(.default = col_factor(NULL)))
                         
 # Tic-tac-toe -------------------------------------------------------------
 
@@ -219,3 +219,10 @@ travel_insurance <- read_csv("data/binary/mixed/10ormore/travel_insurance.csv",
                                               age = col_number()),
                              skip = 1) %>% drop_na
 
+
+# Weight / height ---------------------------------------------------------
+
+weigth_height <- read_csv("data/binary/numeric/lessthan10/weight-height.csv",
+                          col_types = cols(Gender = col_factor()))
+
+                          
