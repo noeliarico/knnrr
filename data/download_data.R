@@ -20,7 +20,7 @@ download.file(URL, destfile = file.path("data", "multiclass", "mixed",
 
 # http://archive.ics.uci.edu/ml/datasets/Balance+Scale
 URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/balance-scale/balance-scale.data"
-download.file(URL, destfile = file.path("data", "binary", "categorical", 
+download.file(URL, destfile = file.path("data", "multiclass", "categorical", 
                                         "lessthan10", "balance_dataset.csv"))
 
 

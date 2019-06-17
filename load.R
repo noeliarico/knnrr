@@ -5,3 +5,9 @@ install_github("noeliarico/consensus",
                auth_token = noelia_github,
                force = TRUE)
 library(consensus)
+
+library(caret)
+library(dplyr)
+library(parallel)
+library(nnet)
+library(usedist)
