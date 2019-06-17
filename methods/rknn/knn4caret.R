@@ -180,7 +180,7 @@ rknn <- list(
       #   developer = modelFit$developer
       # )
       
-      out <- predict_using_por(por, modelFit$k)
+      out <- predict_using_por(por, ties, modelFit$k)
       
       if (!is.null(submodels)) {
         tmp <- out
@@ -199,7 +199,7 @@ rknn <- list(
           #                              newdata,
           #                              type = "class",
           #                              k = submodels$k[j])
-          out[[j + 1]] <- predict_using_por(por, submodels$k[j])
+          out[[j + 1]] <- predict_using_por(por, ties, submodels$k[j])
           
         }
       } else {

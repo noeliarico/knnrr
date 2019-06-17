@@ -1,3 +1,0 @@
-"0","set.seed(123)"
-"0","indexes <- createDataPartition(iris$Species, times = 1, p = 0.08, list = FALSE)"
-"0","mini_iris <- iris[indexes,]"

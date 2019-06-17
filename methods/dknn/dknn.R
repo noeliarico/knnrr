@@ -10,7 +10,6 @@ dknn <- list(
     print(grid)
     
     # Only one model for each ranking rule, so we keep only the max value of k
-    # for each ranking rule
     loop <- grid[grid$k == max(grid$k), , drop = FALSE]
     
     cat("\n-- Loop -- \n")
@@ -138,7 +137,7 @@ dknn <- list(
       #   developer = modelFit$developer
       # )
       
-      out <- predict_for_k(por, cl, modelFit$k)
+      out <- predict_for_k(por, cl, modelFit$ties, modelFit$k)
       
       if (!is.null(submodels)) {
         tmp <- out
@@ -148,7 +147,7 @@ dknn <- list(
         
         for (j in seq(along = submodels$k)) {
           cat("--------> k = ", submodels$k[j], "\n")
-          out[[j + 1]] <- predict_for_k(por, cl, submodels$k[j])
+          out[[j + 1]] <- predict_for_k(por, cl, modelFit$ties, submodels$k[j])
           
         }
       } else {

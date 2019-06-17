@@ -61,9 +61,9 @@ knitr::opts_chunk$set(out.width="100%")
 
 <!-- Binary > Categorical > Less than 10 attributes --> 
 
-This is one of three domains provided by the Oncology Institute that has repeatedly appeared in the machine learning literature.(See also lymphography and primary-tumor.)
+This is one of three datasets provided by the Oncology Institute that has repeatedly appeared in the machine learning literature.
 
-This data set includes 201 instances of one class and 85 instances of another class. The instances are described by 9 attributes, some of which are linear and some are nominal.
+This data set includes 201 instances of one class and 85 instances of another class. The instances are described by 9 attributes. In this version of the dataset all the attributes are nominal.
 
 * __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Breast+Cancer)
 * __Number of rows__: `r nrow(breast_cancer)`
@@ -80,23 +80,7 @@ plot_dist_cols(breast_cancer)
 
 <!-- Binary > Categorical > Less than 10 attributes --> 
 
-Car Evaluation Database was derived from a simple hierarchical decision model originally developed for the demonstration of DEX, M. Bohanec, V. Rajkovic: Expert system for decision making. Sistemica 1(1), pp. 145-157, 1990.). The model evaluates cars according to the following concept structure: 
-
-CAR car acceptability 
-. PRICE overall price 
-. . buying buying price 
-. . maint price of the maintenance 
-. TECH technical characteristics 
-. . COMFORT comfort 
-. . . doors number of doors 
-. . . persons capacity in terms of persons to carry 
-. . . lug_boot the size of luggage boot 
-. . safety estimated safety of the car 
-
-Input attributes are printed in lowercase. Besides the target concept (CAR), the model includes three intermediate concepts: PRICE, TECH, COMFORT. Every concept is in the original model related to its lower level descendants by a set of examples (for these examples sets see [Web Link]). 
-
-The Car Evaluation Database contains examples with the structural information removed, i.e., directly relates CAR to the six input attributes: buying, maint, doors, persons, lug_boot, safety. 
-Because of known underlying concept structure, this database may be particularly useful for testing constructive induction and structure discovery methods. 
+Car Evaluation Database was derived from a simple hierarchical decision mode. The attributes include: buying price, maint price of the maintenance, number of doors, persons capacity in terms of persons to carry, lug_boot the size of luggage boot, safety estimated safety of the car and class. The class is the car acceptability and its possible values are: unacc, acc, good, vgood.
 
 * __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Car+Evaluation)
 * __Number of rows__: `r nrow(cars)`
@@ -109,6 +93,17 @@ plot_dist_cols(cars)
 ```
 
 #### Somerville {#Somerville}
+
+<!-- Binary > Categorical > Less than 10 attributes --> 
+
+The skin dataset is collected by randomly sampling B,G,R values from face images of various age groups (young, middle, and old), race groups (white, black, and asian), and genders obtained from FERET database and PAL database. Total learning sample size is 245057; out of which 50859 is the skin samples and 194198 is non-skin samples. Color FERET Image Database: [Web Link], PAL Face Database from Productive Aging Laboratory, The University of Texas at Dallas: [Web Link]. This dataset is of the dimension 245057 * 4 where first three columns are B,G,R (x1,x2, and x3 features) values and fourth column is of the class labels (decision variable y).
+
+
+* __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Skin+Segmentation)
+* __Number of rows__: `r nrow(somerville)`
+* __Number of attributes__: `r ncol(somerville) - 1`
+
+__Description of the attributes:__
 
 ```{r echo=FALSE}
 plot_dist_cols(somerville)
@@ -158,7 +153,13 @@ plot_dist_cols(mammograpic_masses)
 
 #### Travel insurance {#Travel-insurance}
 
-https://www.kaggle.com/mhdzahier/travel-insurance#travel%20insurance.csv
+<!-- Binary > Mixed > 10 or more attributes --> 
+
+* __Source__: [Kaggle](https://www.kaggle.com/mhdzahier/travel-insurance#travel%20insurance.csv)
+* __Number of rows__: `r nrow(travel_insurance)`
+* __Number of attributes__: `r ncol(travel_insurance) - 1`
+
+__Description of the attributes:__
 
 ```{r}
 plot_dist_cols(travel_insurance)
@@ -171,11 +172,45 @@ plot_dist_cols(travel_insurance)
 
 #### Banknote authentication {#Banknote}
 
+<!-- Binary > Numeric > Less than 10 attributes --> 
+
+* __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/banknote+authentication)
+* __Number of rows__: `r nrow(bank_note)`
+* __Number of attributes__: `r ncol(bank_note) - 1`
+
+Data were extracted from images that were taken from genuine and forged banknote-like specimens. For digitization, an industrial camera usually used for print inspection was used. The final images have 400x 400 pixels. Due to the object lens and distance to the investigated object gray-scale pictures with a resolution of about 660 dpi were gained. Wavelet Transform tool were used to extract features from images.
+
+__Description of the attributes:__
+
+* variance of Wavelet Transformed image (continuous) 
+* skewness of Wavelet Transformed image (continuous) 
+* curtosis of Wavelet Transformed image (continuous) 
+* entropy of image (continuous) 
+* class
+
 ```{r}
 plot_dist_cols(bank_note)
 ```
 
 #### Haberman {#Haberman}
+
+<!-- Binary > Numeric > Less than 10 attributes --> 
+
+* __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Haberman%27s+Survival)
+* __Number of rows__: `r nrow(haberman)`
+* __Number of attributes__: `r ncol(haberman) - 1`
+
+The dataset contains cases from a study that was conducted between 1958 and 1970 at the University of Chicago's Billings Hospital on the survival of patients who had undergone surgery for breast cancer.
+
+* Age of patient at time of operation (numerical) 
+* Patient's year of operation (year - 1900, numerical) 
+* Number of positive axillary nodes detected (numerical) 
+* Survival status (class attribute) 
+  * 1 = the patient survived 5 years or longer 
+  * 2 = the patient died within 5 year
+
+__Description of the attributes:__
+
 
 ```{r}
 plot_dist_cols(haberman)

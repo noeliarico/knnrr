@@ -7,6 +7,7 @@ install_github("noeliarico/consensus",
 library(consensus)
 
 library(caret)
+library(cluster)
 library(dplyr)
 library(parallel)
 library(nnet)
