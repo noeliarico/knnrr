@@ -1,0 +1,6 @@
+"0","```r
+jaccard_distance <- function(i, j) {
+  d <- createTable(i, j)
+  return((d$q + d$r) / (d$p + d$q + d$r))
+}
+```"

@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1560720468350.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3083960301",
+    "id" : "FDCD7046",
+    "lastKnownWriteTime" : 1560723043,
+    "last_content_update" : 1560723043024,
+    "path" : "~/Desktop/Github/paper/method/dknn/dknn.R",
+    "project_path" : "method/dknn/dknn.R",
+    "properties" : {
+        "cursorPosition" : "53,4",
+        "scrollLine" : "47"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,4 @@
+"0","data <- fit$modelInfo$grid()"
+"0","kable(data) %>%"
+"0","  kable_styling(""striped"", full_width = F) %>%"
+"0","  row_spec(which(data$k == 3), bold = T, color = ""black"", background = ""#fdfd96"")"
