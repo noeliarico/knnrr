@@ -26,7 +26,7 @@ acute_inflammations <- c("temperature",
                           "nephritis") # class
 
 # Balance Scale Data Set --------------------------------------------------
-balance_scale <- read_csv("data/binary/categorical/lessthan10/balance_dataset.csv", 
+balance_scale <- read_csv("data/multiclass/categorical/lessthan10/balance_dataset.csv", 
                           col_types = cols(.default = col_factor(NULL)),
                           col_names = c("class", 
                                         "left_weight", "left_distance", 
@@ -57,7 +57,7 @@ breast_cancer <- read_csv("data/binary/categorical/lessthan10/breast_cancer.csv"
 # Caesarian ---------------------------------------------------------------
 
 caesarian <- read.arff("data/binary/mixed/lessthan10/caesarian.arff") %>%
-              mutate(Age = as.numeric(Age))
+              mutate(Age = as.numeric(as.character(Age)))
 colnames(caesarian) <- make.names(colnames(caesarian))
 
 

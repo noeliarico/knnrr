@@ -16,9 +16,9 @@ knitr::opts_chunk$set(out.width="100%")
 * **Binary**
   * Categorical attributes
     * Less than 10 attributes
-      * [Balance Scale](#Balance-Scale)
       * [Breast Cancer](#Breast-Cancer)
       * [Cars](#Cars)
+      * [Somerville](#Somerville)
       * [Tic-Tac-Toe](#Tic-Tac-Toe)
     * 10 or more attributes
   * Mixed: categorical and numerical attributes
@@ -37,6 +37,7 @@ knitr::opts_chunk$set(out.width="100%")
 * **Multiclass**
   * Categorical attributes
     * Less than 10 attributes
+      * [Balance Scale](#Balance-Scale)
       * [Chess](#Chess)
       * [Post-operative](#Post-operative)
     * 10 or more attributes
@@ -54,26 +55,11 @@ knitr::opts_chunk$set(out.width="100%")
 
 ## Categorical attributes
 
-#### Balance Scale {#Balance-Scale}
-
-<!-- Binary > Categorical --> 
-
-This data set was generated to model psychological experimental results. Each example is classified as having the balance scale tip to the right, tip to the left, or be balanced. The attributes are the left weight, the left distance, the right weight, and the right distance. The correct way to find the class is the greater of $(left\_distance * left\_weight)$ and $(right\_distance * right\_weight)$. If they are equal, it is balanced.
-
-
-* __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Balance+Scale)
-* __Number of rows__: `r nrow(balance_scale)`
-* __Number of attributes__: `r ncol(balance_scale) - 1`
-
-__Description of the attributes:__
-
-```{r echo=FALSE}
-plot_dist_cols(balance_scale)
-```
+### Less than 10 attributes
 
 #### Breast Cancer {#Breast-Cancer}
 
-<!-- Binary > Categorical --> 
+<!-- Binary > Categorical > Less than 10 attributes --> 
 
 This is one of three domains provided by the Oncology Institute that has repeatedly appeared in the machine learning literature.(See also lymphography and primary-tumor.)
 
@@ -92,7 +78,7 @@ plot_dist_cols(breast_cancer)
 
 #### Cars {#Cars}
 
-<!-- Binary > Categorical --> 
+<!-- Binary > Categorical > Less than 10 attributes --> 
 
 Car Evaluation Database was derived from a simple hierarchical decision model originally developed for the demonstration of DEX, M. Bohanec, V. Rajkovic: Expert system for decision making. Sistemica 1(1), pp. 145-157, 1990.). The model evaluates cars according to the following concept structure: 
 
@@ -122,7 +108,15 @@ __Description of the attributes:__
 plot_dist_cols(cars)
 ```
 
+#### Somerville {#Somerville}
+
+```{r echo=FALSE}
+plot_dist_cols(somerville)
+```
+
 #### Tic-Tac-Toe {#Tic-Tac-Toe}
+
+<!-- Binary > Categorical > Less than 10 attributes --> 
 
 This database encodes the complete set of possible board configurations at the end of tic-tac-toe games, where "x" is assumed to have played first. The target concept is "win for x" (i.e., true when "x" has one of 8 possible ways to create a "three-in-a-row"). 
 
@@ -137,8 +131,6 @@ __Description of the attributes:__
 plot_dist_cols(tic_tac_toe)
 ```
 
-
-### Less than 10 attributes
 
 ### 10 or more attributes
 
@@ -206,7 +198,26 @@ plot_dist_cols(skin)
 
 ### Less than 10 attributes
 
+#### Balance Scale {#Balance-Scale}
+
+<!-- Multiclass > Categorical > Less than 10 attributes --> 
+
+This data set was generated to model psychological experimental results. Each example is classified as having the balance scale tip to the right, tip to the left, or be balanced. The attributes are the left weight, the left distance, the right weight, and the right distance. The correct way to find the class is the greater of $(left\_distance * left\_weight)$ and $(right\_distance * right\_weight)$. If they are equal, it is balanced.
+
+
+* __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Balance+Scale)
+* __Number of rows__: `r nrow(balance_scale)`
+* __Number of attributes__: `r ncol(balance_scale) - 1`
+
+__Description of the attributes:__
+
+```{r echo=FALSE}
+plot_dist_cols(balance_scale)
+```
+
 #### Chess {#Chess}
+
+<!-- Multiclass > Categorical > Less than 10 attributes --> 
 
 ```{r}
 plot_dist_cols(chess)
@@ -214,6 +225,8 @@ plot_dist_cols(chess)
 
 
 #### Post operative data {#Post-operative}
+
+<!-- Multiclass > Categorical > Less than 10 attributes --> 
 
 ```{r}
 plot_dist_cols(post_operative)
@@ -223,6 +236,8 @@ plot_dist_cols(post_operative)
 ### 10 or more attributes
 
 #### Poker hand {#Poker-hand}
+
+<!-- Multiclass > Categorical > 10 or more attributes --> 
 
 ```{r echo=FALSE}
 plot_dist_cols(poker_hand)

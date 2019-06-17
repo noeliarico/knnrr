@@ -1,14 +1,5 @@
 # binary_categorical
 
-# balance_dataset ---------------------------------------------------------
-
-balance_scale <- as.data.frame(balance_scale)
-set.seed(123)
-fit_balance_scale <- train(x =  balance_scale[,-1],
-      y = balance_scale[,1],
-      data = balance_scale,
-      method = dknn,
-      trControl = fitControl)
 
 # breast_cancer -----------------------------------------------------------
 
