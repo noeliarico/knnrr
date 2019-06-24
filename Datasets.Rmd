@@ -41,14 +41,18 @@ knitr::opts_chunk$set(out.width="100%")
       * [Chess](#Chess)
       * [Post-operative](#Post-operative)
     * 10 or more attributes
+      * [Poker hand](#Poker-hand)
   * Mixed: categorical and numerical attributes
     * Less than 10 attributes
       * [Teaching assistant](#Teaching-assistant)
     * 10 or more attributes
   * Numeric attributes
     * Less than 10 attributes
-      * [Ecole](#Ecole)
+      * [Ecoli](#ecoli)
+      * [Iris](#iris)
+      * [Life expectancy](#Life-expectancy)
       * [Seeds](#Seeds)
+      * [Vertebral column](#Vertebral-column) https://archive.ics.uci.edu/ml/datasets/Vertebral+Column
     * 10 or more attributes
 
 # Binary

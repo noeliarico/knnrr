@@ -177,10 +177,15 @@ skin <- read.table("data/binary/numeric/lessthan10/skin.csv")
 colnames(skin) <- c("red", "green", "blue", "skin")
 skin <- as.tibble(skin) %>% mutate(skin = factor(skin))
 
-# Skin Segmentation -------------------------------------------------------
+# Somerville --------------------------------------------------------------
 
 somerville <- read_csv("data/binary/categorical/lessthan10/somerville.csv",
                        col_types = cols(.default = col_factor(NULL)))
+
+
+# Sonar -------------------------------------------------------------------
+
+
                         
 # Tic-tac-toe -------------------------------------------------------------
 
