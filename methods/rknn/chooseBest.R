@@ -1,5 +1,7 @@
 chooseBest <- function(ranking, method, k, developer = FALSE) {
   
+  developer = TRUE
+  
   # All the options look for generating the vector(table) 
   # probabilities. This table will store the probability of 
   # each label for being the selected label for the instance 
@@ -196,8 +198,8 @@ chooseBest <- function(ranking, method, k, developer = FALSE) {
     cat(label, '\n')
   }
   
-  # devuelve la etiqueta para la instancia cuya distancias a otras instancias
-  # van representadas en el ranking
+  # returns the label for the instance which distances to other instances
+  # are represented in the ranking given as parameter
   return(label)
   
 }

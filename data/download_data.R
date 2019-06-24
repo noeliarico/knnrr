@@ -1,5 +1,3 @@
-kgl_auth(username = "noeliarico", key = "532e4b45ab13aa80f975f27804c0341d")
-
 # Abalone -----------------------------------------------------------------
 
 # http://archive.ics.uci.edu/ml/datasets/Abalone
@@ -24,12 +22,11 @@ download.file(URL, destfile = file.path("data", "multiclass", "categorical",
                                         "lessthan10", "balance_dataset.csv"))
 
 
-
 # Bank note ---------------------------------------------------------------
 
 # http://archive.ics.uci.edu/ml/datasets/banknote+authentication
 URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/00267/data_banknote_authentication.txt"
-download.file(URL, destfile = file.path("data", "binary", "numeric", 
+download.file(URL, destfile = file.path("data", "binary", "numerical", 
                                         "lessthan10", "bank_note.csv"))
 
 
@@ -40,13 +37,6 @@ URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer/b
 download.file(URL, destfile = file.path("data", "binary", "categorical", 
                                         "lessthan10", "breast_cancer.csv"))
 
-
-# Chess -------------------------------------------------------------------
-
-# http://archive.ics.uci.edu/ml/datasets/Chess+%28King-Rook+vs.+King%29
-URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/chess/king-rook-vs-king/krkopt.data"
-download.file(URL, destfile = file.path("data", "multiclass", "categorical", 
-                                        "lessthan10", "chess.csv"))
 
 # Caesarian ---------------------------------------------------------------
 
@@ -64,18 +54,27 @@ download.file(URL, destfile = file.path("data", "binary", "categorical",
                                         "lessthan10", "cars.csv"))
 
 
+# Chess -------------------------------------------------------------------
+
+# http://archive.ics.uci.edu/ml/datasets/Chess+%28King-Rook+vs.+King%29
+URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/chess/king-rook-vs-king/krkopt.data"
+download.file(URL, destfile = file.path("data", "multiclass", "categorical", 
+                                        "lessthan10", "chess.csv"))
+
+
 # Ecoli -------------------------------------------------------------------
 
 # http://archive.ics.uci.edu/ml/machine-learning-databases/ecoli/
 URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/ecoli/ecoli.data"
-download.file(URL, destfile = file.path("data", "multiclass", "numeric", 
+download.file(URL, destfile = file.path("data", "multiclass", "numerical", 
                                         "lessthan10", "ecoli.csv"))
+
 
 # Haberman's Survival -----------------------------------------------------
 
 # http://archive.ics.uci.edu/ml/datasets/Haberman%27s+Survival
 URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/haberman/haberman.data"
-download.file(URL, destfile = file.path("data", "binary", "numeric", 
+download.file(URL, destfile = file.path("data", "binary", "numerical", 
                                         "lessthan10", "haberman.csv"))
 
 
@@ -83,13 +82,13 @@ download.file(URL, destfile = file.path("data", "binary", "numeric",
 
 # http://archive.ics.uci.edu/ml/datasets/Iris
 URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
-download.file(URL, destfile = file.path("data", "multiclass", "numeric", 
+download.file(URL, destfile = file.path("data", "multiclass", "numerical", 
                                         "lessthan10", "iris.csv"))
+
 
 # Life expectancy ---------------------------------------------------------
 
 # https://www.kaggle.com/amansaxena/lifeexpectancy
-
 
 
 # Mammographic Mass -------------------------------------------------------
@@ -107,6 +106,7 @@ URL <- "https://archive.ics.uci.edu/ml/machine-learning-databases/poker/poker-ha
 download.file(URL, destfile = file.path("data", "multiclass", "categorical", 
                                         "10ormore", "poker_hand.csv"))
 
+
 # Post-operative ----------------------------------------------------------
 
 # http://archive.ics.uci.edu/ml/datasets/Post-Operative+Patient
@@ -115,30 +115,30 @@ download.file(URL, destfile = file.path("data", "multiclass", "categorical",
                                         "lessthan10", "post_operative.csv"))
 
 
-
 # Seeds -------------------------------------------------------------------
 
 # http://archive.ics.uci.edu/ml/datasets/seeds
 URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/00236/seeds_dataset.txt"
-download.file(URL, destfile = file.path("data", "multiclass", "numeric", 
+download.file(URL, destfile = file.path("data", "multiclass", "numerical", 
                                         "lessthan10", "seeds.csv"))
-
-# Somerville Happiness Survey ---------------------------------------------
-
-# http://archive.ics.uci.edu/ml/datasets/Skin+Segmentation
-URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/00479/SomervilleHappinessSurvey2015.csv"
-download.file(URL, destfile = file.path("data", "binary", "categorical", 
-                                        "lessthan10", "somerville.csv"))
-
-
 
 
 # Skin Segmentation -------------------------------------------------------
 
-# http://archive.ics.uci.edu/ml/datasets/Somerville+Happiness+Survey
+# http://archive.ics.uci.edu/ml/datasets/Skin+Segmentation
 URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/00229/Skin_NonSkin.txt"
-download.file(URL, destfile = file.path("data", "binary", "numeric", 
+download.file(URL, destfile = file.path("data", "binary", "numerical", 
                                         "lessthan10", "skin.csv"))
+
+
+# Somerville Happiness Survey ---------------------------------------------
+
+
+# http://archive.ics.uci.edu/ml/datasets/Somerville+Happiness+Survey
+URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/00479/SomervilleHappinessSurvey2015.csv"
+download.file(URL, destfile = file.path("data", "binary", "categorical", 
+                                        "lessthan10", "somerville.csv"))
+
 
 # Tic-tac-toe -------------------------------------------------------------
 
@@ -156,9 +156,9 @@ download.file(URL, destfile = file.path("data", "multiclass", "mixed",
                                         "lessthan10", "teaching_assistant.csv"))
 
 
-
 # Travel insurance --------------------------------------------------------
 
 # https://www.kaggle.com/mhdzahier/travel-insurance#travel%20insurance.csv
 
 
+# Weight / height ---------------------------------------------------------

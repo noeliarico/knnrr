@@ -313,14 +313,6 @@ dknnfTrain <- function(train,
   
   all_data <- rbind(train, test)
   
-  print(all_data)
-  
-  # # calculate the distance between the test instances and the train instances
-  # distances <- dist(all_data, method = distance)
-  # 
-  # # create a matrix object cause the distances object is not a full matrix
-  # # so we cannot extract rows of it
-  # distances <- as.matrix(distances)
   
   distances <- compute_distances(all_data, distance)
   
@@ -342,69 +334,9 @@ dknnfTrain <- function(train,
     cat('\nRanking for each instance:\n')
     print(distances)
   }
-  
-  # # for each row in the matrix with the rankings
-  # # i.e.: for each instance in the test set
-  # for(indexrow in 1:nrow(distances)) {
-  #   # use the index for getting the ranking
-  #   x <- distances[indexrow, ]
-  #   names(x) <- cl
-  #   
-  #   # if(developer) {
-  #   #   cat('\nRanking\n')
-  #   #   print(x)
-  #   #   cat(paste(graphic_ranking(x),'\n\n'))
-  #   # }
-  # 
-  #   labels[indexrow] <- chooseBest(x, method = ties, k = k)
-  # }
-  
-  # labels <- predict_for_k(distances, k)
-  
-  # clases <- unique(cl)
-  # all_labels <- rep(0, length(clases))
-  # names(all_labels) <- clases
-  # tlabels <- table(labels)
-  # for(i in 1:length(tlabels)) {
-  #   class <- names(tlabels)[i]
-  #   index <- which(names(all_labels) == class)
-  #   if(length(index)!=0){
-  #     all_labels[i] <- tlabels[i]
-  #   }
-  # }
-  
-  # if(developer) {
-  #   cat('\nLabels\n')
-  #   print(labels)
-  # }
-  
-  # labels <- factor(labels, levels = unique(cl))
-  # #levels(all_labels) <- levels(cl)
-  # all_labels <- table(labels)
-  # 
-  # classProbs <- prop.table(all_labels)
-  # classProbs <- t(as.matrix(classProbs))
-  # 
-  # if(developer) {
-  #   print(all_labels)
-  #   cat('\nclassProbs\n')
-  #   print(classProbs)
-  # }
-  # 
-  # res <- all_labels
-  # 
+
   # if (prob) 
   #   attr(res, "prob") <- classProbs
-  
-  # labelstest <- as.factor(test[,ncol(test)])
-  # levels(labelstest) <- levels(labels)
-  #                         
-  # cm <- confusionMatrix(labelstest, 
-  #         labels, 
-  #         mode = "everything")
-  # 
-  # print('cm')
-  # print(cm)
   
   out <- list()
   out$distances <- distances
@@ -414,8 +346,9 @@ dknnfTrain <- function(train,
 }
 
 
-predict_for_k <- function (distances, cl, k = 3)
+predict_for_k <- function (distances, cl, ties, k = 3)
 {
+  print("predict_for_k function")
   # the labels vector will store the output of all the  
   labels <- rep(0, nrow(distances))
   # for each row in the matrix with the rankings
@@ -424,13 +357,6 @@ predict_for_k <- function (distances, cl, k = 3)
     # use the index for getting the ranking
     x <- distances[indexrow, ]
     names(x) <- cl
-    
-    # if(developer) {
-    #   cat('\nRanking\n')
-    #   print(x)
-    #   cat(paste(graphic_ranking(x),'\n\n'))
-    # }
-    
     labels[indexrow] <- chooseBest(x, method = ties, k = k)
   }
   

@@ -467,11 +467,11 @@ knn4Train <- function(train,
 }
 
 
-predict_using_por <- function (rankings, k = 3)
+predict_using_por <- function (rankings, ties, k = 3)
 {
   print(k)
   # choose the label for each of the generated profile of rankings
-  labels <- lapply(rankings, chooseBest, method = "randomly", k = k) %>%
+  labels <- lapply(rankings, chooseBest, method = ties, k = k) %>%
     unlist()
   return(labels)
 }

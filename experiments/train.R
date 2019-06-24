@@ -37,10 +37,23 @@ set.seed(123)
 #       # trControl = fitControl)
 
 
+# train(x =  mini_iris[,-5],
+#       y = mini_iris[,5],
+#       data = mini_iris,
+#       method = rknn,
+#       trControl = fitControl,
+#       tuneGrid = rgrid)
+
+dgrid <-  expand.grid(k = c(1,2,3),
+                      #distance = c(get_distances("categorical"), "jaccard_add", "jaccard_avg"),
+                      distance = c(get_distances("numerical")),
+                      ties = c("randomly", "tthreshold"),
+                      verbose = FALSE,
+                      developer = FALSE)
+
 train(x =  mini_iris[,-5],
       y = mini_iris[,5],
       data = mini_iris,
-      method = rknn,
-      trControl = fitControl)
-
-
+      method = dknn,
+      trControl = fitControl,
+      tuneGrid = dgrid)

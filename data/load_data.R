@@ -34,7 +34,7 @@ balance_scale <- read_csv("data/multiclass/categorical/lessthan10/balance_datase
 
 # Bank note ---------------------------------------------------------------
 
-bank_note <- read_csv("data/binary/numeric/lessthan10/bank_note.csv", 
+bank_note <- read_csv("data/binary/numerical/lessthan10/bank_note.csv", 
                           col_types = cols(class = col_factor(NULL)),
                           col_names = c("variance",
                                         "skewness",
@@ -69,14 +69,6 @@ cars <- read_csv("data/binary/categorical/lessthan10/cars.csv",
                                         "lug_boot", "safety", "class"))
 
 
-# Ecoli -------------------------------------------------------------------
-
-ecoli <- read_table("data/multiclass/numeric/lessthan10/ecoli.csv", 
-                 col_types = cols(class = col_factor(NULL)),
-                 col_names = c("sequence", "mcg", "gvh", "lip", "chg", 
-                               "aac", "alm1", "alm2", "class")) %>%
-                  mutate(sequence = NULL)
-
 # Chess -------------------------------------------------------------------
 
 chess <- read_csv("data/multiclass/categorical/lessthan10/chess.csv", 
@@ -90,9 +82,18 @@ chess <- read_csv("data/multiclass/categorical/lessthan10/chess.csv",
                                "moves"))
 
 
+# Ecoli -------------------------------------------------------------------
+
+ecoli <- read_table("data/multiclass/numerical/lessthan10/ecoli.csv", 
+                    col_types = cols(class = col_factor(NULL)),
+                    col_names = c("sequence", "mcg", "gvh", "lip", "chg", 
+                                  "aac", "alm1", "alm2", "class")) %>%
+  mutate(sequence = NULL)
+
+
 # Haberman's Survival -----------------------------------------------------
 
-haberman <- read_csv("data/binary/numeric/lessthan10/haberman.csv",
+haberman <- read_csv("data/binary/numerical/lessthan10/haberman.csv",
                      col_types = cols(.default = col_double(), 
                                       survival = col_factor()),
                      col_names = c("age", "year", "nodes", "survival"))
@@ -101,7 +102,7 @@ haberman <- read_csv("data/binary/numeric/lessthan10/haberman.csv",
 
 # Iris --------------------------------------------------------------------
 
-iris <- read_csv("data/multiclass/numeric/lessthan10/iris.csv",
+iris <- read_csv("data/multiclass/numerical/lessthan10/iris.csv",
                      col_types = cols(.default = col_double(), 
                                       Species = col_factor()),
                      col_names = c("Sepal.Length", "Sepal.Width", 
@@ -110,7 +111,7 @@ iris <- read_csv("data/multiclass/numeric/lessthan10/iris.csv",
 
 # Life expectancy ---------------------------------------------------------
 
-life_expectancy <- read_csv("data/multiclass/numeric/lessthan10/life_expectancy.csv",
+life_expectancy <- read_csv("data/multiclass/numerical/lessthan10/life_expectancy.csv",
                             col_types = cols(continent = col_factor(NULL)),
                             col_names = c("rank", "country", "overall", 
                                           "male", "female", "continent"),
@@ -159,7 +160,7 @@ post_operative <- read_csv("data/multiclass/categorical/lessthan10/post_operativ
 
 # Seeds -------------------------------------------------------------------
 
-seeds <- read.table("data/multiclass/numeric/lessthan10/seeds.csv") 
+seeds <- read.table("data/multiclass/numerical/lessthan10/seeds.csv") 
 colnames(seeds) <- c("area",
                                 "perimeter",
                                 "compactness",
@@ -173,11 +174,15 @@ seeds <- as_tibble(seeds)
 
 # Skin Segmentation -------------------------------------------------------
 
-skin <- read.table("data/binary/numeric/lessthan10/skin.csv")
+skin <- read.table("data/binary/numerical/lessthan10/skin.csv")
 colnames(skin) <- c("red", "green", "blue", "skin")
 skin <- as.tibble(skin) %>% mutate(skin = factor(skin))
 
+<<<<<<< HEAD
 # Somerville --------------------------------------------------------------
+=======
+# Somerville Happiness Survey ---------------------------------------------
+>>>>>>> 5643a2d3d2ab35dd93340e2d6fe36854b35fd4a0
 
 somerville <- read_csv("data/binary/categorical/lessthan10/somerville.csv",
                        col_types = cols(.default = col_factor(NULL)))
@@ -227,7 +232,7 @@ travel_insurance <- read_csv("data/binary/mixed/10ormore/travel_insurance.csv",
 
 # Weight / height ---------------------------------------------------------
 
-weigth_height <- read_csv("data/binary/numeric/lessthan10/weight-height.csv",
+weigth_height <- read_csv("data/binary/numerical/lessthan10/weight-height.csv",
                           col_types = cols(Gender = col_factor()))
 
                           

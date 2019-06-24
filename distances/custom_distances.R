@@ -231,7 +231,7 @@ get_distances <- function(atttype) {
   
   if(atttype == "numerical") {
     # distances that will be use to create the ranking 
-    distance_methods <- c("manhattan", "euclidean", "maximum", "0.5", "0.25")
+    distance_methods <- c("manhattan", "euclidean", "chebyshev", "0.5", "0.25")
   }
   else if(atttype == "categorical") {
     distance_methods <- c("jaccard", "nominal_add", "nominal_avg", "gower")
