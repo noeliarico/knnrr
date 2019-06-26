@@ -101,7 +101,7 @@ dknn <- list(
   predict = function(modelFit, newdata, submodels = NULL) {
     if (modelFit$problemType == "Classification")
     {
-      cat("--> Predict --> distance = ", modelFit$distance, "\n")
+      cat("\n --> Predict --> distance = ", modelFit$distance, "\n")
       
       argList <- list(
         train = modelFit$learn$X,
@@ -113,8 +113,6 @@ dknn <- list(
         developer = modelFit$developer,
         verbose = modelFit$verbose
       )
-      
-      cat("--------> k = ", modelFit$k, "\n")
       
       output <- do.call("dknnfTrain",
                      argList)
@@ -140,6 +138,7 @@ dknn <- list(
       out <- predict_for_k(por, cl, modelFit$ties, modelFit$k)
       
       if (!is.null(submodels)) {
+        cat(nrow(submodels), "submodels available")
         tmp <- out
         out <-
           vector(mode = "list", length = nrow(submodels) + 1)

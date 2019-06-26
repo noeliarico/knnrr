@@ -74,7 +74,7 @@ display: none;
 padding: 0 4px 0 4px;
 }
 .pagedtable .even {
-background-color: rgba(140, 140, 140, 0.1);
+background-color: #fcfcfc;
 }
 .pagedtable-padding-col {
 display: none;
@@ -1478,7 +1478,7 @@ window.initializeCodeFolding = function(show) {
   var currentIndex = 1;
 
   // select all R code blocks
-  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia');
+  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan');
   rCodeBlocks.each(function() {
 
     // create a collapsable div to wrap the code in
@@ -1608,7 +1608,9 @@ h6 {
 </style>
 
 
+</head>
 
+<body>
 
 <style type="text/css">
 .main-container {
@@ -1632,9 +1634,6 @@ img {
 }
 button.code-folding-btn:focus {
   outline: none;
-}
-summary {
-  display: list-item;
 }
 </style>
 
@@ -1664,71 +1663,12 @@ summary {
 </style>
 
 
+<div class="container-fluid main-container">
+
 <!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
 });
 </script>
 
@@ -1744,14 +1684,6 @@ $(document).ready(function () {
 </script>
 
 
-
-
-</head>
-
-<body>
-
-
-<div class="container-fluid main-container">
 
 
 
@@ -1776,52 +1708,120 @@ $(document).ready(function () {
 
 
 <!-- rnb-text-begin -->
+<ul>
+<li><a href="#consensus">Ranking rules: <code>consensus</code></a>
+<ul>
+<li><a href="#scoring-ranking-rules">Scoring ranking rules</a>
+<ul>
+<li>Plurality(#plurality)</li>
+<li>k-rules(#krules)</li>
+<li>Borda count(#borda)</li>
+</ul></li>
+</ul></li>
+<li><a href="#distances">Distances</a>
+<ul>
+<li><a href="#categorical-features">Categorical features</a></li>
+<li><a href="#numerical-features">Numerical features</a></li>
+<li><a href="#mixed-features">Mixed features</a></li>
+</ul></li>
+<li>Algorithms
+<ul>
+<li><a href="#dknn"><code>dknn</code></a>
+<ul>
+<li><a href="#sets">Sets of distances</a></li>
+</ul></li>
+<li><a href="#rknn"><code>rknn</code></a></li>
+</ul></li>
+<li><a href="#datasets">Datasets</a></li>
+</ul>
+<div id="consensus" class="section level1">
+<h1>Ranking rules: <code>consensus</code></h1>
+<div id="scoring-ranking-rules" class="section level2">
+<h2>Scoring ranking rules</h2>
+<div id="plurality" class="section level3">
+<h3>Plurality</h3>
+</div>
+<div id="k-rules" class="section level3">
+<h3>k-rules</h3>
+</div>
+<div id="borda" class="section level3">
+<h3>Borda count</h3>
+</div>
+</div>
+</div>
+<div id="distances" class="section level1">
+<h1>Distances</h1>
+<div id="categorical-features" class="section level2">
+<h2>Categorical features</h2>
+</div>
+<div id="numerical-features" class="section level2">
+<h2>Numerical features</h2>
+</div>
+<div id="mixed-features" class="section level2">
+<h2>Mixed features</h2>
+</div>
+</div>
+<div id="algorithms" class="section level1">
+<h1>Algorithms</h1>
+<div id="dknn" class="section level2">
+<h2><code>dknn</code></h2>
+<div id="sets" class="section level3">
+<h3>Sets of distances</h3>
+</div>
+</div>
+<div id="rknn" class="section level2">
+<h2><code>rknn</code></h2>
+</div>
+</div>
+<div id="datasets" class="section level1">
+<h1>Datasets</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShjb25zZW5zdXMpXG5zb3VyY2UoXCJuZXcgY2hvb3NlLlJcIilcbmBgYCJ9 -->
+<pre class="r"><code>library(consensus)
+source(&quot;new choose.R&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
 <div id="untidying" class="section level1">
 <h1>Untidying</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucjEgPC0gcmFua2luZyh2MSlcblxuYGBgIn0= -->
-<pre class="r"><code>r1 &lt;- ranking(v1)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0LnNlZWQoMTIzKVxuIyB2MSA8LSBjKDEsIDQsIDYsIDIsIDMsIDQsIDksIDcsIDYsIDEsIDgsIDUpXG4jIG5hbWVzKHYxKSA8LSBzYW1wbGUoYyhcImNpcmNsZVwiLCBcInNxdWFyZVwiKSwgMTIsIHJlcGxhY2UgPSBUUlVFKVxuIyByMSA8LSByYW5raW5nKHYxKVxuIyByMiA8LSByYW5raW5nKGMoNiwgNCwgMSwgMywgMywgOCwgOSwgNywgNiwgNSwgOCwgMikpXG5gYGAifQ== -->
+<pre class="r"><code>set.seed(123)
+# v1 &lt;- c(1, 4, 6, 2, 3, 4, 9, 7, 6, 1, 8, 5)
+# names(v1) &lt;- sample(c(&quot;circle&quot;, &quot;square&quot;), 12, replace = TRUE)
+# r1 &lt;- ranking(v1)
+# r2 &lt;- ranking(c(6, 4, 1, 3, 3, 8, 9, 7, 6, 5, 8, 2))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiVGhlIG5hbWUgb2YgZWFjaCBjYW5kaWRhdGUgbXVzdCBiZSB1bmlxdWVcbiJ9 -->
-<pre><code>The name of each candidate must be unique</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2hvb3NlQmVzdChyMSwgXCJyYW5kb21seVwiLCAzKVxuXG5gYGAifQ== -->
-<pre class="r"><code>chooseBest(r1, &quot;randomly&quot;, 3)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2Nob29zZUJlc3QocjEsIFwicmFuZG9tbHlcIiwgMylcbmBgYCJ9 -->
+<pre class="r"><code>#chooseBest(r1, &quot;randomly&quot;, 3)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQzEwXCJcbiJ9 -->
-<pre><code>[1] &quot;C10&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInNwZWNfdGJsX2RmIiwidGJsX2RmIiwidGJsIiwiZGF0YS5mcmFtZSJdLCJuY29sIjo1LCJucm93IjoxMn0sInJkZiI6Ikg0c0lBQUFBQUFBQUE5MVV6VzdVTUJCMjg3UGJodTEyU3l0QWk4UWJiQTdRZTNMZ2d0UURvZ2Q2VzdtSnQ3VnFuTWhKQ3NlK0Jyd1JFcHg0RkNyRUFiSDRaeVkwaGhVWHVHREpzZWZ6ZUw3eC9PVEYwOVBIeVdsQ0NBbElHQWNrQ1BVMkN2Um5pMFJreDZ4dkNBa1A5Q2JXYzZybkpMLy94STc4Y0dWSHZ2L1dqSGY1WFdKSC9oRGtPWncvd1BXREdSL3pleUEvQWhuUDUwN3VlV1pnYndybjJ5QUhLTU45eEhFZGczOGowQnQ1OTJGRm51eXowOCsrT2pDN2NYWnh6US9nUGYwNzhkM0FnK2R6VC85dytKN3N2Y096VDhEbnk4ai94ZG52Vi9RRG5NWTErd1k0eEVQbmFkZncyT1FOWitETmNEZ0hDUjhKZHNWRW8zY3plK3JRTzg4VWJ4WU5hNnVHQXJSbm9TdW1HbDVVb2xJQVR4M00xVG1YdktDZTliZ1F0RUhqUGVXS0ZxMDJRTWgzWDEzU1Z3elZZd0FuSjZ5bUlqMW04cnk5UVA4YzlwS1hQVFI1enRwZjFCeDJXMjE4VXJPQ0d4TERISzQ5MzVLU3RqUmRLZTJINTl1T3FsNm42SitKZkhDdFArdjErc1pUakJyTkFGMmtveDFBTjFtWmVMUUIzSm5wa0FwbW9ySXNxKzVNTUNUdGNSZXQvOUZJNlBZa2dlb2x3NzBoaUpBZzlLb1djbHFwa2lsV1lnNjVMRVJYc3FXa2YvWVBhdkgzL2cyNC8zVTkvcldvMnY4UFJuSlRCQ045cVk5ZnlWYTBFMjFmd0plODN0QWYyL3JhMGhXNHBmSTdlRnpWTGE5azg3UHVCOWUzbEFmc2RkTDBWTGtvTGpwNXVUank2bUFYOXBOYiszaERYa1k2MGx4aVVHSkJ6NWpBbjVUdVhkdTZhYTI0eEhjbUdtM1N0dElwUWNRRUJSQjQzdzlYSDJpS013Y0FBQT09In0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Sepal.Length"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[5],"type":["fctr"],"align":["left"]}],"data":[{"1":"5.8","2":"4.0","3":"1.2","4":"0.2","5":"Iris-setosa"},{"1":"5.1","2":"3.8","3":"1.5","4":"0.3","5":"Iris-setosa"},{"1":"4.4","2":"3.0","3":"1.3","4":"0.2","5":"Iris-setosa"},{"1":"4.5","2":"2.3","3":"1.3","4":"0.3","5":"Iris-setosa"},{"1":"6.9","2":"3.1","3":"4.9","4":"1.5","5":"Iris-versicolor"},{"1":"6.6","2":"3.0","3":"4.4","4":"1.4","5":"Iris-versicolor"},{"1":"6.1","2":"3.0","3":"4.6","4":"1.4","5":"Iris-versicolor"},{"1":"6.2","2":"2.9","3":"4.3","4":"1.3","5":"Iris-versicolor"},{"1":"5.6","2":"2.8","3":"4.9","4":"2.0","5":"Iris-virginica"},{"1":"7.7","2":"2.8","3":"6.7","4":"2.0","5":"Iris-virginica"},{"1":"6.1","2":"3.0","3":"4.9","4":"1.8","5":"Iris-virginica"},{"1":"6.7","2":"3.0","3":"5.2","4":"2.3","5":"Iris-virginica"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[12]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBzZXQuc2VlZCgxMjMpXG4jIGluZGV4ZXMgPC0gY3JlYXRlRGF0YVBhcnRpdGlvbihpcmlzJFNwZWNpZXMsIHRpbWVzID0gMSwgcCA9IDAuMDgsIGxpc3QgPSBGQUxTRSlcbiMgbWluaV9pcmlzIDwtIGlyaXNbaW5kZXhlcyxdXG5gYGAifQ== -->
+<pre class="r"><code># set.seed(123)
+# indexes &lt;- createDataPartition(iris$Species, times = 1, p = 0.08, list = FALSE)
+# mini_iris &lt;- iris[indexes,]</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NSwibnJvdyI6MTJ9LCJyZGYiOiJINHNJQUFBQUFBQUFBMjFUelU3Q1FCQmV0clFJVmtBaGFqRHhEZWdCSDZBOWVESHhZT1FnMTdVc3NMRnVtN2FnUjE5RDM4aEVUejZLeG5ndzZMWTcwOURxSnRQWitXWjJ2dmxKTDA4bm85YWtSUWloeERBcG9ZYTYxcW42MUVpZE5ETjlUNGpSVXhkVFNWdUo3UjJjNU1mcnovTGo3VDVtNThuYkkvbnhqc0FlZ1A4UTlVdDJYcjE5c0kvQlJ2OUEyd1ZQRi9LMXdiOEZOa1ViM2lPT3VnSDFXUkJuVmQ2RFJoNzNYY2U3WHhwMFAzUmUxRjRQK2luNnhMNkJCLzJEU255LzNJLzdySEgzRGZpcU52Si82dnlGeGpxZ2FOVHVOK0F3RDdXbm5Zd25YMTVaYUVXTXNwUVdiZ1Y4eFlORTNicTVWNlBiWjdGSWhnbFB3NFFCMU1taEZZOFQ0WWRCR0FQYzFyQ0k1MElLbjFXeW0zN0FFa3hlVU02WW42b0VoS3lyNFpMZGNndzNBYlRIUEdLQmM4N2xQRjFnZlJxN0V0TUNzaTk0K2lkTVk1dGhqWEhFZlpHUmxKaWJjWGpuSUhzMlYvcWd4MjdyUU9PbjBrUnJ5bExtekdMMTVKOUdHbUdVaWxDcVpCUi9wczNIdGJnQ2RKWXlJNThPL2NWUzNneEhHUUVzazBCQk5WZzIzazFOV2NmQ2NGeVdHb0NRSENjYXNHc2U0SzVVazNtUFRoUUxtV0luQ2syY05GU1RRa1F0R0pHOE43TCtCVEZLY25BNkJBQUEifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Sepal.Length"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[5],"type":["fctr"],"align":["left"]}],"data":[{"1":"5.8","2":"4.0","3":"1.2","4":"0.2","5":"Iris-setosa"},{"1":"5.1","2":"3.8","3":"1.5","4":"0.3","5":"Iris-setosa"},{"1":"4.4","2":"3.0","3":"1.3","4":"0.2","5":"Iris-setosa"},{"1":"4.5","2":"2.3","3":"1.3","4":"0.3","5":"Iris-setosa"},{"1":"6.9","2":"3.1","3":"4.9","4":"1.5","5":"Iris-versicolor"},{"1":"6.6","2":"3.0","3":"4.4","4":"1.4","5":"Iris-versicolor"},{"1":"6.1","2":"3.0","3":"4.6","4":"1.4","5":"Iris-versicolor"},{"1":"6.2","2":"2.9","3":"4.3","4":"1.3","5":"Iris-versicolor"},{"1":"5.6","2":"2.8","3":"4.9","4":"2.0","5":"Iris-virginica"},{"1":"7.7","2":"2.8","3":"6.7","4":"2.0","5":"Iris-virginica"},{"1":"6.1","2":"3.0","3":"4.9","4":"1.8","5":"Iris-virginica"},{"1":"6.7","2":"3.0","3":"5.2","4":"2.3","5":"Iris-virginica"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[12]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBrbm40VHJhaW4odHJhaW4gPSAgbWluaV9pcmlzWywtNV0sXG4jICAgICAgICAgICBjbCA9IG1pbmlfaXJpc1ssNV0sXG4jICAgICAgICAgICApXG5gYGAifQ== -->
+<pre class="r"><code># knn4Train(train =  mini_iris[,-5],
+#           cl = mini_iris[,5],
+#           )</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -2066,18 +2066,37 @@ kable(data) %&gt;%
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="rknn" class="section level1">
+<div id="rknn-1" class="section level1">
 <h1>rknn</h1>
 <ul>
 <li>For each element in the test set – For each distance: —- calculate the distance: create a ranking – create a profile of rankings – apply ranking rule – choose the label</li>
 </ul>
 </div>
-<div id="dknn" class="section level1">
+<div id="dknn-1" class="section level1">
 <h1>dknn</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of “de Finibus Bonorum et Malorum” (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, “Lorem ipsum dolor sit amet..”, comes from a line in section 1.10.32.</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from “de Finibus Bonorum et Malorum” by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of “de Finibus Bonorum et Malorum” (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, “Lorem ipsum dolor sit amet..”, comes from a line in section 1.10.32.</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from “de Finibus Bonorum et Malorum” by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham</p>
+</div>
+<div id="dknn-2" class="section level1">
+<h1>dknn</h1>
+<ul>
+<li>Compute the distance matrix</li>
+<li>Given the matrix of distances, create a ranking for each instance in the test set of its nearest neighbours</li>
+</ul>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKCiMgVW50aWR5aW5nCgpgYGB7cn0Kc2V0LnNlZWQoMTIzKQp2MSA8LSBjKDEsIDQsIDYsIDIsIDMsIDQsIDksIDcsIDYsIDEsIDgsIDUpCm5hbWVzKHYxKSA8LSBzYW1wbGUoYygiY2lyY2xlIiwgInNxdWFyZSIpLCAxMiwgcmVwbGFjZSA9IFRSVUUpCnIxIDwtIHJhbmtpbmcodjEpCnIyIDwtIHJhbmtpbmcoYyg2LCA0LCAxLCAzLCAzLCA4LCA5LCA3LCA2LCA1LCA4LCAyKSkKYGBgCgpgYGB7cn0KY2hvb3NlQmVzdChyMSwgInJhbmRvbWx5IiwgMykKYGBgCgoKYGBge3IgaW5jbHVkZT1GQUxTRX0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoY2FyZXQpCmxpYnJhcnkoa25pdHIpCmxpYnJhcnkoa2FibGVFeHRyYSkKYGBgCgpgYGB7cn0Kc2V0LnNlZWQoMTIzKQppbmRleGVzIDwtIGNyZWF0ZURhdGFQYXJ0aXRpb24oaXJpcyRTcGVjaWVzLCB0aW1lcyA9IDEsIHAgPSAwLjA4LCBsaXN0ID0gRkFMU0UpCm1pbmlfaXJpcyA8LSBpcmlzW2luZGV4ZXMsXQpgYGAKCmBgYHtyfQprbm40VHJhaW4odHJhaW4gPSAgbWluaV9pcmlzWywtNV0sCiAgICAgICAgICBjbCA9IG1pbmlfaXJpc1ssNV0sCiAgICAgICAgICApCmBgYAoKCmBgYHtyfQpzZXQuc2VlZCgxMjMpCm1pbmlfaXJpcyA8LSBhcy5kYXRhLmZyYW1lKG1pbmlfaXJpcykKZml0IDwtIHRyYWluKHggPSAgbWluaV9pcmlzWywtNV0sCiAgICAgIHkgPSBtaW5pX2lyaXNbLDVdLAogICAgICBkYXRhID0gbWluaV9pcmlzLAogICAgICBtZXRob2QgPSBya25uLAogICAgICB0ckNvbnRyb2wgPSBmaXRDb250cm9sKQpgYGAKCmBgYHtyfQpkYXRhIDwtIGZpdCRtb2RlbEluZm8kZ3JpZCgpCmthYmxlKGRhdGEpICU+JQogIGthYmxlX3N0eWxpbmcoInN0cmlwZWQiLCBmdWxsX3dpZHRoID0gRikgJT4lCiAgcm93X3NwZWMod2hpY2goZGF0YSRrID09IDMpLCBib2xkID0gVCwgY29sb3IgPSAiYmxhY2siLCBiYWNrZ3JvdW5kID0gIiNmZGZkOTYiKQpgYGAKCmBgYHtyfQoKYGBgCgoKIyBya25uCgotIEZvciBlYWNoIGVsZW1lbnQgaW4gdGhlIHRlc3Qgc2V0Ci0tIEZvciBlYWNoIGRpc3RhbmNlOiAKLS0tLSBjYWxjdWxhdGUgdGhlIGRpc3RhbmNlOiBjcmVhdGUgYSByYW5raW5nCi0tIGNyZWF0ZSBhIHByb2ZpbGUgb2YgcmFua2luZ3MKLS0gYXBwbHkgcmFua2luZyBydWxlCi0tIGNob29zZSB0aGUgbGFiZWwgCgoKCgojIGRrbm4K</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OgogIHBkZl9kb2N1bWVudDogZGVmYXVsdAogIGh0bWxfbm90ZWJvb2s6IGRlZmF1bHQKLS0tCgoqIFtSYW5raW5nIHJ1bGVzOiBgY29uc2Vuc3VzYF0oI2NvbnNlbnN1cykKICAqIFtTY29yaW5nIHJhbmtpbmcgcnVsZXNdKCNzY29yaW5nLXJhbmtpbmctcnVsZXMpCiAgICAqIFBsdXJhbGl0eSgjcGx1cmFsaXR5KQogICAgKiBrLXJ1bGVzKCNrcnVsZXMpCiAgICAqIEJvcmRhIGNvdW50KCNib3JkYSkKKiBbRGlzdGFuY2VzXSgjZGlzdGFuY2VzKQogICogW0NhdGVnb3JpY2FsIGZlYXR1cmVzXSgjY2F0ZWdvcmljYWwtZmVhdHVyZXMpCiAgKiBbTnVtZXJpY2FsIGZlYXR1cmVzXSgjbnVtZXJpY2FsLWZlYXR1cmVzKQogICogW01peGVkIGZlYXR1cmVzXSgjbWl4ZWQtZmVhdHVyZXMpCiogQWxnb3JpdGhtcwogICogW2Bka25uYF0oI2Rrbm4pCiAgICAqIFtTZXRzIG9mIGRpc3RhbmNlc10oI3NldHMpCiAgKiBbYHJrbm5gXSgjcmtubikKKiBbRGF0YXNldHNdKCNkYXRhc2V0cykKCiMgIFJhbmtpbmcgcnVsZXM6IGBjb25zZW5zdXNgIHsjY29uc2Vuc3VzfQoKIyMgU2NvcmluZyByYW5raW5nIHJ1bGVzIHsjc2NvcmluZy1yYW5raW5nLXJ1bGVzfQoKIyMjIFBsdXJhbGl0eSB7I3BsdXJhbGl0eX0KCgojIyMgay1ydWxlcyB7I2stcnVsZXN9CiMjIyBCb3JkYSBjb3VudCB7I2JvcmRhfQojIERpc3RhbmNlcyB7I2Rpc3RhbmNlc30KIyMgQ2F0ZWdvcmljYWwgZmVhdHVyZXMgeyNjYXRlZ29yaWNhbC1mZWF0dXJlc30KIyMgTnVtZXJpY2FsIGZlYXR1cmVzIHsjbnVtZXJpY2FsLWZlYXR1cmVzfQojIyBNaXhlZCBmZWF0dXJlcyB7I21peGVkLWZlYXR1cmVzfQojIEFsZ29yaXRobXMKIyMgYGRrbm5gIHsjZGtubn0KIyMjIFNldHMgb2YgZGlzdGFuY2VzICB7I3NldHN9CiMjIGBya25uYCB7I3Jrbm59CiMgRGF0YXNldHMgeyNkYXRhc2V0c30KICAKCgpgYGB7cn0KbGlicmFyeShjb25zZW5zdXMpCnNvdXJjZSgibmV3IGNob29zZS5SIikKYGBgCgojIFVudGlkeWluZwoKYGBge3J9CnNldC5zZWVkKDEyMykKIyB2MSA8LSBjKDEsIDQsIDYsIDIsIDMsIDQsIDksIDcsIDYsIDEsIDgsIDUpCiMgbmFtZXModjEpIDwtIHNhbXBsZShjKCJjaXJjbGUiLCAic3F1YXJlIiksIDEyLCByZXBsYWNlID0gVFJVRSkKIyByMSA8LSByYW5raW5nKHYxKQojIHIyIDwtIHJhbmtpbmcoYyg2LCA0LCAxLCAzLCAzLCA4LCA5LCA3LCA2LCA1LCA4LCAyKSkKYGBgCgpgYGB7cn0KI2Nob29zZUJlc3QocjEsICJyYW5kb21seSIsIDMpCmBgYAoKCmBgYHtyIGluY2x1ZGU9RkFMU0V9CmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KGNhcmV0KQpsaWJyYXJ5KGtuaXRyKQpsaWJyYXJ5KGthYmxlRXh0cmEpCmBgYAoKYGBge3J9CiMgc2V0LnNlZWQoMTIzKQojIGluZGV4ZXMgPC0gY3JlYXRlRGF0YVBhcnRpdGlvbihpcmlzJFNwZWNpZXMsIHRpbWVzID0gMSwgcCA9IDAuMDgsIGxpc3QgPSBGQUxTRSkKIyBtaW5pX2lyaXMgPC0gaXJpc1tpbmRleGVzLF0KYGBgCgpgYGB7cn0KIyBrbm40VHJhaW4odHJhaW4gPSAgbWluaV9pcmlzWywtNV0sCiMgICAgICAgICAgIGNsID0gbWluaV9pcmlzWyw1XSwKIyAgICAgICAgICAgKQpgYGAKCgpgYGB7cn0KIyBzZXQuc2VlZCgxMjMpCiMgbWluaV9pcmlzIDwtIGFzLmRhdGEuZnJhbWUobWluaV9pcmlzKQojIGZpdCA8LSB0cmFpbih4ID0gIG1pbmlfaXJpc1ssLTVdLAojICAgICAgIHkgPSBtaW5pX2lyaXNbLDVdLAojICAgICAgIGRhdGEgPSBtaW5pX2lyaXMsCiMgICAgICAgbWV0aG9kID0gcmtubiwKIyAgICAgICB0ckNvbnRyb2wgPSBmaXRDb250cm9sKQpgYGAKCmBgYHtyfQojIGRhdGEgPC0gZml0JG1vZGVsSW5mbyRncmlkKCkKIyBrYWJsZShkYXRhKSAlPiUKIyAgIGthYmxlX3N0eWxpbmcoInN0cmlwZWQiLCBmdWxsX3dpZHRoID0gRikgJT4lCiMgICByb3dfc3BlYyh3aGljaChkYXRhJGsgPT0gMyksIGJvbGQgPSBULCBjb2xvciA9ICJibGFjayIsIGJhY2tncm91bmQgPSAiI2ZkZmQ5NiIpCmBgYAoKYGBge3J9CgpgYGAKCgojIHJrbm4KCi0gRm9yIGVhY2ggZWxlbWVudCBpbiB0aGUgdGVzdCBzZXQKLS0gRm9yIGVhY2ggZGlzdGFuY2U6IAotLS0tIGNhbGN1bGF0ZSB0aGUgZGlzdGFuY2U6IGNyZWF0ZSBhIHJhbmtpbmcKLS0gY3JlYXRlIGEgcHJvZmlsZSBvZiByYW5raW5ncwotLSBhcHBseSByYW5raW5nIHJ1bGUKLS0gY2hvb3NlIHRoZSBsYWJlbCAKCgoKCiMgZGtubgoKYGBge3IsIGVjaG89RkFMU0UsIHJlc3VsdHM9J2FzaXMnfQpjYXQoIlxcdHdvY29sdW1uIikKYGBgCgpDb250cmFyeSB0byBwb3B1bGFyIGJlbGllZiwgTG9yZW0gSXBzdW0gaXMgbm90IHNpbXBseSByYW5kb20gdGV4dC4gSXQgaGFzIHJvb3RzIGluIGEgcGllY2Ugb2YgY2xhc3NpY2FsIExhdGluIGxpdGVyYXR1cmUgZnJvbSA0NSBCQywgbWFraW5nIGl0IG92ZXIgMjAwMCB5ZWFycyBvbGQuIFJpY2hhcmQgTWNDbGludG9jaywgYSBMYXRpbiBwcm9mZXNzb3IgYXQgSGFtcGRlbi1TeWRuZXkgQ29sbGVnZSBpbiBWaXJnaW5pYSwgbG9va2VkIHVwIG9uZSBvZiB0aGUgbW9yZSBvYnNjdXJlIExhdGluIHdvcmRzLCBjb25zZWN0ZXR1ciwgZnJvbSBhIExvcmVtIElwc3VtIHBhc3NhZ2UsIGFuZCBnb2luZyB0aHJvdWdoIHRoZSBjaXRlcyBvZiB0aGUgd29yZCBpbiBjbGFzc2ljYWwgbGl0ZXJhdHVyZSwgZGlzY292ZXJlZCB0aGUgdW5kb3VidGFibGUgc291cmNlLiBMb3JlbSBJcHN1bSBjb21lcyBmcm9tIHNlY3Rpb25zIDEuMTAuMzIgYW5kIDEuMTAuMzMgb2YgImRlIEZpbmlidXMgQm9ub3J1bSBldCBNYWxvcnVtIiAoVGhlIEV4dHJlbWVzIG9mIEdvb2QgYW5kIEV2aWwpIGJ5IENpY2Vybywgd3JpdHRlbiBpbiA0NSBCQy4gVGhpcyBib29rIGlzIGEgdHJlYXRpc2Ugb24gdGhlIHRoZW9yeSBvZiBldGhpY3MsIHZlcnkgcG9wdWxhciBkdXJpbmcgdGhlIFJlbmFpc3NhbmNlLiBUaGUgZmlyc3QgbGluZSBvZiBMb3JlbSBJcHN1bSwgIkxvcmVtIGlwc3VtIGRvbG9yIHNpdCBhbWV0Li4iLCBjb21lcyBmcm9tIGEgbGluZSBpbiBzZWN0aW9uIDEuMTAuMzIuCgpUaGUgc3RhbmRhcmQgY2h1bmsgb2YgTG9yZW0gSXBzdW0gdXNlZCBzaW5jZSB0aGUgMTUwMHMgaXMgcmVwcm9kdWNlZCBiZWxvdyBmb3IgdGhvc2UgaW50ZXJlc3RlZC4gU2VjdGlvbnMgMS4xMC4zMiBhbmQgMS4xMC4zMyBmcm9tICJkZSBGaW5pYnVzIEJvbm9ydW0gZXQgTWFsb3J1bSIgYnkgQ2ljZXJvIGFyZSBhbHNvIHJlcHJvZHVjZWQgaW4gdGhlaXIgZXhhY3Qgb3JpZ2luYWwgZm9ybSwgYWNjb21wYW5pZWQgYnkgRW5nbGlzaCB2ZXJzaW9ucyBmcm9tIHRoZSAxOTE0IHRyYW5zbGF0aW9uIGJ5IEguIFJhY2toYW0KCmBgYHtyLCBlY2hvPUZBTFNFLCByZXN1bHRzPSdhc2lzJ30KY2F0KCJcXG9uZWNvbHVtbiIpCmBgYAoKQ29udHJhcnkgdG8gcG9wdWxhciBiZWxpZWYsIExvcmVtIElwc3VtIGlzIG5vdCBzaW1wbHkgcmFuZG9tIHRleHQuIEl0IGhhcyByb290cyBpbiBhIHBpZWNlIG9mIGNsYXNzaWNhbCBMYXRpbiBsaXRlcmF0dXJlIGZyb20gNDUgQkMsIG1ha2luZyBpdCBvdmVyIDIwMDAgeWVhcnMgb2xkLiBSaWNoYXJkIE1jQ2xpbnRvY2ssIGEgTGF0aW4gcHJvZmVzc29yIGF0IEhhbXBkZW4tU3lkbmV5IENvbGxlZ2UgaW4gVmlyZ2luaWEsIGxvb2tlZCB1cCBvbmUgb2YgdGhlIG1vcmUgb2JzY3VyZSBMYXRpbiB3b3JkcywgY29uc2VjdGV0dXIsIGZyb20gYSBMb3JlbSBJcHN1bSBwYXNzYWdlLCBhbmQgZ29pbmcgdGhyb3VnaCB0aGUgY2l0ZXMgb2YgdGhlIHdvcmQgaW4gY2xhc3NpY2FsIGxpdGVyYXR1cmUsIGRpc2NvdmVyZWQgdGhlIHVuZG91YnRhYmxlIHNvdXJjZS4gTG9yZW0gSXBzdW0gY29tZXMgZnJvbSBzZWN0aW9ucyAxLjEwLjMyIGFuZCAxLjEwLjMzIG9mICJkZSBGaW5pYnVzIEJvbm9ydW0gZXQgTWFsb3J1bSIgKFRoZSBFeHRyZW1lcyBvZiBHb29kIGFuZCBFdmlsKSBieSBDaWNlcm8sIHdyaXR0ZW4gaW4gNDUgQkMuIFRoaXMgYm9vayBpcyBhIHRyZWF0aXNlIG9uIHRoZSB0aGVvcnkgb2YgZXRoaWNzLCB2ZXJ5IHBvcHVsYXIgZHVyaW5nIHRoZSBSZW5haXNzYW5jZS4gVGhlIGZpcnN0IGxpbmUgb2YgTG9yZW0gSXBzdW0sICJMb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldC4uIiwgY29tZXMgZnJvbSBhIGxpbmUgaW4gc2VjdGlvbiAxLjEwLjMyLgoKVGhlIHN0YW5kYXJkIGNodW5rIG9mIExvcmVtIElwc3VtIHVzZWQgc2luY2UgdGhlIDE1MDBzIGlzIHJlcHJvZHVjZWQgYmVsb3cgZm9yIHRob3NlIGludGVyZXN0ZWQuIFNlY3Rpb25zIDEuMTAuMzIgYW5kIDEuMTAuMzMgZnJvbSAiZGUgRmluaWJ1cyBCb25vcnVtIGV0IE1hbG9ydW0iIGJ5IENpY2VybyBhcmUgYWxzbyByZXByb2R1Y2VkIGluIHRoZWlyIGV4YWN0IG9yaWdpbmFsIGZvcm0sIGFjY29tcGFuaWVkIGJ5IEVuZ2xpc2ggdmVyc2lvbnMgZnJvbSB0aGUgMTkxNCB0cmFuc2xhdGlvbiBieSBILiBSYWNraGFtCgojIGRrbm4KCiogQ29tcHV0ZSB0aGUgZGlzdGFuY2UgbWF0cml4CiogR2l2ZW4gdGhlIG1hdHJpeCBvZiBkaXN0YW5jZXMsIGNyZWF0ZSBhIHJhbmtpbmcgZm9yIGVhY2ggaW5zdGFuY2UgaW4gdGhlIHRlc3Qgc2V0IG9mIGl0cyBuZWFyZXN0IG5laWdoYm91cnMKCgo=</div>
 
 
 

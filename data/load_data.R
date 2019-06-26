@@ -1,9 +1,15 @@
 library(tidyverse)
 library(foreign)
 
+path_to_data <- tryCatch({
+  path_to_data
+}, error = function(e) {
+  "."
+})
+
 # Abalone -----------------------------------------------------------------
 
-abalone_age <- read_csv("data/multiclass/mixed/lessthan10/abalone.csv", 
+abalone_age <- read_csv(file.path(path_to_data, "data/multiclass/mixed/lessthan10/abalone.csv"), 
                           col_types = cols(sex = col_factor(NULL),
                                            rings = col_factor(NULL)
                                            # the other are numbers
@@ -26,7 +32,7 @@ acute_inflammations <- c("temperature",
                           "nephritis") # class
 
 # Balance Scale Data Set --------------------------------------------------
-balance_scale <- read_csv("data/multiclass/categorical/lessthan10/balance_dataset.csv", 
+balance_scale <- read_csv(file.path(path_to_data, "data/multiclass/categorical/lessthan10/balance_scale.csv"), 
                           col_types = cols(.default = col_factor(NULL)),
                           col_names = c("class", 
                                         "left_weight", "left_distance", 
@@ -34,7 +40,7 @@ balance_scale <- read_csv("data/multiclass/categorical/lessthan10/balance_datase
 
 # Bank note ---------------------------------------------------------------
 
-bank_note <- read_csv("data/binary/numerical/lessthan10/bank_note.csv", 
+bank_note <- read_csv(file.path(path_to_data, "data/binary/numerical/lessthan10/bank_note.csv"), 
                           col_types = cols(class = col_factor(NULL)),
                           col_names = c("variance",
                                         "skewness",
@@ -45,7 +51,7 @@ bank_note <- read_csv("data/binary/numerical/lessthan10/bank_note.csv",
 
 # Breast Cancer -----------------------------------------------------------
 
-breast_cancer <- read_csv("data/binary/categorical/lessthan10/breast_cancer.csv", 
+breast_cancer <- read_csv(file.path(path_to_data, "data/binary/categorical/lessthan10/breast_cancer.csv"), 
                          col_types = cols(.default = col_factor(NULL)),
                          col_names = c("class", "age", "menopause",
                                        "tumor_size", "inv_nodes", 
@@ -56,14 +62,14 @@ breast_cancer <- read_csv("data/binary/categorical/lessthan10/breast_cancer.csv"
 
 # Caesarian ---------------------------------------------------------------
 
-caesarian <- read.arff("data/binary/mixed/lessthan10/caesarian.arff") %>%
+caesarian <- read.arff(file.path(path_to_data, "data/binary/mixed/lessthan10/caesarian.arff")) %>%
               mutate(Age = as.numeric(as.character(Age)))
 colnames(caesarian) <- make.names(colnames(caesarian))
 
 
 # Cars --------------------------------------------------------------------
 
-cars <- read_csv("data/binary/categorical/lessthan10/cars.csv", 
+cars <- read_csv(file.path(path_to_data, "data/binary/categorical/lessthan10/cars.csv"), 
                           col_types = cols(.default = col_factor(NULL)),
                           col_names = c("buying", "maint", "doors", "persons", 
                                         "lug_boot", "safety", "class"))
@@ -71,7 +77,7 @@ cars <- read_csv("data/binary/categorical/lessthan10/cars.csv",
 
 # Chess -------------------------------------------------------------------
 
-chess <- read_csv("data/multiclass/categorical/lessthan10/chess.csv", 
+chess <- read_csv(file.path(path_to_data, "data/multiclass/categorical/lessthan10/chess.csv"), 
                  col_types = cols(.default = col_factor(NULL)),
                  col_names = c("white_king_col",
                                "white_king_row",
@@ -82,9 +88,16 @@ chess <- read_csv("data/multiclass/categorical/lessthan10/chess.csv",
                                "moves"))
 
 
+
+# Connect 4 ---------------------------------------------------------------
+
+connect4 <- read_csv(file.path(path_to_data, "data/multiclass/categorical/10ormore/connect-4.csv"),
+                        col_types = cols(.default = col_factor(NULL)),
+                        col_names = c(paste0(rep(letters[1:7], 6), 1:6), "class"))
+
 # Ecoli -------------------------------------------------------------------
 
-ecoli <- read_table("data/multiclass/numerical/lessthan10/ecoli.csv", 
+ecoli <- read_table(file.path(path_to_data, "data/multiclass/numerical/lessthan10/ecoli.csv"), 
                     col_types = cols(class = col_factor(NULL)),
                     col_names = c("sequence", "mcg", "gvh", "lip", "chg", 
                                   "aac", "alm1", "alm2", "class")) %>%
@@ -93,7 +106,7 @@ ecoli <- read_table("data/multiclass/numerical/lessthan10/ecoli.csv",
 
 # Haberman's Survival -----------------------------------------------------
 
-haberman <- read_csv("data/binary/numerical/lessthan10/haberman.csv",
+haberman <- read_csv(file.path(path_to_data, "data/binary/numerical/lessthan10/haberman.csv"),
                      col_types = cols(.default = col_double(), 
                                       survival = col_factor()),
                      col_names = c("age", "year", "nodes", "survival"))
@@ -102,7 +115,7 @@ haberman <- read_csv("data/binary/numerical/lessthan10/haberman.csv",
 
 # Iris --------------------------------------------------------------------
 
-iris <- read_csv("data/multiclass/numerical/lessthan10/iris.csv",
+iris <- read_csv(file.path(path_to_data, "data/multiclass/numerical/lessthan10/iris.csv"),
                      col_types = cols(.default = col_double(), 
                                       Species = col_factor()),
                      col_names = c("Sepal.Length", "Sepal.Width", 
@@ -111,7 +124,7 @@ iris <- read_csv("data/multiclass/numerical/lessthan10/iris.csv",
 
 # Life expectancy ---------------------------------------------------------
 
-life_expectancy <- read_csv("data/multiclass/numerical/lessthan10/life_expectancy.csv",
+life_expectancy <- read_csv(file.path(path_to_data, "data/multiclass/numerical/lessthan10/life_expectancy.csv"),
                             col_types = cols(continent = col_factor(NULL)),
                             col_names = c("rank", "country", "overall", 
                                           "male", "female", "continent"),
@@ -120,7 +133,7 @@ life_expectancy <- read_csv("data/multiclass/numerical/lessthan10/life_expectanc
 
 # Mammographic Mass -------------------------------------------------------
 
-mammograpic_masses <- read_csv("data/binary/mixed/lessthan10/mammographic_masses.csv",
+mammograpic_masses <- read_csv(file.path(path_to_data, "data/binary/mixed/lessthan10/mammographic_masses.csv"),
                                col_types = cols(.default = col_factor(NULL),
                                                 age = col_number()),
                                col_names = c("bi_rads",
@@ -134,7 +147,7 @@ mammograpic_masses <- read_csv("data/binary/mixed/lessthan10/mammographic_masses
 
 # Poker hand --------------------------------------------------------------
 
-poker_hand <- read_csv("data/multiclass/categorical/10ormore/poker_hand.csv",
+poker_hand <- read_csv(file.path(path_to_data, "data/multiclass/categorical/10ormore/poker_hand.csv"),
                        col_types = cols(.default = col_factor(NULL)),
                        col_names = c("S1", "C1", "S2", "C2", "S3", "C3", 
                                      "S4", "C4", "S5", "C5", "class")
@@ -143,7 +156,7 @@ poker_hand <- read_csv("data/multiclass/categorical/10ormore/poker_hand.csv",
 
 # Post-operative ----------------------------------------------------------
 
-post_operative <- read_csv("data/multiclass/categorical/lessthan10/post_operative.csv", 
+post_operative <- read_csv(file.path(path_to_data, "data/multiclass/categorical/lessthan10/post_operative.csv"), 
                  col_types = cols(.default = col_factor(NULL)),
                  col_names = c("internal_temperature",
                                 "surface_temperature",
@@ -157,10 +170,34 @@ post_operative <- read_csv("data/multiclass/categorical/lessthan10/post_operativ
                  na = "?") %>% drop_na 
 
 
+# Primary tumor -----------------------------------------------------------
+
+post_operative <- read_csv(file.path(path_to_data, "data/multiclass/categorical/10ormore/primary_tumor.csv"), 
+                           col_types = cols(.default = col_factor(NULL)),
+                           col_names = c("class",
+                                         "age",
+                                         "sex",
+                                         "histologic_type",
+                                         "degree_of_diffe",
+                                         "bone",
+                                         "bone_marrow",
+                                         "lung",
+                                         "pleura",
+                                         "peritoneum",
+                                         "liver",
+                                         "brain",
+                                         "skin",
+                                         "neck",
+                                         "supraclavicular",
+                                         "axillar",
+                                         "mediastinum",
+                                         "abdominal"),
+                           na = "?") %>% drop_na 
+
 
 # Seeds -------------------------------------------------------------------
 
-seeds <- read.table("data/multiclass/numerical/lessthan10/seeds.csv") 
+seeds <- read.table(file.path(path_to_data, "data/multiclass/numerical/lessthan10/seeds.csv")) 
 colnames(seeds) <- c("area",
                                 "perimeter",
                                 "compactness",
@@ -174,27 +211,116 @@ seeds <- as_tibble(seeds)
 
 # Skin Segmentation -------------------------------------------------------
 
-skin <- read.table("data/binary/numerical/lessthan10/skin.csv")
+skin <- read.table(file.path(path_to_data, "data/binary/numerical/lessthan10/skin.csv"))
 colnames(skin) <- c("red", "green", "blue", "skin")
-skin <- as.tibble(skin) %>% mutate(skin = factor(skin))
+skin <- as_tibble(skin) %>% mutate(skin = factor(skin))
 
-<<<<<<< HEAD
-# Somerville --------------------------------------------------------------
-=======
 # Somerville Happiness Survey ---------------------------------------------
->>>>>>> 5643a2d3d2ab35dd93340e2d6fe36854b35fd4a0
 
-somerville <- read_csv("data/binary/categorical/lessthan10/somerville.csv",
+somerville <- read_csv(file.path(path_to_data, "data/binary/categorical/lessthan10/somerville.csv"),
                        col_types = cols(.default = col_factor(NULL)))
 
 
 # Sonar -------------------------------------------------------------------
 
+sonar <- read_csv(file.path(path_to_data, "data/binary/numerical/10ormore/sonar.csv"),
+                  col_types = cols(class = col_factor(NULL)),
+                  col_names = c(paste0("V", 1:60), "class"))
+
+
+# Soybean -----------------------------------------------------------------
+
+soybean_small <- read_csv(file.path(path_to_data, "data/multiclass/categorical/10ormore/soybean_small.csv"),
+                    col_types = cols(class = col_factor(NULL)),
+                    col_names = c("class",
+                                  "date",
+                                  "plant_stand",
+                                  "precip",
+                                  "temp",
+                                  "hail",
+                                  "crop_hist",
+                                  "area_damaged",
+                                  "severity",
+                                  "seed_tmt",
+                                  "germination",
+                                  "plant_growth",
+                                  "leaves",
+                                  "leafspots_halo",
+                                  "leafspots_marg",
+                                  "leafspot_size",
+                                  "leaf_shread",
+                                  "leaf_malf",
+                                  "leaf_mild",
+                                  "stem",
+                                  "lodging",
+                                  "stem_cankers",
+                                  "canker_lesion",
+                                  "fruiting_bodies",
+                                  "external_decay",
+                                  "mycelium",
+                                  "int_discolor",
+                                  "sclerotia",
+                                  "fruit_pods",
+                                  "fruit_spots",
+                                  "seed",
+                                  "mold_growth",
+                                  "seed_discolor",
+                                  "seed_size",
+                                  "shriveling",
+                                  "roots"),
+                    na = "?") %>% 
+                    drop_na %>% 
+                    select_if(function(col) length(unique(col)) > 1)
+
+
+soybean_large <- read_csv(file.path(path_to_data, "data/multiclass/categorical/10ormore/soybean_large.csv"),
+                          col_types = cols(class = col_factor(NULL)),
+                          col_names = c("class",
+                                        "date",
+                                        "plant_stand",
+                                        "precip",
+                                        "temp",
+                                        "hail",
+                                        "crop_hist",
+                                        "area_damaged",
+                                        "severity",
+                                        "seed_tmt",
+                                        "germination",
+                                        "plant_growth",
+                                        "leaves",
+                                        "leafspots_halo",
+                                        "leafspots_marg",
+                                        "leafspot_size",
+                                        "leaf_shread",
+                                        "leaf_malf",
+                                        "leaf_mild",
+                                        "stem",
+                                        "lodging",
+                                        "stem_cankers",
+                                        "canker_lesion",
+                                        "fruiting_bodies",
+                                        "external_decay",
+                                        "mycelium",
+                                        "int_discolor",
+                                        "sclerotia",
+                                        "fruit_pods",
+                                        "fruit_spots",
+                                        "seed",
+                                        "mold_growth",
+                                        "seed_discolor",
+                                        "seed_size",
+                                        "shriveling",
+                                        "roots"),
+                          na = "?") %>% 
+  drop_na %>% 
+  select_if(function(col) length(unique(col)) > 1)
+
+
 
                         
 # Tic-tac-toe -------------------------------------------------------------
 
-tic_tac_toe <- read_csv("data/binary/categorical/lessthan10/tic-tac-toe.csv", 
+tic_tac_toe <- read_csv(file.path(path_to_data, "data/binary/categorical/lessthan10/tic-tac-toe.csv"), 
                  col_types = cols(.default = col_factor(NULL)),
                  col_names = c("top_left","top_middle", "top_right",
                                "middle_left", "middle_middle", "middle_right",
@@ -204,7 +330,7 @@ tic_tac_toe <- read_csv("data/binary/categorical/lessthan10/tic-tac-toe.csv",
 
 # Teaching assistant ------------------------------------------------------
 
-teaching_assistant <- read_csv("data/multiclass/mixed/lessthan10/teaching_assistant.csv", 
+teaching_assistant <- read_csv(file.path(path_to_data, "data/multiclass/mixed/lessthan10/teaching_assistant.csv"), 
                                col_types = cols(class_size = col_number(),
                                                 .default = col_factor(NULL)),
                                col_names = c("native",
@@ -214,9 +340,10 @@ teaching_assistant <- read_csv("data/multiclass/mixed/lessthan10/teaching_assist
                                              "class_size",
                                              "score"))
 
+
 # Travel insurance --------------------------------------------------------
 
-travel_insurance <- read_csv("data/binary/mixed/10ormore/travel_insurance.csv",
+travel_insurance <- read_csv(file.path(path_to_data, "data/binary/mixed/10ormore/travel_insurance.csv"),
                              col_names = c("agency", "agency_type", 
                                            "distribution_channel", "product_name", 
                                            "claim", "duration", "destination", 
@@ -230,9 +357,49 @@ travel_insurance <- read_csv("data/binary/mixed/10ormore/travel_insurance.csv",
                              skip = 1) %>% drop_na
 
 
+# Wireless Indoor Localization --------------------------------------------
+
+wifi_localization <- read_tsv(file.path(path_to_data, "data/multiclass/numerical/lessthan10/wifi_localization.csv"),
+                              col_names = c(paste0("V",1:7), "class"),
+                              col_types = cols(class = col_factor(NULL)))
+
 # Weight / height ---------------------------------------------------------
 
-weigth_height <- read_csv("data/binary/numerical/lessthan10/weight-height.csv",
+weigth_height <- read_csv(file.path(path_to_data, "data/binary/numerical/lessthan10/weight-height.csv"),
                           col_types = cols(Gender = col_factor()))
+
+
+# Yeast -------------------------------------------------------------------
+
+yeast <- read.table(file.path(path_to_data, "data/multiclass/numerical/lessthan10/yeast.csv"))
+colnames(yeast) <-  c("seq", "mcg", "gvh", "alm", "mit", "erl", "pox", "vac", "nuc", "class")
+yeast$seq <- NULL
+
+
+# Zoo ---------------------------------------------------------------------
+
+zoo <- read_csv(file.path(path_to_data, "data/multiclass/categorical/10ormore/zoo.csv"),
+                          col_types = cols(.default = col_factor()),
+                          col_names = c("animal",
+                                        "hair",
+                                        "feathers",
+                                        "eggs",
+                                        "milk",
+                                        "airborne",
+                                        "aquatic",
+                                        "predator",
+                                        "toothed",
+                                        "backbone",
+                                        "breathes",
+                                        "venomous",
+                                        "fins",
+                                        "legs",
+                                        "tail",
+                                        "domestic",
+                                        "catsize",
+                                        "type")) %>%
+                mutate(animal = NULL)
+
+
 
                           

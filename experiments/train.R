@@ -57,3 +57,10 @@ train(x =  mini_iris[,-5],
       method = dknn,
       trControl = fitControl,
       tuneGrid = dgrid)
+
+set.seed(123)
+itest <- c(4,8,12)
+mini_iris_train <- mini_iris[-itest,]
+mini_iris_test <- mini_iris[itest,]
+dknnTrain(mini_iris_train[,-5], mini_iris_test[,-5], mini_iris_train$Species,
+          k = 3, distance = "euclidean", ties = "randomly", developer = TRUE)

@@ -1,0 +1,111 @@
+
+> set.seed(123)
+
+> out <- dknnfTrain(mini_iris_train[,-5], mini_iris_test[,-5], mini_iris_train$Species,
++           k = 3, distance = "chebyshev", ties = "randomly",  .... [TRUNCATED] 
+-> Train dknn k = 3, distance = chebyshev, ties = randomly
+nrow(train) = 9 and nrow(test) = 3 
+[1] "chebyshev"
+[1] "chebyshev distance..."
+
+Matrix of distances:
+     X1  X2  X3  X5  X6  X7  X9 X10 X11
+X4  1.7 1.5 0.7 3.6 3.1 3.3 3.6 5.4 3.6
+X8  3.1 2.8 3.0 0.7 0.4 0.3 0.7 2.4 0.6
+X12 4.0 3.7 3.9 0.8 0.9 0.9 1.1 1.5 0.6
+
+Ranking for each instance:
+    X1 X2 X3 X5 X6 X7 X9 X10 X11
+X4   3  2  1  6  4  5  6   7   6
+X8   9  7  8  5  2  1  4   6   3
+X12  8  6  7  2  3  3  4   5   1
+
+> predict_for_k(out$distances, out$cl, "randomly")
+--------> Predict_for_k function with ties = randomly and k = 3
+
+Choosing a label [method =  randomly , k =  3 ] for the instance with ranking: 
+     setosa     setosa     setosa versicolor versicolor versicolor  virginica  virginica 
+         3          2          1          6          4          5          6          7 
+ virginica 
+         6 
+setosa > setosa > setosa > versicolor > versicolor > versicolor ~ virginica ~ virginica > virginica 
+
+--> Sure values:
+setosa setosa 
+     2      1 
+
+--> Tied values:
+setosa 
+     3 
+
+Solving the ties... randomly
+
+--> Number of elements to select randomly: 1 
+
+--> Selected values:
+[1] setosa setosa setosa
+Levels: setosa versicolor virginica
+times
+    setosa versicolor  virginica 
+         1          0          0 
+
+The label for this instance is: setosa 
+
+Choosing a label [method =  randomly , k =  3 ] for the instance with ranking: 
+     setosa     setosa     setosa versicolor versicolor versicolor  virginica  virginica 
+         9          7          8          5          2          1          4          6 
+ virginica 
+         3 
+versicolor > versicolor > virginica > virginica > versicolor > virginica > setosa > setosa > setosa 
+
+--> Sure values:
+versicolor versicolor 
+         2          1 
+
+--> Tied values:
+virginica 
+        3 
+
+Solving the ties... randomly
+
+--> Number of elements to select randomly: 1 
+
+--> Selected values:
+[1] versicolor versicolor virginica 
+Levels: setosa versicolor virginica
+times
+    setosa versicolor  virginica 
+ 0.0000000  0.6666667  0.3333333 
+
+The label for this instance is: versicolor 
+
+Choosing a label [method =  randomly , k =  3 ] for the instance with ranking: 
+     setosa     setosa     setosa versicolor versicolor versicolor  virginica  virginica 
+         8          6          7          2          3          3          4          5 
+ virginica 
+         1 
+virginica > versicolor > versicolor ~ versicolor > virginica > virginica > setosa > setosa > setosa 
+
+--> Sure values:
+versicolor  virginica 
+         2          1 
+
+--> Tied values:
+versicolor versicolor 
+         3          3 
+
+Solving the ties... randomly
+
+--> Number of elements to select randomly: 1 
+
+--> Selected values:
+[1] versicolor virginica  versicolor
+Levels: setosa versicolor virginica
+times
+    setosa versicolor  virginica 
+ 0.0000000  0.6666667  0.3333333 
+
+The label for this instance is: versicolor 
+[1] "setosa"     "versicolor" "versicolor"
+
+> sink.reset()

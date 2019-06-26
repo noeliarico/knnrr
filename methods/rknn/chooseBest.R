@@ -2,6 +2,8 @@ chooseBest <- function(ranking, method, k, developer = FALSE) {
   
   developer = TRUE
   
+  print(method)
+  
   # All the options look for generating the vector(table) 
   # probabilities. This table will store the probability of 
   # each label for being the selected label for the instance 
@@ -117,7 +119,8 @@ chooseBest <- function(ranking, method, k, developer = FALSE) {
           cat(n_elem_needed, '\n')
         }
         
-        tied <- sample(tied, n_elem_needed)
+        itied <- sample(1:length(tied), n_elem_needed)
+        tied <- tied[itied]
         times <- c(sure, tied)
         probabilities <- table(names(times))
         probabilities <- prop.table(probabilities)

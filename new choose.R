@@ -17,7 +17,9 @@ chooseBest <- function(ranking, method, k, developer = FALSE) {
   }
   
   if(developer) {
-    cat('\n Choosing a label [method = ', method, ', k = ', k, "] for the instance with ranking: ")
+    cat('\nChoosing a label [method = ', as.character(method), ', k = ', k, "] for the instance with ranking: \n ")
+    print(ranking)
+    class(ranking) <- "ranking"
     print(ranking)
   }
 
@@ -27,7 +29,9 @@ chooseBest <- function(ranking, method, k, developer = FALSE) {
   
   if(method == "tthreshold") { # k as threshold
     times <- ranking[ranking < k]
-    times <- factor(times, levels = unique(names(times)))
+    print("Times")
+    print(times)
+    times <- factor(times, levels = unique(names(ranking)))
     probabilities <- prop.table(table(names(times)))
     if(developer) {
       cat('\n', length(times), 'selected instances with pos < k:\n')
@@ -76,7 +80,7 @@ chooseBest <- function(ranking, method, k, developer = FALSE) {
       if (developer) {
         cat('\n--> Tied values:\n')
         print(tied)
-        cat('\nSolving the ties...\n')
+        cat('\nSolving the ties... ')
       }
       
       n_elem_needed <- k - length(sure)
@@ -89,9 +93,14 @@ chooseBest <- function(ranking, method, k, developer = FALSE) {
           cat(n_elem_needed, '\n')
         }
         
-        tied <- sample(tied, n_elem_needed)
+        itied <- sample(1:length(tied), n_elem_needed)
+        tied <- tied[itied]
         times <- c(sure, tied)
-        probabilities <- table(names(times))
+        times <- factor(names(times), levels = unique(names(ranking)))
+        
+        probabilities <- table(times)
+        
+        
         probabilities <- prop.table(probabilities)
         if (developer) {
           cat('\n--> Selected values:\n')

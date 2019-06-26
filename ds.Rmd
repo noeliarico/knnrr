@@ -1,0 +1,135 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    theme: rmdformats::readthedown
+  
+---
+
+# Distance function
+
+The native `dist` funtion in the `stats` package computes and returns the distance matrix computed by using the specified distance measure to compute the distances between the rows of a data matrix.
+
+The available distances are:
+
+* euclidean:
+
+$$d(x,y) =\sqrt{\sum{(x_i - y_i)^2}}$$
+
+* maximum:
+* manhattan:
+* canberra:
+
+$$\sum{\frac{(x_i - y_i)}{x_i + y_i}}$$
+
+* binary:
+
+The distance is the proportion of bits in which only one is on amongst those in which at least one is on.
+
+* minkowski:
+
+$$$$
+
+
+```
+
+Train dknn k = 3, distance = euclidean, ties = randomly
+nrow(train) = 9 and nrow(test) = 3 
+
+<mark>Matrix of distances:</mark>
+          X1       X2        X3        X5        X6        X7       X9      X10       X11
+X4  2.144761 1.627882 0.7141428 4.5607017 3.9648455 3.8923001 4.160529 6.522270 4.2731721
+X8  3.491418 3.295451 3.6687873 0.9643651 0.4358899 0.3464102 1.104536 2.917190 0.7937254
+X12 4.713809 4.570558 4.9909919 0.8831761 1.2083046 1.2369317 1.195826 1.838478 0.8366600
+
+Ranking for each instance:
+    X1 X2 X3 X5 X6 X7 X9 X10 X11
+X4   3  2  1  8  5  4  6   9   7
+X8   8  7  9  4  2  1  5   6   3
+X12  8  7  9  2  4  5  3   6   1
+
+Predict... Choosing a label [method =  randomly , k =  3] for the instance X4: 
+
+setosa     setosa     setosa versicolor versicolor versicolor  virginica  virginica  virginica 
+    3          2          1          8          5          4          6          9          7 
+    
+The ranking is:
+
+setosa > setosa > setosa > versicolor > versicolor > virginica > virginica > versicolor > virginica 
+
+--> Sure values:
+setosa setosa 
+     2      1 
+
+--> Tied values:
+setosa 
+     3 
+
+Solving the ties... randomly
+
+--> Number of elements to select randomly: 1 
+
+--> Selected values:
+[1] setosa setosa setosa
+Levels: setosa versicolor virginica
+times
+    setosa versicolor  virginica 
+         1          0          0 
+
+The label for this instance is: setosa 
+
+Choosing a label [method =  randomly , k =  3 ] for the instance with ranking: 
+     setosa     setosa     setosa versicolor versicolor versicolor  virginica  virginica  virginica 
+         8          7          9          4          2          1          5          6          3 
+versicolor > versicolor > virginica > versicolor > virginica > virginica > setosa > setosa > setosa 
+
+--> Sure values:
+versicolor versicolor 
+         2          1 
+
+--> Tied values:
+virginica 
+        3 
+
+Solving the ties... randomly
+
+--> Number of elements to select randomly: 1 
+
+--> Selected values:
+[1] versicolor versicolor virginica 
+Levels: setosa versicolor virginica
+times
+    setosa versicolor  virginica 
+ 0.0000000  0.6666667  0.3333333 
+
+The label for this instance is: versicolor 
+
+Choosing a label [method =  randomly , k =  3 ] for the instance with ranking: 
+     setosa     setosa     setosa versicolor versicolor versicolor  virginica  virginica  virginica 
+         8          7          9          2          4          5          3          6          1 
+virginica > versicolor > virginica > versicolor > versicolor > virginica > setosa > setosa > setosa 
+
+--> Sure values:
+versicolor  virginica 
+         2          1 
+
+--> Tied values:
+virginica 
+        3 
+
+Solving the ties... randomly
+
+--> Number of elements to select randomly: 1 
+
+--> Selected values:
+[1] versicolor virginica  virginica 
+Levels: setosa versicolor virginica
+times
+    setosa versicolor  virginica 
+ 0.0000000  0.3333333  0.6666667 
+
+The label for this instance is: virginica 
+[1] "setosa"     "versicolor" "virginica" 
+
+> sink("iris_manhattan_randomly")
+```

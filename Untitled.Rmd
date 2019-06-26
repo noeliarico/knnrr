@@ -1,21 +1,63 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  pdf_document: default
+  html_notebook: default
 ---
 
+* [Ranking rules: `consensus`](#consensus)
+  * [Scoring ranking rules](#scoring-ranking-rules)
+    * Plurality(#plurality)
+    * k-rules(#krules)
+    * Borda count(#borda)
+* [Distances](#distances)
+  * [Categorical features](#categorical-features)
+  * [Numerical features](#numerical-features)
+  * [Mixed features](#mixed-features)
+* Algorithms
+  * [`dknn`](#dknn)
+    * [Sets of distances](#sets)
+  * [`rknn`](#rknn)
+* [Datasets](#datasets)
+
+#  Ranking rules: `consensus` {#consensus}
+
+## Scoring ranking rules {#scoring-ranking-rules}
+
+### Plurality {#plurality}
+
+
+### k-rules {#k-rules}
+### Borda count {#borda}
+# Distances {#distances}
+## Categorical features {#categorical-features}
+## Numerical features {#numerical-features}
+## Mixed features {#mixed-features}
+# Algorithms
+## `dknn` {#dknn}
+### Sets of distances  {#sets}
+## `rknn` {#rknn}
+# Datasets {#datasets}
+  
+
+
+```{r}
+library(consensus)
+source("new choose.R")
+```
 
 # Untidying
 
 ```{r}
 set.seed(123)
-v1 <- c(1, 4, 6, 2, 3, 4, 9, 7, 6, 1, 8, 5)
-names(v1) <- sample(c("circle", "square"), 12, replace = TRUE)
-r1 <- ranking(v1)
-r2 <- ranking(c(6, 4, 1, 3, 3, 8, 9, 7, 6, 5, 8, 2))
+# v1 <- c(1, 4, 6, 2, 3, 4, 9, 7, 6, 1, 8, 5)
+# names(v1) <- sample(c("circle", "square"), 12, replace = TRUE)
+# r1 <- ranking(v1)
+# r2 <- ranking(c(6, 4, 1, 3, 3, 8, 9, 7, 6, 5, 8, 2))
 ```
 
 ```{r}
-chooseBest(r1, "randomly", 3)
+#chooseBest(r1, "randomly", 3)
 ```
 
 
@@ -27,33 +69,33 @@ library(kableExtra)
 ```
 
 ```{r}
-set.seed(123)
-indexes <- createDataPartition(iris$Species, times = 1, p = 0.08, list = FALSE)
-mini_iris <- iris[indexes,]
+# set.seed(123)
+# indexes <- createDataPartition(iris$Species, times = 1, p = 0.08, list = FALSE)
+# mini_iris <- iris[indexes,]
 ```
 
 ```{r}
-knn4Train(train =  mini_iris[,-5],
-          cl = mini_iris[,5],
-          )
+# knn4Train(train =  mini_iris[,-5],
+#           cl = mini_iris[,5],
+#           )
 ```
 
 
 ```{r}
-set.seed(123)
-mini_iris <- as.data.frame(mini_iris)
-fit <- train(x =  mini_iris[,-5],
-      y = mini_iris[,5],
-      data = mini_iris,
-      method = rknn,
-      trControl = fitControl)
+# set.seed(123)
+# mini_iris <- as.data.frame(mini_iris)
+# fit <- train(x =  mini_iris[,-5],
+#       y = mini_iris[,5],
+#       data = mini_iris,
+#       method = rknn,
+#       trControl = fitControl)
 ```
 
 ```{r}
-data <- fit$modelInfo$grid()
-kable(data) %>%
-  kable_styling("striped", full_width = F) %>%
-  row_spec(which(data$k == 3), bold = T, color = "black", background = "#fdfd96")
+# data <- fit$modelInfo$grid()
+# kable(data) %>%
+#   kable_styling("striped", full_width = F) %>%
+#   row_spec(which(data$k == 3), bold = T, color = "black", background = "#fdfd96")
 ```
 
 ```{r}
@@ -74,3 +116,26 @@ kable(data) %>%
 
 
 # dknn
+
+```{r, echo=FALSE, results='asis'}
+cat("\\twocolumn")
+```
+
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham
+
+```{r, echo=FALSE, results='asis'}
+cat("\\onecolumn")
+```
+
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham
+
+# dknn
+
+* Compute the distance matrix
+* Given the matrix of distances, create a ranking for each instance in the test set of its nearest neighbours
+
+

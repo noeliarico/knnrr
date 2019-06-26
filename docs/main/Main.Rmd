@@ -1,0 +1,201 @@
+---
+title: "Thesis"
+date: "`r Sys.Date()`"
+author: "Noelia Rico"
+output:
+  rmdformats::readthedown:
+    highlight: kate
+---
+
+
+```{r knitr_init, message=TRUE, warning=TRUE, cache=FALSE, include=FALSE}
+library(knitr)
+library(rmdformats)
+library(tidyverse)
+library(kableExtra)
+
+## Global options
+options(max.print="75")
+opts_chunk$set(echo=FALSE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+```
+
+* [Ranking rules: `consensus`](#consensus)
+  * [Scoring ranking rules](#scoring-ranking-rules)
+    * Plurality(#plurality)
+    * k-rules(#krules)
+    * Borda count(#borda)
+* [Distances](#distances)
+  * [Categorical features](#categorical-features)
+  * [Numerical features](#numerical-features)
+  * [Mixed features](#mixed-features)
+* Algorithms
+  * [`dknn`](#dknn)
+    * [Sets of distances](#sets)
+  * [`rknn`](#rknn)
+* [Datasets](#datasets)
+* [Examples](#examples)
+
+
+#  Ranking rules: `consensus` {#consensus}
+
+## Scoring ranking rules {#scoring-ranking-rules}
+
+### Plurality {#plurality}
+
+
+### k-rules {#k-rules}
+### Borda count {#borda}
+# Distances {#distances}
+## Categorical features {#categorical-features}
+## Numerical features {#numerical-features}
+## Mixed features {#mixed-features}
+# Algorithms
+## `dknn` {#dknn}
+### Sets of distances  {#sets}
+## `rknn` {#rknn}
+# Datasets {#datasets}
+
+```{r child = '../Datasets.Rmd'}
+```
+
+# Examples {#examples}
+
+## The `mini_iris` dataset
+
+### Manhattan distance with `mini_iris` 
+
+### Euclidean distance with `mini_iris` 
+
+
+<div style="font-family:courier;">
+  Train dknn k = 3, distance = euclidean, ties = randomly
+  nrow(train) = 9 and nrow(test) = 3 
+  </hr></br>
+  
+  <mark style="font-family:courier; background-color: #fbebf0">Matrix of distances:</mark>
+
+
+</div>
+
+```{r  echo=FALSE}
+m1 <- tribble(
+~test, ~X1, ~X2, ~X3, ~X5, ~X6, ~X7, ~X9, ~X10, ~X11,
+"X4",  2.144761, 1.627882, 0.7141428, 4.5607017, 3.9648455, 3.8923001, 4.160529, 6.522270, 4.2731721,
+"X8",  3.491418, 3.295451, 3.6687873, 0.9643651, 0.4358899, 0.3464102, 1.104536, 2.917190, 0.7937254,
+"X12", 4.713809, 4.570558, 4.9909919, 0.8831761, 1.2083046, 1.2369317, 1.195826, 1.838478, 0.8366600)
+m1 %>% kable(align = "c") %>% kable_styling(c("condensed", "bordered"))
+```
+
+<div>
+  <mark style="font-family:courier; background-color: #fbebf0">Ranking for each instance:</mark>
+
+
+</div>
+
+
+```{r  echo=FALSE}
+m2 <- tribble(
+~testtrain, ~X1, ~X2, ~X3, ~X5, ~X6, ~X7, ~X9, ~X10, ~X11,
+"X4", 3, 2, 1, 8, 5, 4, 6, 9, 7,
+"X8", 8, 7, 9, 4, 2, 1, 5, 6, 3,
+"X12", 8, 7, 9, 2, 4, 5, 3, 6, 1)
+```
+
+```{r echo=FALSE}
+# colors <- c("#562424", "#6d3636", "#924444", "#a94c4c", "#c17171",
+#             "#f45ca2", "#ffbdd3", "#ffd7e4", "#fff0f5", "#ffffff")
+            #"#FF9AA5", "#B5EAD7", "#FFDAC1", "#EBCEED", "#F0DEFD")
+
+colors <- c("#1d060c", "#3e0c1a", "#6f162e", "#a02043", "#c12751", "#da4870", "#e47996", "#eeaabc", "#f8dbe3", "#fefcfc")
+
+colors <- factor(1:10, labels = colors, levels = 1:10)
+m2 %>%
+  mutate_at(vars(-testtrain), .funs = ~cell_spec(., color = "white", bold = T, background = colors[.], font_size = 14)) %>%
+  kable(escape = F, align = "c") %>% kable_styling(c("condensed", "bordered"))
+```
+
+```
+Train dknn k = 3, distance = euclidean, ties = randomly
+nrow(train) = 9 and nrow(test) = 3 
+
+
+
+
+
+Predict... Choosing a label [method =  randomly , k =  3] for the instance X4: 
+
+setosa     setosa     setosa versicolor versicolor versicolor  virginica  virginica  virginica 
+    3          2          1          8          5          4          6          9          7 
+    
+    
+setosa > setosa > setosa > versicolor > versicolor > virginica > virginica > versicolor > virginica 
+
+
+--> Selected values:
+setosa setosa setosa
+
+--> Probabilities:
+    setosa versicolor  virginica 
+         1          0          0 
+
+The label for this instance is: setosa 
+
+Predict... Choosing a label [method =  randomly , k =  3 ] for the instance with ranking: 
+     
+setosa     setosa     setosa versicolor versicolor versicolor  virginica  virginica  virginica 
+8          7          9          4          2          1          5          6          3 
+
+
+versicolor > versicolor > virginica > versicolor > virginica > virginica > setosa > setosa > setosa 
+
+--> Selected values:
+versicolor versicolor virginica 
+
+--> Probabilities:
+    setosa versicolor  virginica 
+ 0.0000000  0.6666667  0.3333333 
+
+The label for this instance is: versicolor 
+
+Predict... Choosing a label [method =  randomly , k =  3 ] for the instance with ranking: 
+
+setosa     setosa     setosa versicolor versicolor versicolor  virginica  virginica  virginica 
+8          7          9          2          4          5          3          6          1 
+
+virginica > versicolor > virginica > versicolor > versicolor > virginica > setosa > setosa > setosa 
+
+--> Sure values:
+versicolor  virginica 
+         2          1 
+
+--> Tied values:
+virginica 
+        3 
+
+Solving the ties... randomly
+
+--> Number of elements to select randomly: 1 
+
+--> Selected values:
+[1] versicolor virginica  virginica 
+Levels: setosa versicolor virginica
+times
+    setosa versicolor  virginica 
+ 0.0000000  0.3333333  0.6666667 
+
+The label for this instance is: virginica 
+[1] "setosa"     "versicolor" "virginica" 
+
+> sink("iris_manhattan_randomly")
+```
+
+### Chebyshev distance with `mini_iris` 
+
+### mini_zoo

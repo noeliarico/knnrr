@@ -12,9 +12,7 @@ compute_distances <- function(data, distance, verbose = FALSE) {
   
   verbose = TRUE
   
-  print("--")
   distance <- as.character(distance)
-  print(distance)
   
   result = tryCatch({
     d <- as.numeric(distance)
@@ -24,9 +22,9 @@ compute_distances <- function(data, distance, verbose = FALSE) {
     }
   }, warning = function(w) {
     #do nothing
-    print("warning")
   })
   
+  print(distance)
   
   if(distance == "manhattan") {
     if(verbose) print("manhattan distance...")

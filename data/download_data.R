@@ -62,6 +62,14 @@ download.file(URL, destfile = file.path("data", "multiclass", "categorical",
                                         "lessthan10", "chess.csv"))
 
 
+
+# Connect4 ----------------------------------------------------------------
+
+# https://archive.ics.uci.edu/ml/datasets/Connect-4
+# Zip file in:
+
+# https://archive.ics.uci.edu/ml/machine-learning-databases/connect-4/
+
 # Ecoli -------------------------------------------------------------------
 
 # http://archive.ics.uci.edu/ml/machine-learning-databases/ecoli/
@@ -115,6 +123,16 @@ download.file(URL, destfile = file.path("data", "multiclass", "categorical",
                                         "lessthan10", "post_operative.csv"))
 
 
+
+# Primary tumor -----------------------------------------------------------
+
+# https://archive.ics.uci.edu/ml/datasets/Primary+Tumor
+
+URL <- "https://archive.ics.uci.edu/ml/machine-learning-databases/primary-tumor/primary-tumor.data"
+download.file(URL, destfile = file.path("data", "multiclass", "categorical", 
+                                        "10ormore", "primary_tumor.csv"))
+
+
 # Seeds -------------------------------------------------------------------
 
 # http://archive.ics.uci.edu/ml/datasets/seeds
@@ -140,6 +158,28 @@ download.file(URL, destfile = file.path("data", "binary", "categorical",
                                         "lessthan10", "somerville.csv"))
 
 
+# Sonar -------------------------------------------------------------------
+
+# http://archive.ics.uci.edu/ml/datasets/connectionist+bench+(sonar,+mines+vs.+rocks)
+URL <- "http://archive.ics.uci.edu/ml/machine-learning-databases/undocumented/connectionist-bench/sonar/sonar.all-data"
+download.file(URL, destfile = file.path("data", "binary", "numerical", 
+                                        "10ormore", "sonar.csv"))
+
+
+# Soybean -----------------------------------------------------------------
+
+# https://archive.ics.uci.edu/ml/datasets/Soybean+%28Small%29
+
+URL <- "https://archive.ics.uci.edu/ml/machine-learning-databases/soybean/soybean-small.data"
+download.file(URL, destfile = file.path("data", "multiclass", "categorical", 
+                                        "10ormore", "soybean_small.csv"))
+
+URL <- "https://archive.ics.uci.edu/ml/machine-learning-databases/soybean/soybean-large.data"
+download.file(URL, destfile = file.path("data", "multiclass", "categorical", 
+                                        "10ormore", "soybean_large.csv"))
+
+
+
 # Tic-tac-toe -------------------------------------------------------------
 
 # http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame
@@ -161,4 +201,39 @@ download.file(URL, destfile = file.path("data", "multiclass", "mixed",
 # https://www.kaggle.com/mhdzahier/travel-insurance#travel%20insurance.csv
 
 
+
+# Vertebral column --------------------------------------------------------
+
+# https://archive.ics.uci.edu/ml/datasets/Vertebral+Column
+# Zip file in the link:
+# https://archive.ics.uci.edu/ml/machine-learning-databases/00212/
+# https://github.com/IreneYPCheung/Pathology_on_the_Vertebral_Column
+
+# Two different datasets, 2 classes and 3 classes
+
+# Wireless Indoor Localization --------------------------------------------
+
+# https://archive.ics.uci.edu/ml/datasets/Wireless+Indoor+Localization
+URL <- "https://archive.ics.uci.edu/ml/machine-learning-databases/00422/wifi_localization.txt"
+download.file(URL, destfile = file.path("data", "multiclass", "numerical", 
+                                        "lessthan10", "wifi_localization.csv"))
+
 # Weight / height ---------------------------------------------------------
+
+
+# Yeast -------------------------------------------------------------------
+
+# https://archive.ics.uci.edu/ml/datasets/Yeast
+URL <- "https://archive.ics.uci.edu/ml/machine-learning-databases/yeast/yeast.data"
+download.file(URL, destfile = file.path("data", "multiclass", "numerical", 
+                                        "lessthan10", "yeast.csv"))
+
+
+# Zoo ---------------------------------------------------------------------
+
+# https://archive.ics.uci.edu/ml/datasets/zoo
+URL <- "https://archive.ics.uci.edu/ml/machine-learning-databases/zoo/zoo.data"
+download.file(URL, destfile = file.path("data", "multiclass", "categorical", 
+                                        "10ormore", "zoo.csv"))
+
+

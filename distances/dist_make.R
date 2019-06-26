@@ -1,6 +1,7 @@
-x <- matrix(sample(c(0,1), 20, replace = T), nrow = 5)
-my_distance <- function (v1, v2, v3) sum(abs(v1 - v2)) + v3
-dist_make(x, my_distance, names = 1)
+#library(usedist)
+# x <- matrix(sample(c(0,1), 20, replace = T), nrow = 5)
+# my_distance <- function (v1, v2, v3) sum(abs(v1 - v2)) + v3
+# dist_make(x, my_distance, names = 1)
 
 dist_make <- function (x, distance_fcn, names = NULL) 
 {

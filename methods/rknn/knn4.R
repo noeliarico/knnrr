@@ -270,9 +270,9 @@ knn4Train <- function(train,
 {
 
   
-  if(developer) {
+  #if(developer) {
     cat('\ntrain -- k =', k, ', rr =', rr, '/ ties =', ties, "/ developer =", developer, "/ atttype =", atttype, '\n')
-  }
+  #}
    
   #train <- as.matrix(train)
 
@@ -469,7 +469,7 @@ knn4Train <- function(train,
 
 predict_using_por <- function (rankings, ties, k = 3)
 {
-  print(k)
+  cat("predict_using_por ties = ", ties, ", k = ", k, sep = "")
   # choose the label for each of the generated profile of rankings
   labels <- lapply(rankings, chooseBest, method = ties, k = k) %>%
     unlist()

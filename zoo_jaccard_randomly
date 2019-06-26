@@ -1,0 +1,118 @@
+-> Train dknn k = 3, distance = jaccard, ties = randomly
+nrow(train) = 18 and nrow(test) = 4 
+[1] "jaccard"
+[1] "jaccard distance..."
+
+Matrix of distances:
+           1         2         3         4         5         6         7         8         9        10        11
+19 0.2857143 0.8000000 0.5882353 0.1538462 0.6666667 0.5882353 0.5882353 0.1538462 0.5882353 0.5882353 0.5882353
+20 0.6666667 0.8000000 0.1538462 0.5882353 0.6666667 0.5882353 0.1538462 0.5882353 0.1538462 0.5882353 0.5882353
+21 0.7368421 0.4000000 0.6666667 0.6666667 0.1538462 0.2857143 0.6666667 0.6666667 0.6666667 0.0000000 0.0000000
+22 0.7368421 0.5882353 0.6666667 0.6666667 0.4000000 0.2857143 0.5000000 0.5000000 0.6666667 0.2857143 0.2857143
+          12        13        14        15        16        17        18
+19 0.7368421 0.1538462 0.7368421 0.2857143 0.7368421 0.1538462 0.7368421
+20 0.4000000 0.5882353 0.7368421 0.6666667 0.7368421 0.5882353 0.7368421
+21 0.6666667 0.6666667 0.2857143 0.7368421 0.2857143 0.6666667 0.2857143
+22 0.6666667 0.6666667 0.5000000 0.5882353 0.2857143 0.5000000 0.5000000
+
+Ranking for each instance:
+   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
+19 2 6 3 1 4 3 3 1 3  3  3  5  1  5  2  5  1  5
+20 4 6 1 3 4 3 1 3 1  3  3  2  3  5  4  5  3  5
+21 6 4 5 5 2 3 5 5 5  1  1  5  5  3  6  3  5  3
+22 6 4 5 5 2 1 3 3 5  1  1  5  5  3  4  1  3  3
+
+--------> Predict_for_k function with ties = randomly and k = 3
+[1] "randomly"
+
+--> Sure values:
+
+	None
+
+--> Tied values:
+4 4 4 4 
+1 1 1 1 
+
+Solving the ties...
+randomly
+
+--> Number of elements to select randomly: 3 
+
+--> Selected values:
+4 4 4 
+1 1 1 
+
+4 
+1 
+
+The label for this instance is: 4 
+[1] "randomly"
+
+--> Sure values:
+
+	None
+
+--> Tied values:
+7 7 7 
+1 1 1 
+
+Solving the ties...
+randomly
+
+--> Number of elements to select randomly: 3 
+
+--> Selected values:
+7 7 7 
+1 1 1 
+
+7 
+1 
+
+The label for this instance is: 7 
+[1] "randomly"
+
+--> Sure values:
+2 2 
+1 1 
+
+--> Tied values:
+2 
+2 
+
+Solving the ties...
+randomly
+
+--> Number of elements to select randomly: 1 
+
+--> Selected values:
+2 2 2 
+1 1 2 
+
+2 
+1 
+
+The label for this instance is: 2 
+[1] "randomly"
+
+--> Sure values:
+
+	None
+
+--> Tied values:
+2 2 2 2 
+1 1 1 1 
+
+Solving the ties...
+randomly
+
+--> Number of elements to select randomly: 3 
+
+--> Selected values:
+2 2 2 
+1 1 1 
+
+2 
+1 
+
+The label for this instance is: 2 
+[1] "4" "7" "2" "2"

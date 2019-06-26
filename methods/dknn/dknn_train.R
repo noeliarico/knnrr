@@ -276,9 +276,9 @@ dknnfTrain <- function(train,
                       prob = TRUE, 
                       use.all=TRUE) {
   
-  if(verbose) {
-    cat('\ndknnfTrain con k =', k, ', distance = ', distance, ', ties = ', ties, '\n')
-  }
+  #if(verbose) {
+    cat('-> Train dknn k = ', k, ', distance = ', distance, ', ties = ', ties, '\n', sep = "")
+  #}
 
   #train <- as.matrix(train)
   
@@ -328,7 +328,7 @@ dknnfTrain <- function(train,
   }
  
   # create a ranking of instances
-  distances <- t(apply(distances, 1, ranking))
+  distances <- t(apply(distances, 1, consensus::ranking))
   
   if(developer) {
     cat('\nRanking for each instance:\n')
@@ -348,7 +348,7 @@ dknnfTrain <- function(train,
 
 predict_for_k <- function (distances, cl, ties, k = 3)
 {
-  print("predict_for_k function")
+  cat("--------> Predict_for_k function with ties = ", as.character(ties), " and k = ", k, "\n", sep = "")
   # the labels vector will store the output of all the  
   labels <- rep(0, nrow(distances))
   # for each row in the matrix with the rankings
