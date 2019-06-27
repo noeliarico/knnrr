@@ -49,31 +49,54 @@ compute_distances <- function(data, distance, verbose = FALSE) {
     if(verbose) print("binary distance...")
     return(as.matrix(dist(data, method = "binary")))
   }
-  else if(distance == "nominal_add") {
-    if(verbose) print("nominal_add distance...")
-    return(as.matrix(nominal_distances_add(data)))
-  }
-  else if(distance == "nominal_avg") {
-    if(verbose) print("nominal_avg distance...")
-    return(as.matrix(nominal_distances_avg(data)))
-  }
+  # else if(distance == "matching") {
+  #   if(verbose) print("simple matching distance...")
+  #   return(as.matrix(matching_distance(data)))
+  # }
+  # else if(distance == "nominal_add") {
+  #   if(verbose) print("nominal_add distance...")
+  #   return(as.matrix(nominal_distances_add(data)))
+  # }
+  # else if(distance == "nominal_avg") {
+  #   if(verbose) print("nominal_avg distance...")
+  #   return(as.matrix(nominal_distances_avg(data)))
+  # }
+  # else if(distance == "jaccard") {
+  #   if(verbose) print("jaccard distance...")
+  #   return(as.matrix(jaccard_all(data)))
+  # }
+  # else if(distance == "jaccard_add") {
+  #   if(verbose) print("jaccard_add distance...")
+  #   return(as.matrix(jaccard_add(data)))
+  # }
+  # else if(distance == "jaccard_avg") {
+  #   if(verbose) print("jaccard_avg distance...")
+  #   return(as.matrix(jaccard_avg(data)))
+  # }
   else if(distance == "jaccard") {
     if(verbose) print("jaccard distance...")
-    return(as.matrix(jaccard_all(data)))
+    datan <- predict(dummyVars(~., data), data)
+    print(head(datan))
+    return(as.matrix(dist.binary(datan, method = 1)))
   }
-  else if(distance == "jaccard_add") {
-    if(verbose) print("jaccard_add distance...")
-    return(as.matrix(jaccard_add(data)))
+  else if(distance == "smc") {
+    if(verbose) print("smc distance...")
+    datan <- predict(dummyVars(~., data), data)
+    print(head(datan))
+    return(as.matrix(dist.binary(datan, method = 2)))
   }
-  else if(distance == "jaccard_avg") {
-    if(verbose) print("jaccard_avg distance...")
-    return(as.matrix(jaccard_avg(data)))
+  else if(distance == "ss3") {
+    if(verbose) print("ss3 distance...")
+    datan <- predict(dummyVars(~., data), data)
+    print(head(datan))
+    return(as.matrix(dist.binary(datan, method = 3)))
   }
   else if(distance == "gower") {
     if(verbose) print("gower distance...")
     return(as.matrix(daisy(data, metric = "gower")))
   }
  
+  # --------------
   
   else{
     if(verbose) print("Invalid distance!!!")
@@ -82,6 +105,17 @@ compute_distances <- function(data, distance, verbose = FALSE) {
 }
 
 # -------------------------------------------------------------------------
+
+matching_distance <- function(data) {
+  if(!all(sapply(data, is.factor))) {
+    stop("All columns must be categorical to apply nominal distance")
+  }
+  else {
+    names <- colnames(data)
+    x <- predict(dummyVars(~., data), data)
+    return(dist_make(x, simple_matching_distance))
+  }
+}
 
 nominal_distances_avg <- function(data){
   if(!all(sapply(data, is.factor))) {
@@ -93,6 +127,8 @@ nominal_distances_avg <- function(data){
     return(dist_make(x, nominal_distance_avg, names))
   }
 }
+
+
 
 nominal_distances_add <- function(data){
   if(!all(sapply(data, is.factor))) {
@@ -222,6 +258,8 @@ simple_matching_distance <- function(i, j) {
   return((d$q + d$r) / t)
 }
 
+
+
 jaccard_distance <- function(i, j) {
   d <- createTable(i, j)
   return((d$q + d$r) / (d$p + d$q + d$r))
@@ -240,6 +278,10 @@ get_distances <- function(atttype) {
   }
   else if(atttype == "mixed") {
     distance_methods <- c("canberra", "gower", "jaccard")
+  }
+  else if(atttype == "custom") {
+    #distance_methods <- c("jaccard", "matching", "chebyshev")
+    distance_methods <- c("jaccard", "smc", "ss3")
   }
   else {
     stop(paste("Unavailable distances for the chosen types of the attributes: ",atttype))

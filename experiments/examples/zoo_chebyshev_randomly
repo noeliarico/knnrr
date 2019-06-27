@@ -1,0 +1,173 @@
+
+> set.seed(123)
+
+> out <- dknnfTrain(mini_zoo_train[,-13], mini_zoo_test[,-13], mini_zoo_train$type,
++                   k = 3, distance = "chebyshev", ties = "randoml ..." ... [TRUNCATED] 
+-> Train dknn k = 3, distance = chebyshev, ties = randomly
+nrow(train) = 18 and nrow(test) = 4 
+[1] "chebyshev"
+[1] "chebyshev distance..."
+
+Matrix of distances:
+   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
+19 1 1 1 1 1 1 1 1 1  1  1  1  1  1  1  1  1  1
+20 1 1 1 1 1 1 1 1 1  1  1  1  1  1  1  1  1  1
+21 1 1 1 1 1 1 1 1 1  0  0  1  1  1  1  1  1  1
+22 1 1 1 1 1 1 1 1 1  1  1  1  1  1  1  1  1  1
+
+Ranking for each instance:
+   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
+19 1 1 1 1 1 1 1 1 1  1  1  1  1  1  1  1  1  1
+20 1 1 1 1 1 1 1 1 1  1  1  1  1  1  1  1  1  1
+21 2 2 2 2 2 2 2 2 2  1  1  2  2  2  2  2  2  2
+22 1 1 1 1 1 1 1 1 1  1  1  1  1  1  1  1  1  1
+
+> predict_for_k(out$distances, out$cl, "randomly")
+--------> Predict_for_k function with ties = randomly and k = 3
+
+Choosing a label [method =  randomly , k =  3 ] for the instance with ranking: 
+         Fish         Bird Invertebrate         Fish         Bird         Bird 
+           1            1            1            1            1            1 
+Invertebrate         Fish Invertebrate         Bird         Bird Invertebrate 
+           1            1            1            1            1            1 
+        Fish         Bird         Fish         Bird         Fish         Bird 
+           1            1            1            1            1            1 
+Fish ~ Bird ~ Invertebrate ~ Fish ~ Bird ~ Bird ~ Invertebrate ~ Fish ~ Invertebrate ~ Bird ~ Bird ~ Invertebrate ~ Fish ~ Bird ~ Fish ~ Bird ~ Fish ~ Bird 
+
+--> Sure values:
+
+	None
+
+--> Tied values:
+        Fish         Bird Invertebrate         Fish         Bird         Bird 
+           1            1            1            1            1            1 
+Invertebrate         Fish Invertebrate         Bird         Bird Invertebrate 
+           1            1            1            1            1            1 
+        Fish         Bird         Fish         Bird         Fish         Bird 
+           1            1            1            1            1            1 
+
+Solving the ties... randomly
+
+--> Number of elements to select randomly: 3 
+
+--> Selected values:
+[1] Bird         Bird         Invertebrate
+Levels: Fish Bird Invertebrate
+
+--> Probabilities:
+times
+        Fish         Bird Invertebrate 
+   0.0000000    0.6666667    0.3333333 
+
+The label for this instance is: Bird 
+
+Choosing a label [method =  randomly , k =  3 ] for the instance with ranking: 
+         Fish         Bird Invertebrate         Fish         Bird         Bird 
+           1            1            1            1            1            1 
+Invertebrate         Fish Invertebrate         Bird         Bird Invertebrate 
+           1            1            1            1            1            1 
+        Fish         Bird         Fish         Bird         Fish         Bird 
+           1            1            1            1            1            1 
+Fish ~ Bird ~ Invertebrate ~ Fish ~ Bird ~ Bird ~ Invertebrate ~ Fish ~ Invertebrate ~ Bird ~ Bird ~ Invertebrate ~ Fish ~ Bird ~ Fish ~ Bird ~ Fish ~ Bird 
+
+--> Sure values:
+
+	None
+
+--> Tied values:
+        Fish         Bird Invertebrate         Fish         Bird         Bird 
+           1            1            1            1            1            1 
+Invertebrate         Fish Invertebrate         Bird         Bird Invertebrate 
+           1            1            1            1            1            1 
+        Fish         Bird         Fish         Bird         Fish         Bird 
+           1            1            1            1            1            1 
+
+Solving the ties... randomly
+
+--> Number of elements to select randomly: 3 
+
+--> Selected values:
+[1] Bird Bird Fish
+Levels: Fish Bird Invertebrate
+
+--> Probabilities:
+times
+        Fish         Bird Invertebrate 
+   0.3333333    0.6666667    0.0000000 
+
+The label for this instance is: Bird 
+
+Choosing a label [method =  randomly , k =  3 ] for the instance with ranking: 
+         Fish         Bird Invertebrate         Fish         Bird         Bird 
+           2            2            2            2            2            2 
+Invertebrate         Fish Invertebrate         Bird         Bird Invertebrate 
+           2            2            2            1            1            2 
+        Fish         Bird         Fish         Bird         Fish         Bird 
+           2            2            2            2            2            2 
+Bird ~ Bird > Fish ~ Bird ~ Invertebrate ~ Fish ~ Bird ~ Bird ~ Invertebrate ~ Fish ~ Invertebrate ~ Invertebrate ~ Fish ~ Bird ~ Fish ~ Bird ~ Fish ~ Bird 
+
+--> Sure values:
+Bird Bird 
+   1    1 
+
+--> Tied values:
+        Fish         Bird Invertebrate         Fish         Bird         Bird 
+           2            2            2            2            2            2 
+Invertebrate         Fish Invertebrate Invertebrate         Fish         Bird 
+           2            2            2            2            2            2 
+        Fish         Bird         Fish         Bird 
+           2            2            2            2 
+
+Solving the ties... randomly
+
+--> Number of elements to select randomly: 1 
+
+--> Selected values:
+[1] Bird         Bird         Invertebrate
+Levels: Fish Bird Invertebrate
+
+--> Probabilities:
+times
+        Fish         Bird Invertebrate 
+   0.0000000    0.6666667    0.3333333 
+
+The label for this instance is: Bird 
+
+Choosing a label [method =  randomly , k =  3 ] for the instance with ranking: 
+         Fish         Bird Invertebrate         Fish         Bird         Bird 
+           1            1            1            1            1            1 
+Invertebrate         Fish Invertebrate         Bird         Bird Invertebrate 
+           1            1            1            1            1            1 
+        Fish         Bird         Fish         Bird         Fish         Bird 
+           1            1            1            1            1            1 
+Fish ~ Bird ~ Invertebrate ~ Fish ~ Bird ~ Bird ~ Invertebrate ~ Fish ~ Invertebrate ~ Bird ~ Bird ~ Invertebrate ~ Fish ~ Bird ~ Fish ~ Bird ~ Fish ~ Bird 
+
+--> Sure values:
+
+	None
+
+--> Tied values:
+        Fish         Bird Invertebrate         Fish         Bird         Bird 
+           1            1            1            1            1            1 
+Invertebrate         Fish Invertebrate         Bird         Bird Invertebrate 
+           1            1            1            1            1            1 
+        Fish         Bird         Fish         Bird         Fish         Bird 
+           1            1            1            1            1            1 
+
+Solving the ties... randomly
+
+--> Number of elements to select randomly: 3 
+
+--> Selected values:
+[1] Fish Bird Fish
+Levels: Fish Bird Invertebrate
+
+--> Probabilities:
+times
+        Fish         Bird Invertebrate 
+   0.6666667    0.3333333    0.0000000 
+
+The label for this instance is: Fish 
+[1] "Bird" "Bird" "Bird" "Fish"
+
+> sink()

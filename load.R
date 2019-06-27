@@ -8,7 +8,7 @@ library(consensus)
 
 library(caret)
 library(cluster)
-library(dplyr)
+library(tidyverse)
 library(parallel)
 library(nnet)
 library(usedist)

@@ -74,7 +74,7 @@ display: none;
 padding: 0 4px 0 4px;
 }
 .pagedtable .even {
-background-color: #fcfcfc;
+background-color: rgba(140, 140, 140, 0.1);
 }
 .pagedtable-padding-col {
 display: none;
@@ -1478,7 +1478,7 @@ window.initializeCodeFolding = function(show) {
   var currentIndex = 1;
 
   // select all R code blocks
-  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan');
+  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia');
   rCodeBlocks.each(function() {
 
     // create a collapsable div to wrap the code in
@@ -1599,9 +1599,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -1625,6 +1623,9 @@ img {
 }
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -1654,12 +1655,71 @@ button.code-folding-btn:focus {
 </style>
 
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
@@ -1675,6 +1735,14 @@ $(document).ready(function () {
 </script>
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -1701,8 +1769,9 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGBcbmBgYCJ9 -->
-<p><code>r</code>r library(tidyverse)</p>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGBcbmBgYFxuYGBgIn0= -->
+<p><code>r</code>r</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -1712,15 +1781,15 @@ $(document).ready(function () {
 <p>If the value of similarity has range of -1 to +1 and the dissimilarity is measured with range 0 and 1 then:</p>
 <p><span class="math display">\[s_{ij} = 1 - 2d_{ij}\]</span></p>
 <p>because when the dissimilarity is one i.e. very different the similarity is minus one and when the dissimilarity is zero i.e. very similar the similarity is 1-</p>
-<div id="distance-for-binary-variables" class="section level1">
-<h1>Distance for binary variables</h1>
-<p>Given two vectors:</p>
+<div id="distance-for-binary-variables" class="section level2">
+<h2>Distance for binary variables</h2>
+<p>Given two binary vectors, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, of 0s and 1s:</p>
 <ul>
-<li>p = number of variables that are positive for both instances</li>
-<li>q = number of variables that are positive for the <span class="math inline">\(i_th\)</span> object and negative for the <span class="math inline">\(j_th\)</span> object</li>
-<li>r = number of variables that are negative for the <span class="math inline">\(i_th\)</span> object and positive for the <span class="math inline">\(j_th\)</span> object</li>
-<li>s = number of variables that are positive for both instances</li>
-<li><span class="math inline">\(t = p + q + r + s\)</span></li>
+<li>p = number of variables that are positive (1) for both instances</li>
+<li>q = number of variables that are positive (1) for the <span class="math inline">\(i_th\)</span> object and negative (0) for the <span class="math inline">\(j_th\)</span> object</li>
+<li>r = number of variables that are negative (0) for the <span class="math inline">\(i_th\)</span> object and positive (1) for the <span class="math inline">\(j_th\)</span> object</li>
+<li><p>s = number of variables that are positive (1) for both instances</p></li>
+<li><p><span class="math inline">\(t = p + q + r + s\)</span></p></li>
 </ul>
 <table>
 <thead>
@@ -1745,16 +1814,17 @@ $(document).ready(function () {
 </table>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaSA8LSBmYWN0b3IoYyhcInllc1wiLCBcIm5vXCIsIFwieWVzXCIsIFwibm9cIiwgXCJ5ZXNcIiksIGxldmVscyA9IGMoXCJ5ZXNcIiwgXCJub1wiKSlcbmogPC0gZmFjdG9yKGMoXCJub1wiLCBcInllc1wiLCBcIm5vXCIsIFwibm9cIiwgXCJ5ZXNcIiksIGxldmVscyA9IGMoXCJ5ZXNcIiwgXCJub1wiKSlcbmBgYCJ9 -->
-<pre class="r"><code>i &lt;- factor(c(&quot;yes&quot;, &quot;no&quot;, &quot;yes&quot;, &quot;no&quot;, &quot;yes&quot;), levels = c(&quot;yes&quot;, &quot;no&quot;))
-j &lt;- factor(c(&quot;no&quot;, &quot;yes&quot;, &quot;no&quot;, &quot;no&quot;, &quot;yes&quot;), levels = c(&quot;yes&quot;, &quot;no&quot;))</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuaSA8LSBmYWN0b3IoYyhcXHllc1xcLCBcXG5vXFwsIFxceWVzXFwsIFxcbm9cXCwgXFx5ZXNcXCksIGxldmVscyA9IGMoXFx5ZXNcXCwgXFxub1xcKSlcbmogPC0gZmFjdG9yKGMoXFxub1xcLCBcXHllc1xcLCBcXG5vXFwsIFxcbm9cXCwgXFx5ZXNcXCksIGxldmVscyA9IGMoXFx5ZXNcXCwgXFxub1xcKSlcbmBgYFxuYGBgIn0= -->
+<p><code>r</code>r i &lt;- factor(c(, , , , ), levels = c(, )) j &lt;- factor(c(, , , , ), levels = c(, ))</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUoaSwgailcbmBgYCJ9 -->
-<pre class="r"><code>table(i, j)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxudGFibGUoaSwgailcbmBgYFxuYGBgIn0= -->
+<p><code>r</code>r table(i, j)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiICAgICBqXG5pICAgICB5ZXMgbm9cbiAgeWVzICAgMSAgMlxuICBubyAgICAxICAxXG4ifQ== -->
 <pre><code>     j
@@ -1766,31 +1836,22 @@ i     yes no
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3JlYXRlVGFibGUgPC0gZnVuY3Rpb24oaSwgaikge1xuICB2dGFibGUgPC0gbGlzdCgpXG4gIHZ0YWJsZSR0YWJsZSA8LSB0YWJsZShpLCBqKVxuICB2dGFibGUkcCA8LSB2dGFibGUkdGFibGVbMSwgMV1cbiAgdnRhYmxlJHEgPC0gdnRhYmxlJHRhYmxlWzEsIDJdXG4gIHZ0YWJsZSRyIDwtIHZ0YWJsZSR0YWJsZVsyLCAxXVxuICB2dGFibGUkcyA8LSB2dGFibGUkdGFibGVbMiwgMl1cbiAgdnRhYmxlXG59XG5gYGAifQ== -->
-<pre class="r"><code>createTable &lt;- function(i, j) {
-  vtable &lt;- list()
-  vtable$table &lt;- table(i, j)
-  vtable$p &lt;- vtable$table[1, 1]
-  vtable$q &lt;- vtable$table[1, 2]
-  vtable$r &lt;- vtable$table[2, 1]
-  vtable$s &lt;- vtable$table[2, 2]
-  vtable
-}</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuY3JlYXRlVGFibGUgPC0gZnVuY3Rpb24oaSwgaikge1xuICB2dGFibGUgPC0gbGlzdCgpXG4gIHZ0YWJsZSR0YWJsZSA8LSB0YWJsZShpLCBqKVxuICB2dGFibGUkcCA8LSB2dGFibGUkdGFibGVbMSwgMV1cbiAgdnRhYmxlJHEgPC0gdnRhYmxlJHRhYmxlWzEsIDJdXG4gIHZ0YWJsZSRyIDwtIHZ0YWJsZSR0YWJsZVsyLCAxXVxuICB2dGFibGUkcyA8LSB2dGFibGUkdGFibGVbMiwgMl1cbiAgdnRhYmxlXG59XG5gYGBcbmBgYCJ9 -->
+<p><code>r</code>r createTable &lt;- function(i, j) { vtable &lt;- list() vtable<span class="math inline">\(table &lt;- table(i, j)  vtable\)</span>p &lt;- vtable<span class="math inline">\(table[1, 1]  vtable\)</span>q &lt;- vtable<span class="math inline">\(table[1, 2]  vtable\)</span>r &lt;- vtable<span class="math inline">\(table[2, 1]  vtable\)</span>s &lt;- vtable$table[2, 2] vtable }</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
 <div id="simple-matching-distance" class="section level2">
 <h2>Simple matching distance</h2>
 <p>Useful when both positive and negative values carry equal information. Counts the number of times that both are different (one positive and the other negative).</p>
 <p><span class="math display">\[d_{ij} = \frac{q+r}{p + q + r + s} = \frac{q+r}{t}\]</span></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2ltcGxlX21hdGNoaW5nX2Rpc3RhbmNlIDwtIGZ1bmN0aW9uKGksIGopIHtcbiAgZCA8LSBjcmVhdGVUYWJsZShpLCBqKVxuICB0IDwtIGQkcCArIGQkcSArIGQkciArIGQkc1xuICByZXR1cm4oKGQkcSArIGQkcikgLyB0KVxufVxuYGBgIn0= -->
-<pre class="r"><code>simple_matching_distance &lt;- function(i, j) {
-  d &lt;- createTable(i, j)
-  t &lt;- d$p + d$q + d$r + d$s
-  return((d$q + d$r) / t)
-}</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc2ltcGxlX21hdGNoaW5nX2Rpc3RhbmNlIDwtIGZ1bmN0aW9uKGksIGopIHtcbiAgZCA8LSBjcmVhdGVUYWJsZShpLCBqKVxuICB0IDwtIGQkcCArIGQkcSArIGQkciArIGQkc1xuICByZXR1cm4oKGQkcSArIGQkcikgLyB0KVxufVxuYGBgXG5gYGAifQ== -->
+<p><code>r</code>r simple_matching_distance &lt;- function(i, j) { d &lt;- createTable(i, j) t &lt;- d<span class="math inline">\(p + d\)</span>q + d<span class="math inline">\(r + d\)</span>s return((d<span class="math inline">\(q + d\)</span>r) / t) }</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1801,7 +1862,7 @@ i     yes no
 </div>
 <div id="hamming-distance" class="section level2">
 <h2>Hamming distance</h2>
-<p>Measures the leven of disagreement between two vectors. Count the number if digits in positions where they have a different digit. Distance is higher for values with bigger number of categories.</p>
+<p>Measures the level of disagreement between two vectors. Count the number of digits in positions where they have a different digit. Distance is higher for values with bigger number of categories.</p>
 <p><span class="math display">\[d_{ij} = q + r\]</span></p>
 </div>
 <div id="simple-matching-coefficient" class="section level2">
@@ -1812,7 +1873,6 @@ i     yes no
 <div id="jaccards-coefficient" class="section level2">
 <h2>Jaccard’s coefficient</h2>
 <p><span class="math display">\[d_{ij} = \frac{p}{p + q + r} = \frac{p}{p + q + r}\]</span></p>
-</div>
 </div>
 <div id="distance-for-nominal-variables" class="section level1">
 <h1>Distance for nominal variables</h1>
@@ -1849,10 +1909,33 @@ i     yes no
 </div>
 <div id="distance-for-quantitative-variables" class="section level1">
 <h1>Distance for quantitative variables</h1>
+</div>
+<div id="distance-function" class="section level1">
+<h1>Distance function</h1>
+<p>The native <code>dist</code> funtion in the <code>stats</code> package computes and returns the distance matrix computed by using the specified distance measure to compute the distances between the rows of a data matrix.</p>
+<p>The available distances are:</p>
+<ul>
+<li>euclidean:</li>
+</ul>
+<p><span class="math display">\[d(x,y) =\sqrt{\sum{(x_i - y_i)^2}}\]</span></p>
+<ul>
+<li>maximum:</li>
+<li>manhattan:</li>
+<li>canberra:</li>
+</ul>
+<p><span class="math display">\[\sum{\frac{(x_i - y_i)}{x_i + y_i}}\]</span></p>
+<ul>
+<li>binary:</li>
+</ul>
+<p>The distance is the proportion of bits in which only one is on amongst those in which at least one is on.</p>
+<ul>
+<li>minkowski:</li>
+</ul>
+<p>$$$$</p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRGlzdGFuY2VzIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmBgYAoKRm9yIHNpbWlsYXJpdHkgaW4gWzAsIDFdIHdoZW4gMSBpcyBleGFjdGx5IHNpbWlsYXIgdGhlIGRpc3NpbWlsYXJpdHkgaXMgemVybyB3aGVuIHRoZSBzaW1pbGFyaXR5IGlzIHplcm8sIGkuZS4gdmVyeSBkaWZmZXJlbnQsIHRoZSBkaXNzaW1pbGFyaXR5IGlzIG9uZS4KCiQkc197aWp9ID0gMSAtIGRfe2lqfSQkCgpJZiB0aGUgdmFsdWUgb2Ygc2ltaWxhcml0eSBoYXMgcmFuZ2Ugb2YgLTEgdG8gKzEgYW5kIHRoZSBkaXNzaW1pbGFyaXR5IGlzIG1lYXN1cmVkIHdpdGggcmFuZ2UgMCBhbmQgMSB0aGVuOgoKJCRzX3tpan0gPSAxIC0gMmRfe2lqfSQkCgpiZWNhdXNlIHdoZW4gdGhlIGRpc3NpbWlsYXJpdHkgaXMgb25lIGkuZS4gdmVyeSBkaWZmZXJlbnQgdGhlIHNpbWlsYXJpdHkgaXMgbWludXMgb25lIGFuZCB3aGVuIHRoZSBkaXNzaW1pbGFyaXR5IGlzIHplcm8gaS5lLiB2ZXJ5IHNpbWlsYXIgdGhlIHNpbWlsYXJpdHkgaXMgMS0KCgojIERpc3RhbmNlIGZvciBiaW5hcnkgdmFyaWFibGVzCgoKR2l2ZW4gdHdvIHZlY3RvcnM6CgoqIHAgPSBudW1iZXIgb2YgdmFyaWFibGVzIHRoYXQgYXJlIHBvc2l0aXZlIGZvciBib3RoIGluc3RhbmNlcwoqIHEgPSBudW1iZXIgb2YgdmFyaWFibGVzIHRoYXQgYXJlIHBvc2l0aXZlIGZvciB0aGUgJGlfdGgkIG9iamVjdCBhbmQgbmVnYXRpdmUgZm9yIHRoZSAkal90aCQgb2JqZWN0CiogciA9IG51bWJlciBvZiB2YXJpYWJsZXMgdGhhdCBhcmUgbmVnYXRpdmUgZm9yIHRoZSAkaV90aCQgb2JqZWN0IGFuZCBwb3NpdGl2ZSBmb3IgdGhlICRqX3RoJCBvYmplY3QKKiBzID0gbnVtYmVyIG9mIHZhcmlhYmxlcyB0aGF0IGFyZSBwb3NpdGl2ZSBmb3IgYm90aCBpbnN0YW5jZXMKKiAkdCA9IHAgKyBxICsgciArIHMkCgp8IGkgLyBqIHwgWWVzIHwgTm8gfAp8LS0tLS0tLXwtLS0tLXwtLS0tfAp8IFllcyAgIHwgcCAgIHwgcSAgfAp8IE5vICAgIHwgciAgIHwgcyAgfAoKYGBge3J9CmkgPC0gZmFjdG9yKGMoInllcyIsICJubyIsICJ5ZXMiLCAibm8iLCAieWVzIiksIGxldmVscyA9IGMoInllcyIsICJubyIpKQpqIDwtIGZhY3RvcihjKCJubyIsICJ5ZXMiLCAibm8iLCAibm8iLCAieWVzIiksIGxldmVscyA9IGMoInllcyIsICJubyIpKQpgYGAKCmBgYHtyfQp0YWJsZShpLCBqKQpgYGAKCmBgYHtyfQpjcmVhdGVUYWJsZSA8LSBmdW5jdGlvbihpLCBqKSB7CiAgdnRhYmxlIDwtIGxpc3QoKQogIHZ0YWJsZSR0YWJsZSA8LSB0YWJsZShpLCBqKQogIHZ0YWJsZSRwIDwtIHZ0YWJsZSR0YWJsZVsxLCAxXQogIHZ0YWJsZSRxIDwtIHZ0YWJsZSR0YWJsZVsxLCAyXQogIHZ0YWJsZSRyIDwtIHZ0YWJsZSR0YWJsZVsyLCAxXQogIHZ0YWJsZSRzIDwtIHZ0YWJsZSR0YWJsZVsyLCAyXQogIHZ0YWJsZQp9CmBgYAoKCiMjIFNpbXBsZSBtYXRjaGluZyBkaXN0YW5jZQoKVXNlZnVsIHdoZW4gYm90aCBwb3NpdGl2ZSBhbmQgbmVnYXRpdmUgdmFsdWVzIGNhcnJ5IGVxdWFsIGluZm9ybWF0aW9uLiBDb3VudHMgdGhlIG51bWJlciBvZiB0aW1lcyB0aGF0IGJvdGggYXJlIGRpZmZlcmVudCAob25lIHBvc2l0aXZlIGFuZCB0aGUgb3RoZXIgbmVnYXRpdmUpLgoKJCRkX3tpan0gPSBcZnJhY3txK3J9e3AgKyBxICsgciArIHN9ID0gXGZyYWN7cStyfXt0fSQkCgpgYGB7cn0Kc2ltcGxlX21hdGNoaW5nX2Rpc3RhbmNlIDwtIGZ1bmN0aW9uKGksIGopIHsKICBkIDwtIGNyZWF0ZVRhYmxlKGksIGopCiAgdCA8LSBkJHAgKyBkJHEgKyBkJHIgKyBkJHMKICByZXR1cm4oKGQkcSArIGQkcikgLyB0KQp9CmBgYAoKIyMgSmFjY2FyZCdzIGRpc3RhbmNlCgokJGRfe2lqfSA9IFxmcmFje3Ercn17cCArIHEgKyByfSQkCgojIyBIYW1taW5nIGRpc3RhbmNlCgpNZWFzdXJlcyB0aGUgbGV2ZW4gb2YgZGlzYWdyZWVtZW50IGJldHdlZW4gdHdvIHZlY3RvcnMuIENvdW50IHRoZSBudW1iZXIgaWYgZGlnaXRzIGluIHBvc2l0aW9ucyB3aGVyZSB0aGV5IGhhdmUgYSBkaWZmZXJlbnQgZGlnaXQuIERpc3RhbmNlIGlzIGhpZ2hlciBmb3IgdmFsdWVzIHdpdGggYmlnZ2VyIG51bWJlciBvZiBjYXRlZ29yaWVzLgoKJCRkX3tpan0gPSBxICsgciQkCgojIyBTaW1wbGUgbWF0Y2hpbmcgY29lZmZpY2llbnQKClVzZWZ1bCB3aGVuIGJvdGggcG9zaXRpdmUgYW5kIG5lZ2F0aXZlIHZhbHVlcyBjYXJyeSBlcXVhbCBpbmZvcm1hdGlvbi4gQ291bnRzIHRoZSBudW1iZXIgb2YgdGltZXMgdGhhdCBib3RoIGFyZSBlcXVhbHMgKGJvdGggcG9zaXRpdmUgb3IgYm90aCBuZWdhdGl2ZSkKCiQkZF97aWp9ID0gXGZyYWN7cCtzfXtwICsgcSArIHIgKyBzfSA9IFxmcmFje3Arc317dH0kJAoKIyMgSmFjY2FyZCdzIGNvZWZmaWNpZW50CgokJGRfe2lqfSA9IFxmcmFje3B9e3AgKyBxICsgcn0gPSBcZnJhY3twfXtwICsgcSArIHJ9JCQKCiMgRGlzdGFuY2UgZm9yIG5vbWluYWwgdmFyaWFibGVzCgoKIyBEaXN0YW5jZSBmb3Igb3JkaW5hbCB2YXJpYWJsZXMKCiMjIE5vcm1hbGl6ZWQgUmFuayBUcmFuc2Zvcm1hdGlvbgoKIyMgU3BlYXJtYW4gRGlzdGFuY2UKCiMjIEZvb3RydWxlIERpc3RhbmNlCgojIyBLZW5kYWxsIERpc3RhbmNlCgojIyBDYXlsZXkgRGlzdGFuY2UKCiMjIEhhbW1pbmcgRGlzdGFuY2UKCiMjIFVsYW0gRGlzdGFuY2UKCiMjIENoZWJ5c2hldi9NYXhpbXVtIGRpc3RhbmNlCgojIyBNaXNrb3dza2kgRGlzdGFuY2UKCgojIERpc3RhbmNlIGZvciBxdWFudGl0YXRpdmUgdmFyaWFibGVzCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiRGlzdGFuY2VzIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmBgYAoKRm9yIHNpbWlsYXJpdHkgaW4gWzAsIDFdIHdoZW4gMSBpcyBleGFjdGx5IHNpbWlsYXIgdGhlIGRpc3NpbWlsYXJpdHkgaXMgemVybyB3aGVuIHRoZSBzaW1pbGFyaXR5IGlzIHplcm8sIGkuZS4gdmVyeSBkaWZmZXJlbnQsIHRoZSBkaXNzaW1pbGFyaXR5IGlzIG9uZS4KCiQkc197aWp9ID0gMSAtIGRfe2lqfSQkCgpJZiB0aGUgdmFsdWUgb2Ygc2ltaWxhcml0eSBoYXMgcmFuZ2Ugb2YgLTEgdG8gKzEgYW5kIHRoZSBkaXNzaW1pbGFyaXR5IGlzIG1lYXN1cmVkIHdpdGggcmFuZ2UgMCBhbmQgMSB0aGVuOgoKJCRzX3tpan0gPSAxIC0gMmRfe2lqfSQkCgpiZWNhdXNlIHdoZW4gdGhlIGRpc3NpbWlsYXJpdHkgaXMgb25lIGkuZS4gdmVyeSBkaWZmZXJlbnQgdGhlIHNpbWlsYXJpdHkgaXMgbWludXMgb25lIGFuZCB3aGVuIHRoZSBkaXNzaW1pbGFyaXR5IGlzIHplcm8gaS5lLiB2ZXJ5IHNpbWlsYXIgdGhlIHNpbWlsYXJpdHkgaXMgMS0KCgojIyBEaXN0YW5jZSBmb3IgYmluYXJ5IHZhcmlhYmxlcwoKCkdpdmVuIHR3byBiaW5hcnkgdmVjdG9ycywgJHgkIGFuZCAkeSQsIG9mIDBzIGFuZCAxczoKCiogcCA9IG51bWJlciBvZiB2YXJpYWJsZXMgdGhhdCBhcmUgcG9zaXRpdmUgKDEpIGZvciBib3RoIGluc3RhbmNlcwoqIHEgPSBudW1iZXIgb2YgdmFyaWFibGVzIHRoYXQgYXJlIHBvc2l0aXZlICgxKSBmb3IgdGhlICRpX3RoJCBvYmplY3QgYW5kIG5lZ2F0aXZlICgwKSBmb3IgdGhlICRqX3RoJCBvYmplY3QKKiByID0gbnVtYmVyIG9mIHZhcmlhYmxlcyB0aGF0IGFyZSBuZWdhdGl2ZSAoMCkgZm9yIHRoZSAkaV90aCQgb2JqZWN0IGFuZCBwb3NpdGl2ZSAoMSkgZm9yIHRoZSAkal90aCQgb2JqZWN0CiogcyA9IG51bWJlciBvZiB2YXJpYWJsZXMgdGhhdCBhcmUgcG9zaXRpdmUgKDEpIGZvciBib3RoIGluc3RhbmNlcwoKKiAkdCA9IHAgKyBxICsgciArIHMkCgp8IGkgLyBqIHwgWWVzIHwgTm8gfAp8LS0tLS0tLXwtLS0tLXwtLS0tfAp8IFllcyAgIHwgcCAgIHwgcSAgfAp8IE5vICAgIHwgciAgIHwgcyAgfAoKYGBge3J9CmkgPC0gZmFjdG9yKGMoInllcyIsICJubyIsICJ5ZXMiLCAibm8iLCAieWVzIiksIGxldmVscyA9IGMoInllcyIsICJubyIpKQpqIDwtIGZhY3RvcihjKCJubyIsICJ5ZXMiLCAibm8iLCAibm8iLCAieWVzIiksIGxldmVscyA9IGMoInllcyIsICJubyIpKQpgYGAKCmBgYHtyfQp0YWJsZShpLCBqKQpgYGAKCmBgYHtyfQpjcmVhdGVUYWJsZSA8LSBmdW5jdGlvbihpLCBqKSB7CiAgdnRhYmxlIDwtIGxpc3QoKQogIHZ0YWJsZSR0YWJsZSA8LSB0YWJsZShpLCBqKQogIHZ0YWJsZSRwIDwtIHZ0YWJsZSR0YWJsZVsxLCAxXQogIHZ0YWJsZSRxIDwtIHZ0YWJsZSR0YWJsZVsxLCAyXQogIHZ0YWJsZSRyIDwtIHZ0YWJsZSR0YWJsZVsyLCAxXQogIHZ0YWJsZSRzIDwtIHZ0YWJsZSR0YWJsZVsyLCAyXQogIHZ0YWJsZQp9CmBgYAoKCiMjIFNpbXBsZSBtYXRjaGluZyBkaXN0YW5jZQoKVXNlZnVsIHdoZW4gYm90aCBwb3NpdGl2ZSBhbmQgbmVnYXRpdmUgdmFsdWVzIGNhcnJ5IGVxdWFsIGluZm9ybWF0aW9uLiBDb3VudHMgdGhlIG51bWJlciBvZiB0aW1lcyB0aGF0IGJvdGggYXJlIGRpZmZlcmVudCAob25lIHBvc2l0aXZlIGFuZCB0aGUgb3RoZXIgbmVnYXRpdmUpLgoKJCRkX3tpan0gPSBcZnJhY3txK3J9e3AgKyBxICsgciArIHN9ID0gXGZyYWN7cStyfXt0fSQkCgpgYGB7cn0Kc2ltcGxlX21hdGNoaW5nX2Rpc3RhbmNlIDwtIGZ1bmN0aW9uKGksIGopIHsKICBkIDwtIGNyZWF0ZVRhYmxlKGksIGopCiAgdCA8LSBkJHAgKyBkJHEgKyBkJHIgKyBkJHMKICByZXR1cm4oKGQkcSArIGQkcikgLyB0KQp9CmBgYAoKIyMgSmFjY2FyZCdzIGRpc3RhbmNlCgokJGRfe2lqfSA9IFxmcmFje3Ercn17cCArIHEgKyByfSQkCgojIyBIYW1taW5nIGRpc3RhbmNlCgpNZWFzdXJlcyB0aGUgbGV2ZWwgb2YgZGlzYWdyZWVtZW50IGJldHdlZW4gdHdvIHZlY3RvcnMuIENvdW50IHRoZSBudW1iZXIgb2YgZGlnaXRzIGluIHBvc2l0aW9ucyB3aGVyZSB0aGV5IGhhdmUgYSBkaWZmZXJlbnQgZGlnaXQuIERpc3RhbmNlIGlzIGhpZ2hlciBmb3IgdmFsdWVzIHdpdGggYmlnZ2VyIG51bWJlciBvZiBjYXRlZ29yaWVzLgoKJCRkX3tpan0gPSBxICsgciQkCgojIyBTaW1wbGUgbWF0Y2hpbmcgY29lZmZpY2llbnQKClVzZWZ1bCB3aGVuIGJvdGggcG9zaXRpdmUgYW5kIG5lZ2F0aXZlIHZhbHVlcyBjYXJyeSBlcXVhbCBpbmZvcm1hdGlvbi4gQ291bnRzIHRoZSBudW1iZXIgb2YgdGltZXMgdGhhdCBib3RoIGFyZSBlcXVhbHMgKGJvdGggcG9zaXRpdmUgb3IgYm90aCBuZWdhdGl2ZSkKCiQkZF97aWp9ID0gXGZyYWN7cCtzfXtwICsgcSArIHIgKyBzfSA9IFxmcmFje3Arc317dH0kJAoKIyMgSmFjY2FyZCdzIGNvZWZmaWNpZW50CgokJGRfe2lqfSA9IFxmcmFje3B9e3AgKyBxICsgcn0gPSBcZnJhY3twfXtwICsgcSArIHJ9JCQKCiMgRGlzdGFuY2UgZm9yIG5vbWluYWwgdmFyaWFibGVzCgoKIyBEaXN0YW5jZSBmb3Igb3JkaW5hbCB2YXJpYWJsZXMKCiMjIE5vcm1hbGl6ZWQgUmFuayBUcmFuc2Zvcm1hdGlvbgoKIyMgU3BlYXJtYW4gRGlzdGFuY2UKCiMjIEZvb3RydWxlIERpc3RhbmNlCgojIyBLZW5kYWxsIERpc3RhbmNlCgojIyBDYXlsZXkgRGlzdGFuY2UKCiMjIEhhbW1pbmcgRGlzdGFuY2UKCiMjIFVsYW0gRGlzdGFuY2UKCiMjIENoZWJ5c2hldi9NYXhpbXVtIGRpc3RhbmNlCgojIyBNaXNrb3dza2kgRGlzdGFuY2UKCgojIERpc3RhbmNlIGZvciBxdWFudGl0YXRpdmUgdmFyaWFibGVzCgoKIyBEaXN0YW5jZSBmdW5jdGlvbgoKVGhlIG5hdGl2ZSBgZGlzdGAgZnVudGlvbiBpbiB0aGUgYHN0YXRzYCBwYWNrYWdlIGNvbXB1dGVzIGFuZCByZXR1cm5zIHRoZSBkaXN0YW5jZSBtYXRyaXggY29tcHV0ZWQgYnkgdXNpbmcgdGhlIHNwZWNpZmllZCBkaXN0YW5jZSBtZWFzdXJlIHRvIGNvbXB1dGUgdGhlIGRpc3RhbmNlcyBiZXR3ZWVuIHRoZSByb3dzIG9mIGEgZGF0YSBtYXRyaXguCgpUaGUgYXZhaWxhYmxlIGRpc3RhbmNlcyBhcmU6CgoqIGV1Y2xpZGVhbjoKCiQkZCh4LHkpID1cc3FydHtcc3Vteyh4X2kgLSB5X2kpXjJ9fSQkCgoqIG1heGltdW06CiogbWFuaGF0dGFuOgoqIGNhbmJlcnJhOgoKJCRcc3Vte1xmcmFjeyh4X2kgLSB5X2kpfXt4X2kgKyB5X2l9fSQkCgoqIGJpbmFyeToKClRoZSBkaXN0YW5jZSBpcyB0aGUgcHJvcG9ydGlvbiBvZiBiaXRzIGluIHdoaWNoIG9ubHkgb25lIGlzIG9uIGFtb25nc3QgdGhvc2UgaW4gd2hpY2ggYXQgbGVhc3Qgb25lIGlzIG9uLgoKKiBtaW5rb3dza2k6CgokJCQkCgoK</div>
 
 
 

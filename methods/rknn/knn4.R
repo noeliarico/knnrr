@@ -307,7 +307,7 @@ knn4Train <- function(train,
   
   # distances that will be used to create the ranking 
   #distance_methods <- c("manhattan", "euclidean", "maximum")
-  distance_methods <- get_distances("categorical")
+  distance_methods <- get_distances(atttype)
   
   # rows of the training set and rows of the test set
   rows_train <- nrow(train)

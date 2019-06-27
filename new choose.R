@@ -1,6 +1,6 @@
 chooseBest <- function(ranking, method, k, developer = FALSE) {
   
-  developer = TRUE
+  #developer = TRUE
   
   # All the options look for generating the vector(table) 
   # probabilities. This table will store the probability of 
@@ -11,7 +11,7 @@ chooseBest <- function(ranking, method, k, developer = FALSE) {
   # they are from the instance that it's being studied
   
   if(!(method %in% c("randomly", 
-                     "threshold")
+                     "tthreshold")
   )) {
     stop(paste("Don't know how to break ties using", method))
   }
@@ -29,8 +29,6 @@ chooseBest <- function(ranking, method, k, developer = FALSE) {
   
   if(method == "tthreshold") { # k as threshold
     times <- ranking[ranking < k]
-    print("Times")
-    print(times)
     times <- factor(times, levels = unique(names(ranking)))
     probabilities <- prop.table(table(names(times)))
     if(developer) {
@@ -129,6 +127,7 @@ chooseBest <- function(ranking, method, k, developer = FALSE) {
   label <- names(probabilities)[which.is.max(probabilities)]
   
   if (developer) {
+    cat('\n--> Probabilities:\n')
     print(probabilities)
     cat('\nThe label for this instance is: ')
     cat(label, '\n')

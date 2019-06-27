@@ -3,15 +3,15 @@ fitControl <- trainControl(method = "cv", 2,
                            summaryFunction = multiClassSummary)
 
 dgrid <-  expand.grid(k = c(1,2,3,5,7),
-                      distance = c(get_distances("categorical"), "jaccard_add", "jaccard_avg"),
-                      ties = c("randomly", "tthreshold"),
+                      distance = c("jaccard", "smc", "ss3"),
+                      ties = c("randomly"),#, "tthreshold"),
                       verbose = FALSE,
                       developer = FALSE)
 
 rgrid <-  expand.grid(k = c(1,2,3,5,7),
                       rr = c("plurality", "borda_count", "two", "three"),
-                      ties = c("randomly", "tthreshold"),
-                      atttype = "categorical",
+                      ties = c("randomly"),#, "tthreshold"),
+                      atttype = "custom",
                       developer = FALSE)
 
 # breast_cancer -----------------------------------------------------------
@@ -95,14 +95,16 @@ fit_mini_tic_tac_toe <- train(x =  mini_tic_tac_toe[,-10],
       y = mini_tic_tac_toe[,10],
       data = mini_tic_tac_toe,
       method = dknn,
-      trControl = fitControl)
+      trControl = fitControl,
+      tuneGrid = dgrid)
 
 set.seed(123)
 fit_mini_tic_tac_toe_r <- train(x =  mini_tic_tac_toe[,-10],
                               y = mini_tic_tac_toe[,10],
                               data = mini_tic_tac_toe,
                               method = rknn,
-                              trControl = fitControl)
+                              trControl = fitControl,
+                              tuneGrid = rgrid)
 
 
 # Save objects ------------------------------------------------------------

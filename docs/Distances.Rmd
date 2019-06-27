@@ -18,15 +18,16 @@ $$s_{ij} = 1 - 2d_{ij}$$
 because when the dissimilarity is one i.e. very different the similarity is minus one and when the dissimilarity is zero i.e. very similar the similarity is 1-
 
 
-# Distance for binary variables
+## Distance for binary variables
 
 
-Given two vectors:
+Given two binary vectors, $x$ and $y$, of 0s and 1s:
 
-* p = number of variables that are positive for both instances
-* q = number of variables that are positive for the $i_th$ object and negative for the $j_th$ object
-* r = number of variables that are negative for the $i_th$ object and positive for the $j_th$ object
-* s = number of variables that are positive for both instances
+* p = number of variables that are positive (1) for both instances
+* q = number of variables that are positive (1) for the $i_th$ object and negative (0) for the $j_th$ object
+* r = number of variables that are negative (0) for the $i_th$ object and positive (1) for the $j_th$ object
+* s = number of variables that are positive (1) for both instances
+
 * $t = p + q + r + s$
 
 | i / j | Yes | No |
@@ -70,13 +71,14 @@ simple_matching_distance <- function(i, j) {
 }
 ```
 
+
 ## Jaccard's distance
 
 $$d_{ij} = \frac{q+r}{p + q + r}$$
 
 ## Hamming distance
 
-Measures the leven of disagreement between two vectors. Count the number if digits in positions where they have a different digit. Distance is higher for values with bigger number of categories.
+Measures the level of disagreement between two vectors. Count the number of digits in positions where they have a different digit. Distance is higher for values with bigger number of categories.
 
 $$d_{ij} = q + r$$
 
@@ -115,4 +117,30 @@ $$d_{ij} = \frac{p}{p + q + r} = \frac{p}{p + q + r}$$
 
 
 # Distance for quantitative variables
+
+
+# Distance function
+
+The native `dist` funtion in the `stats` package computes and returns the distance matrix computed by using the specified distance measure to compute the distances between the rows of a data matrix.
+
+The available distances are:
+
+* euclidean:
+
+$$d(x,y) =\sqrt{\sum{(x_i - y_i)^2}}$$
+
+* maximum:
+* manhattan:
+* canberra:
+
+$$\sum{\frac{(x_i - y_i)}{x_i + y_i}}$$
+
+* binary:
+
+The distance is the proportion of bits in which only one is on amongst those in which at least one is on.
+
+* minkowski:
+
+$$$$
+
 

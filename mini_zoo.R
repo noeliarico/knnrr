@@ -23,6 +23,34 @@ rm(indexes)
 sink("zoo_jaccard_randomly")
 set.seed(123)
 out <- dknnfTrain(mini_zoo_train[,-13], mini_zoo_test[,-13], mini_zoo_train$type,
+                  k = 3, distance = "jaccard", ties = "randomly", developer = TRUE)
+predict_for_k(out$distances, out$cl, "randomly")
+sink()
+
+sink("zoo_matching_randomly")
+set.seed(123)
+out <- dknnfTrain(mini_zoo_train[,-13], mini_zoo_test[,-13], mini_zoo_train$type,
+                  k = 3, distance = "matching", ties = "randomly", developer = TRUE)
+predict_for_k(out$distances, out$cl, "randomly")
+sink()
+
+sink("zoo_nominal_randomly")
+set.seed(123)
+out <- dknnfTrain(mini_zoo_train[,-13], mini_zoo_test[,-13], mini_zoo_train$type,
+                  k = 3, distance = "nominal_avg", ties = "randomly", developer = TRUE)
+predict_for_k(out$distances, out$cl, "randomly")
+sink()
+
+sink("zoo_chebyshev_randomly")
+set.seed(123)
+out <- dknnfTrain(mini_zoo_train[,-13], mini_zoo_test[,-13], mini_zoo_train$type,
                   k = 3, distance = "chebyshev", ties = "randomly", developer = TRUE)
 predict_for_k(out$distances, out$cl, "randomly")
-sink.reset()
+sink()
+
+set.seed(123)
+out <- knn4Train(mini_zoo_train[,-13], mini_zoo_test[,-13], mini_zoo_train$type,
+                  k = 3, rr = "borda_count", atttype = "custom", 
+                  ties = "randomly", developer = TRUE)
+predict_using_por(out, k = 3, ties = "randomly")
+
