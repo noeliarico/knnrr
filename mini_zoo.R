@@ -1,4 +1,5 @@
-mini_zoo <- zoo %>% filter(type == 4 | type == 2 | type == 7) %>% 
+mini_zoo <- zoo %>% mutate(type = factor(zoo$type, levels = 1:7, labels = c("Mammal", "Bird", "Reptile", "Fish", "Amphibian", "Bug", "Invertebrate")))
+mini_zoo <- mini_zoo %>% filter(type == "Fish" | type == "Bird" | type == "Invertebrate") %>% 
   #mutate_all(.funs=list(~as.numeric(.)))  %>% 
   #select_if(function(col) length(unique(col)) > 1)
   select(-one_of("legs")) %>%
@@ -22,6 +23,6 @@ rm(indexes)
 sink("zoo_jaccard_randomly")
 set.seed(123)
 out <- dknnfTrain(mini_zoo_train[,-13], mini_zoo_test[,-13], mini_zoo_train$type,
-                  k = 3, distance = "jaccard", ties = "randomly", developer = TRUE)
+                  k = 3, distance = "chebyshev", ties = "randomly", developer = TRUE)
 predict_for_k(out$distances, out$cl, "randomly")
 sink.reset()

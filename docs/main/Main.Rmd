@@ -147,7 +147,7 @@ setosa setosa setosa
 
 The label for this instance is: setosa 
 
-Predict... Choosing a label [method =  randomly , k =  3 ] for the instance with ranking: 
+Predict... Choosing a label [method =  randomly , k =  3 ] for the instance X8: 
      
 setosa     setosa     setosa versicolor versicolor versicolor  virginica  virginica  virginica 
 8          7          9          4          2          1          5          6          3 
@@ -164,7 +164,7 @@ versicolor versicolor virginica
 
 The label for this instance is: versicolor 
 
-Predict... Choosing a label [method =  randomly , k =  3 ] for the instance with ranking: 
+Predict... Choosing a label [method =  randomly , k =  3 ] for the instance X12: 
 
 setosa     setosa     setosa versicolor versicolor versicolor  virginica  virginica  virginica 
 8          7          9          2          4          5          3          6          1 

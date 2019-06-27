@@ -45,6 +45,10 @@ compute_distances <- function(data, distance, verbose = FALSE) {
     }
     return(as.matrix(dist(data, method = "minkowski", p = p)))
   }
+  else if(distance == "binary") {
+    if(verbose) print("binary distance...")
+    return(as.matrix(dist(data, method = "binary")))
+  }
   else if(distance == "nominal_add") {
     if(verbose) print("nominal_add distance...")
     return(as.matrix(nominal_distances_add(data)))
