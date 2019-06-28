@@ -1,16 +1,4 @@
-fitControl <- trainControl(method = "cv", 2,
-                           summaryFunction = multiClassSummary)
 
-dgrid <-  expand.grid(k = c(1,2,3,5,7),
-                      distance = get_distances("categorical"),
-                      ties = c("randomly", "ttreshold"),
-                      verbose = FALSE,
-                      developer = FALSE)
-
-rgrid <-  expand.grid(k = c(1,2,3,5,7),
-                      atttype = "categorical",
-                      developer = FALSE,
-                      verbose = FALSE)
 
 # balance_dataset ---------------------------------------------------------
 

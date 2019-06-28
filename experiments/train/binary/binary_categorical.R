@@ -1,18 +1,4 @@
 # binary_categorical
-fitControl <- trainControl(method = "cv", 2,
-                           summaryFunction = multiClassSummary)
-
-dgrid <-  expand.grid(k = c(1,2,3,5,7),
-                      distance = c("jaccard", "smc", "ss3"),
-                      ties = c("randomly"),#, "tthreshold"),
-                      verbose = FALSE,
-                      developer = FALSE)
-
-rgrid <-  expand.grid(k = c(1,2,3,5,7),
-                      rr = c("plurality", "borda_count", "two", "three"),
-                      ties = c("randomly"),#, "tthreshold"),
-                      atttype = "custom",
-                      developer = FALSE)
 
 # breast_cancer -----------------------------------------------------------
 
@@ -24,7 +10,19 @@ fit_breast_cancer_d <- train(
    data = breast_cancer,
    method = dknn,
    trControl = fitControl,
-   tuneGrid = dgrid
+   tuneGrid = dgrid_cat
+)
+
+set.seed(123)
+b <- as.data.frame(model.matrix(~., breast_cancer)[,-1])
+b[,1] <- factor(b[,1])
+fit_breast_cancer_b <- train(
+   x =  b[, -1],
+   y = b[, 1],
+   data = b,
+   method = dknn,
+   trControl = fitControl,
+   tuneGrid = dgrid_num
 )
 
 set.seed(123)
@@ -51,7 +49,7 @@ fit_mini_cars_d <- train(
    data = mini_cars,
    method = dknn,
    trControl = fitControl,
-   tuneGrid = dgrid
+   tuneGrid = dgrid_cat
 )
 
 set.seed(123)
@@ -71,7 +69,7 @@ fit_somerville_d <- train(
    data = somerville,
    method = dknn,
    trControl = fitControl,
-   tuneGrid = dgrid
+   tuneGrid = dgrid_cat
 )
 
 set.seed(123)
@@ -96,7 +94,7 @@ fit_mini_tic_tac_toe <- train(x =  mini_tic_tac_toe[,-10],
       data = mini_tic_tac_toe,
       method = dknn,
       trControl = fitControl,
-      tuneGrid = dgrid)
+      tuneGrid = dgrid_cat)
 
 set.seed(123)
 fit_mini_tic_tac_toe_r <- train(x =  mini_tic_tac_toe[,-10],

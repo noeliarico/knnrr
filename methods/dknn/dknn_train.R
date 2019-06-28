@@ -277,7 +277,8 @@ dknnfTrain <- function(train,
                       use.all=TRUE) {
   
   #if(verbose) {
-    cat('-> Train dknn k = ', k, ', distance = ', distance, ', ties = ', ties, '\n', sep = "")
+    cat('-> Train dknn k = ', k, ', distance = ', as.character(distance), 
+        ', ties = ', as.character(ties), '\n', sep = "")
   #}
 
   #train <- as.matrix(train)
@@ -348,7 +349,7 @@ dknnfTrain <- function(train,
 
 predict_for_k <- function (distances, cl, ties, k = 3)
 {
-  cat("--------> Predict_for_k function with ties = ", as.character(ties), " and k = ", k, "\n", sep = "")
+  cat("--------> Predict: ties = ", as.character(ties), " and k = ", k, "\n", sep = "")
   # the labels vector will store the output of all the  
   labels <- rep(0, nrow(distances))
   # for each row in the matrix with the rankings

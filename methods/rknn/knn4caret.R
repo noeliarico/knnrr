@@ -81,17 +81,6 @@ rknn <- list(
     out
   },
   fit = function(x, y, wts, param, lev, last, classProbs, ...) {
-    cat("---------------------------------------------------\n")
-    cat("|| fit || -----------------------------------------\n")
-    cat("---------------------------------------------------\n")
-    
-    cat("\n")
-    cat("rr = ", param$rr)
-    #cat(", k = ", param$k)
-    cat(", ties = ", param$ties)
-    cat(", atttype = ", param$atttype)
-    cat(", developer = ", param$developer)
-    cat("\n")
     
     
     
@@ -131,9 +120,7 @@ rknn <- list(
                      newdata,
                      preProc = NULL,
                      submodels = NULL) {
-    cat("---- || predict = || ------------------------------\n")
-    cat("---------------------------------------------------\n")
-    
+   
     #cat("--> Predict --> Model fit\n")
     #print(modelFit)
     # modelFit es un objeto de tipo knn4 que tiene
@@ -145,8 +132,9 @@ rknn <- list(
     
     if (modelFit$problemType == "Classification")
     {
-      cat("--> Predict --> k = ", modelFit$k, " ranking rule = ", modelFit$rr,
-        " atttype = ", modelFit$atttype, "\n"
+      cat("--> Create profile of rankings --> k = ", modelFit$k, 
+          " ranking rule = ", as.character(modelFit$rr),
+          " atttype = ", as.character(modelFit$atttype), "\n"
       )
       
       argList <- list(
@@ -161,28 +149,13 @@ rknn <- list(
       
       por <- do.call("knn4Train",
                      argList)
-      
-      #cat("--> Predict --> Los rankings obtenidos para cada una de las instancias son: \n")
-      #print(por)
-      
+
       model_k <- modelFit$k
       model_rr <- modelFit$rr
       
       modelFit$por <- por
       
-      
-      cat("Ties:", modelFit$ties)
-      
-      
-      # out <- predict.knn4(
-      #   modelFit,
-      #   newdata,
-      #   type = "class",
-      #   k = model_k,
-      #   rr = model_r,
-      #   atttype = modelFit$atttype,
-      #   developer = modelFit$developer
-      # )
+
       
       out <- predict_using_por(por, modelFit$ties, modelFit$k)
       
@@ -193,17 +166,8 @@ rknn <- list(
         out[[1]] <- tmp
         
         for (j in seq(along = submodels$k)) {
-          cat("--> Predict --> k = ",
-              submodels$k[j],
-              " ranking rule = ",
-              submodels$rr[j],
-              "\n")
-          cat("Predict for k = ", submodels$k[j])
-          # out[[j + 1]] <- predict.knn4(modelFit,
-          #                              newdata,
-          #                              type = "class",
-          #                              k = submodels$k[j])
-          out[[j + 1]] <- predict_using_por(por, modelFit$ties, submodels$k[j])
+
+          out[[j + 1]] <- predict_using_por(por, submodels$ties[j], submodels$k[j])
           
         }
       } else {

@@ -11,7 +11,7 @@ chooseBest <- function(ranking, method, k, developer = FALSE) {
   # they are from the instance that it's being studied
   
   if(!(method %in% c("randomly", 
-                     "tthreshold")
+                     "threshold")
   )) {
     stop(paste("Don't know how to break ties using", method))
   }
@@ -27,10 +27,11 @@ chooseBest <- function(ranking, method, k, developer = FALSE) {
   # k nearest neighbors we will consider the neighbors that
   # are ranked in a position lower than k
   
-  if(method == "tthreshold") { # k as threshold
-    times <- ranking[ranking < k]
-    times <- factor(times, levels = unique(names(ranking)))
-    probabilities <- prop.table(table(names(times)))
+  if(method == "threshold") { # k as threshold
+    #developer = TRUE
+    times <- ranking[ranking <= k]
+    times <- factor(names(times), levels = unique(names(ranking)))
+    probabilities <- prop.table(table(times))
     if(developer) {
       cat('\n', length(times), 'selected instances with pos < k:\n')
       print(times)

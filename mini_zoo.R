@@ -54,3 +54,16 @@ out <- knn4Train(mini_zoo_train[,-13], mini_zoo_test[,-13], mini_zoo_train$type,
                   ties = "randomly", developer = TRUE)
 predict_using_por(out, k = 3, ties = "randomly")
 
+sink("zoo_jaccard_threshold")
+set.seed(123)
+out <- dknnfTrain(mini_zoo_train[,-13], mini_zoo_test[,-13], mini_zoo_train$type,
+                  k = 4, distance = "jaccard", ties = "threshold", developer = TRUE)
+predict_for_k(out$distances, out$cl, "threshold", k = 4)
+sink()
+
+
+set.seed(123)
+out <- knn4Train(mini_zoo_train[,-13], mini_zoo_test[,-13], mini_zoo_train$type,
+                 k = 3, rr = "borda_count", atttype = "custom", 
+                 ties = "threshold", developer = TRUE)
+predict_using_por(out, k = 3, ties = "threshold")
