@@ -34,11 +34,20 @@ out <- dknnfTrain(mini_zoo_train[,-13], mini_zoo_test[,-13], mini_zoo_train$type
 predict_for_k(out$distances, out$cl, "randomly")
 sink()
 
-sink("zoo_nominal_randomly")
+sink("zoo_nominal_randomly_avg")
 set.seed(123)
 out <- dknnfTrain(mini_zoo_train[,-13], mini_zoo_test[,-13], mini_zoo_train$type,
                   k = 3, distance = "nominal_avg", ties = "randomly", developer = TRUE)
 predict_for_k(out$distances, out$cl, "randomly")
+
+sink()
+
+sink("zoo_nominal_randomly_add")
+set.seed(123)
+out <- dknnfTrain(mini_zoo_train[,-13], mini_zoo_test[,-13], mini_zoo_train$type,
+                  k = 3, distance = "nominal_add", ties = "randomly", developer = TRUE)
+predict_for_k(out$distances, out$cl, "randomly")
+
 sink()
 
 sink("zoo_chebyshev_randomly")

@@ -1,6 +1,6 @@
 chooseBest <- function(ranking, method, k, developer = FALSE) {
   
-  #developer = TRUE
+  # developer = TRUE
   
   # All the options look for generating the vector(table) 
   # probabilities. This table will store the probability of 
@@ -10,9 +10,8 @@ chooseBest <- function(ranking, method, k, developer = FALSE) {
   # all the other instances and their labels ordered by how far
   # they are from the instance that it's being studied
   
-  if(!(method %in% c("randomly", 
-                     "threshold")
-  )) {
+  if(!(method %in% c("randomly","threshold"))) {
+    print("eval")
     stop(paste("Don't know how to break ties using", method))
   }
   
@@ -92,7 +91,8 @@ chooseBest <- function(ranking, method, k, developer = FALSE) {
           cat(n_elem_needed, '\n')
         }
         
-        itied <- sample(1:length(tied), n_elem_needed)
+        #itied <- sample(1:length(tied), n_elem_needed)
+        itied <- 1:n_elem_needed # not random version of the previous line
         tied <- tied[itied]
         times <- c(sure, tied)
         times <- factor(names(times), levels = unique(names(ranking)))
@@ -125,7 +125,8 @@ chooseBest <- function(ranking, method, k, developer = FALSE) {
   }
   
   # which is max choses randomly between the labels with the highest probability
-  label <- names(probabilities)[which.is.max(probabilities)]
+  # label <- names(probabilities)[which.is.max(probabilities)]
+  label <-  names(probabilities)[which(probabilities == max(probabilities))[1]]
   
   if (developer) {
     cat('\n--> Probabilities:\n')

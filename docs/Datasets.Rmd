@@ -223,6 +223,11 @@ Missing Attribute Values:
 plot_dist_cols(mammograpic_masses)
 ```
 
+#####  Vertebral column 2 {#Vertebral-column-2
+
+
+##### Weight, height, gender ´#Weight-height-gender}
+      
 #### 10 or more attributes
 
 ##### Travel insurance {#Travel-insurance}

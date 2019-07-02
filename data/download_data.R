@@ -78,6 +78,13 @@ download.file(URL, destfile = file.path("data", "multiclass", "numerical",
                                         "lessthan10", "ecoli.csv"))
 
 
+# Flags -------------------------------------------------------------------
+
+# https://archive.ics.uci.edu/ml/datasets/Flags
+URL <- "https://archive.ics.uci.edu/ml/machine-learning-databases/flags/flag.data"
+download.file(URL, destfile = file.path("data", "multiclass", "mixed", 
+                                        "10ormore", "flags.csv"))
+
 # Haberman's Survival -----------------------------------------------------
 
 # http://archive.ics.uci.edu/ml/datasets/Haberman%27s+Survival
@@ -179,6 +186,14 @@ download.file(URL, destfile = file.path("data", "multiclass", "categorical",
                                         "10ormore", "soybean_large.csv"))
 
 
+
+# Statlog (heart) ---------------------------------------------------------
+
+# https://archive.ics.uci.edu/ml/datasets/Statlog+%28Heart%29
+
+URL <- "https://archive.ics.uci.edu/ml/machine-learning-databases/statlog/heart/heart.dat"
+download.file(URL, destfile = file.path("data", "binary", "mixed", 
+                                        "10ormore", "statlog.csv"))
 
 # Tic-tac-toe -------------------------------------------------------------
 

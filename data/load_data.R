@@ -104,6 +104,11 @@ ecoli <- read_table(file.path(path_to_data, "data/multiclass/numerical/lessthan1
   mutate(sequence = NULL)
 
 
+
+# Flags -------------------------------------------------------------------
+
+# https://archive.ics.uci.edu/ml/datasets/Flags
+
 # Haberman's Survival -----------------------------------------------------
 
 haberman <- read_csv(file.path(path_to_data, "data/binary/numerical/lessthan10/haberman.csv"),
@@ -316,6 +321,41 @@ soybean_large <- read_csv(file.path(path_to_data, "data/multiclass/categorical/1
   select_if(function(col) length(unique(col)) > 1)
 
 
+# Statlog (heart) ---------------------------------------------------------
+
+statlog <-
+  read_delim(
+    file.path(path_to_data, "data/binary/mixed/10ormore/statlog.csv"),
+    delim = " ",
+    col_names =
+      c(
+        "age",
+        "sex",
+        "chest_pain_type",
+        "resting_blood_pressure",
+        "serum_cholestoral",
+        "fasting_blood_sugar",
+        "resting_electrocardiographic_results",
+        "maximum_heart_rate_achieved",
+        "exercise_induced_angina",
+        "oldpeak",
+        "slope",
+        "major_vessels",
+        "thal",
+        "class"
+      ),
+    col_types = cols(.default = col_double(),
+                     sex = col_factor(NULL),
+                     chest_pain_type = col_factor(NULL),
+                     slope = col_factor(NULL),
+                     fasting_blood_sugar = col_factor(NULL),
+                     exercise_induced_angina = col_factor(NULL),
+                     resting_electrocardiographic_results = col_factor(NULL),
+                     thal = col_factor(NULL),
+                     major_vessels = col_factor(NULL),
+                     class = col_factor(NULL)
+                     )
+  )
 
                         
 # Tic-tac-toe -------------------------------------------------------------
@@ -357,6 +397,12 @@ travel_insurance <- read_csv(file.path(path_to_data, "data/binary/mixed/10ormore
                              skip = 1) %>% drop_na
 
 
+
+# Vertebral column --------------------------------------------------------
+
+vertebral_colum2 <- read.arff(file.path(path_to_data, "data/binary/numerical/lessthan10/vetebral_column_2.arff"))
+vertebral_colum3 <- read.arff(file.path(path_to_data, "data/multiclass/numerical/lessthan10/vertebral_column_3.arff"))
+
 # Wireless Indoor Localization --------------------------------------------
 
 wifi_localization <- read_tsv(file.path(path_to_data, "data/multiclass/numerical/lessthan10/wifi_localization.csv"),
@@ -365,7 +411,7 @@ wifi_localization <- read_tsv(file.path(path_to_data, "data/multiclass/numerical
 
 # Weight / height ---------------------------------------------------------
 
-weigth_height <- read_csv(file.path(path_to_data, "data/binary/numerical/lessthan10/weight-height.csv"),
+weight_height <- read_csv(file.path(path_to_data, "data/binary/numerical/lessthan10/weight-height.csv"),
                           col_types = cols(Gender = col_factor()))
 
 

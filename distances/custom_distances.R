@@ -1,11 +1,3 @@
-# simple_matching <- function(row1, row2) {
-#   
-# }
-# 
-# jaccard <- function() {
-#   
-# }
-
 # -------------------------------------------------------------------------
 
 compute_distances <- function(data, distance, verbose = FALSE) {
@@ -104,7 +96,7 @@ compute_distances <- function(data, distance, verbose = FALSE) {
 
 matching_distance <- function(data) {
   if(!all(sapply(data, is.factor))) {
-    stop("All columns must be categorical to apply nominal distance")
+    stop("All columns must be categorical to apply a nominal distance")
   }
   else {
     names <- colnames(data)
@@ -113,61 +105,6 @@ matching_distance <- function(data) {
   }
 }
 
-nominal_distances_avg <- function(data){
-  if(!all(sapply(data, is.factor))) {
-    stop("All columns must be categorical to apply nominal distance")
-  }
-  else {
-    names <- colnames(data)
-    x <- predict(dummyVars(~., data), data)
-    return(dist_make(x, nominal_distance_avg, names))
-  }
-}
-
-
-
-nominal_distances_add <- function(data){
-  if(!all(sapply(data, is.factor))) {
-    stop("All columns must be categorical to apply nominal distance")
-  }
-  else {
-    names <- colnames(data)
-    x <- predict(dummyVars(~., data), data)
-    return(dist_make(x, nominal_distance_add, names))
-  }
-}
-
-nominal_distance_avg <- function(row1, row2, names) {
-  total <- 0
-  for(name in names) {
-    data1 <- startsWith(names(row1), name)
-    data2 <- startsWith(names(row1), name)
-    data1 <- row1[data1]
-    data2 <- row2[data2]
-    value <- sum(xor(data1, data2))/length(data1)
-    #print(data1)
-    #print(data2)
-    total <- total + value
-  }
-  return(total/length(names))
-  #return(total)
-}
-
-nominal_distance_add <- function(row1, row2, names) {
-  total <- 0
-  for(name in names) {
-    data1 <- startsWith(names(row1), name)
-    data2 <- startsWith(names(row1), name)
-    data1 <- row1[data1]
-    data2 <- row2[data2]
-    value <- sum(xor(data1, data2))/length(data1)
-    #print(data1)
-    #print(data2)
-    total <- total + value
-  }
-  #return(total/length(names))
-  return(total)
-}
 
 # -------------------------------------------------------------------------
 
@@ -179,65 +116,6 @@ createTable <- function(i, j) {
   vtable$r <- vtable$table[2, 1]
   vtable$s <- vtable$table[2, 2]
   vtable
-}
-
-jaccard_all <- function(data) {
-  x <- predict(dummyVars(~., data), data)
-  return(dist_make(x, jaccard_distance))
-}
-
-
-jaccard_add <- function(data){
-  if(!all(sapply(data, is.factor))) {
-    stop("All columns must be categorical to apply nominal distance")
-  }
-  else {
-    names <- colnames(data)
-    x <- predict(dummyVars(~., data), data)
-    return(dist_make(x, jaccard_var_add, names))
-  }
-}
-
-jaccard_var_add <- function(row1, row2, names) {
-  total <- 0
-  for(name in names) {
-    data1 <- startsWith(names(row1), name)
-    data2 <- startsWith(names(row1), name)
-    data1 <- row1[data1]
-    data2 <- row2[data2]
-    value <- jaccard_distance(data1, data2)
-    #print(data1)
-    #print(data2)
-    total <- total + value
-  }
-  #return(total/length(names))
-  return(total)
-}
-
-jaccard_avg <- function(data){
-  if(!all(sapply(data, is.factor))) {
-    stop("All columns must be categorical to apply nominal distance")
-  }
-  else {
-    names <- colnames(data)
-    x <- predict(dummyVars(~., data), data)
-    return(dist_make(x, jaccard_var_avg, names))
-  }
-}
-
-jaccard_var_avg <- function(row1, row2, names) {
-  total <- 0
-  for(name in names) {
-    data1 <- startsWith(names(row1), name)
-    data2 <- startsWith(names(row1), name)
-    data1 <- row1[data1]
-    data2 <- row2[data2]
-    value <- jaccard_distance(data1, data2)
-    #print(data1)
-    #print(data2)
-    total <- total + value
-  }
-  return(total/length(names))
 }
 
 
@@ -263,23 +141,3 @@ jaccard_distance <- function(i, j) {
 
 # -------------------------------------------------------------------------
 
-get_distances <- function(atttype) {
-  
-  if(atttype == "numerical") {
-    # distances that will be use to create the ranking 
-    distance_methods <- c("manhattan", "euclidean", "chebyshev", "0.5", "0.25")
-  }
-  else if(atttype == "categorical") {
-    distance_methods <- c("jaccard", "nominal_add", "nominal_avg", "gower")
-  }
-  else if(atttype == "mixed") {
-    distance_methods <- c("canberra", "gower", "jaccard")
-  }
-  else if(atttype == "custom") {
-    #distance_methods <- c("jaccard", "smc", "chebyshev")
-    distance_methods <- c("jaccard", "smc", "ss3")
-  }
-  else {
-    stop(paste("Unavailable distances for the chosen types of the attributes: ",atttype))
-  }
-}
