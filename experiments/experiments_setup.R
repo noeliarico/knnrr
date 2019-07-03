@@ -5,7 +5,7 @@ multi_fitControl <- trainControl(method = "cv", 2,
                            summaryFunction = multiClassSummary)
 
 set.seed(123)
-binary_fitControl <- trainControl(method = "cv", 2,
+binary_fitControl <- trainControl(method = "cv", 10,
                                  summaryFunction = multiClassSummary)
 
 ks = c(1,2,3,5,7,9)
@@ -45,7 +45,7 @@ rgrid_num <-  expand.grid(k = ks,
 # Mixed -------------------------------------------------------------------
 
 dgrid_mix <-  expand.grid(k = ks,
-                          distance = c("jaccard", "smc", "ss3"),
+                          distance = get_distances("mixed"),
                           ties = c("randomly", "threshold"),
                           verbose = FALSE,
                           developer = FALSE)
@@ -53,5 +53,5 @@ dgrid_mix <-  expand.grid(k = ks,
 rgrid_mix <-  expand.grid(k = ks,
                           rr = ranking_rules,
                           ties = c("randomly", "threshold"),
-                          atttype = "custom",
+                          atttype = "mixed",
                           developer = FALSE)

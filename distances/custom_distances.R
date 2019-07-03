@@ -2,7 +2,7 @@
 
 compute_distances <- function(data, distance, verbose = FALSE) {
   
-  #verbose = TRUE
+  verbose = TRUE
   
   distance <- as.character(distance)
   
@@ -19,18 +19,30 @@ compute_distances <- function(data, distance, verbose = FALSE) {
   
   if(distance == "manhattan") {
     if(verbose) print("manhattan distance...")
+    if(any(sapply(data, is.factor))) {
+      data <-  predict(dummyVars(~.,data), data)
+    }
     return(as.matrix(dist(data, method = "manhattan")))
   }
   else if(distance == "euclidean") {
     if(verbose) print("euclidean distance...")
+    if(any(sapply(data, is.factor))) {
+      data <-  predict(dummyVars(~.,data), data)
+    }
     return(as.matrix(dist(data, method = "euclidean")))
   }
   else if(distance == "chebyshev") {
     if(verbose) print("chebyshev distance...")
+    if(any(sapply(data, is.factor))) {
+      data <-  predict(dummyVars(~.,data), data)
+    }
     return(as.matrix(dist(data, method = "maximum")))
   }
   else if(distance == "minkowski") {
     if(verbose) print("minkowski distance...")
+    if(any(sapply(data, is.factor))) {
+      data <-  predict(dummyVars(~.,data), data)
+    }
     if(is.null(p)) {
       stop("p must have a value in order to compute the minkowski distance")
     }
@@ -81,6 +93,8 @@ compute_distances <- function(data, distance, verbose = FALSE) {
   }
   else if(distance == "gower") {
     if(verbose) print("gower distance...")
+    i <- sapply(data, is.character)
+    data[i] <- lapply(data[i], as.numeric)
     return(as.matrix(daisy(data, metric = "gower")))
   }
  

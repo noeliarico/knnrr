@@ -1,7 +1,6 @@
 # Ecoli -------------------------------------------------------------------
 
 filtered_ecoli <- ecoli %>% filter(!class %in% c("imL", "imS", "imU", "omL")) %>% droplevels()
-ecoli <- data.frame(ecoli)
 
 set.seed(123)
 fit_filtered_ecoli_d <- train(
@@ -107,9 +106,8 @@ fit_seeds_r <- train(
 
 # Vertebral column 3 ------------------------------------------------------
 
-
 set.seed(123)
-fit_vertebral_colum3_d <- train(
+fit_vertebral_column3_d <- train(
   x =  vertebral_colum3[, -7],
   y = vertebral_colum3[, 7],
   data = vertebral_colum3,
@@ -120,7 +118,7 @@ fit_vertebral_colum3_d <- train(
 )
 
 set.seed(123)
-fit_vertebral_colum3_r <- train(
+fit_vertebral_column3_r <- train(
   x =  vertebral_colum3[, -7],
   y = vertebral_colum3[, 7],
   data = vertebral_colum3,
@@ -132,11 +130,18 @@ fit_vertebral_colum3_r <- train(
 
 # Wifi localization -------------------------------------------------------
 
+wifi_localization <- as.data.frame(wifi_localization)
+wifi_localization$class <- as.factor(wifi_localization$class)
+
 set.seed(123)
-fit_vertebral_colum3_d <- train(
-  x =  vertebral_colum3[, -7],
-  y = vertebral_colum3[, 7],
-  data = vertebral_colum3,
+mini_wifi_localization <- createDataPartition(wifi_localization$class, p = 0.1, list = FALSE)
+mini_wifi_localization <- wifi_localization[mini_wifi_localization,]
+
+set.seed(123)
+fit_wifi_localization_d <- train(
+  x =  mini_wifi_localization[, -8],
+  y = mini_wifi_localization[, 8],
+  data = mini_wifi_localization,
   method = dknn,
   preProcess = c("center", "scale"),
   trControl = multi_fitControl,
@@ -144,10 +149,10 @@ fit_vertebral_colum3_d <- train(
 )
 
 set.seed(123)
-fit_vertebral_colum3_r <- train(
-  x =  vertebral_colum3[, -7],
-  y = vertebral_colum3[, 7],
-  data = vertebral_colum3,
+fit_wifi_localization_r <- train(
+  x =  mini_wifi_localization[, -8],
+  y = mini_wifi_localization[, 8],
+  data = mini_wifi_localization,
   method = rknn,
   preProcess = c("center", "scale"),
   trControl = multi_fitControl,
@@ -156,4 +161,36 @@ fit_vertebral_colum3_r <- train(
 
 # Yeast -------------------------------------------------------------------
 
+set.seed(123)
+mini_yeast <- createDataPartition(yeast$class, p = 0.1, list = FALSE)
+mini_yeast <- yeast[mini_yeast,]
 
+mini_yeast$class <- mini_yeast$class %>% fct_collapse(
+  other = c("ERL", "EXC", "ME1", "ME2", "POX", "VAC"),
+  CYT = "CYT",
+  ME3 = "ME3",
+  MIT = "MIT"
+)
+
+
+set.seed(123)
+fit_mini_yeast_d <- train(
+  x =  mini_yeast[, -9],
+  y = mini_yeast[, 9],
+  data = mini_yeast,
+  method = dknn,
+  preProcess = c("center", "scale"),
+  trControl = multi_fitControl,
+  tuneGrid = dgrid_num
+)
+
+set.seed(123)
+fit_mini_yeast_r <- train(
+  x =  mini_yeast[, -9],
+  y = mini_yeast[, 9],
+  data = mini_yeast,
+  method = rknn,
+  preProcess = c("center", "scale"),
+  trControl = multi_fitControl,
+  tuneGrid = rgrid_num
+)

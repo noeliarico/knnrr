@@ -138,7 +138,7 @@ life_expectancy <- read_csv(file.path(path_to_data, "data/multiclass/numerical/l
 
 # Mammographic Mass -------------------------------------------------------
 
-mammograpic_masses <- read_csv(file.path(path_to_data, "data/binary/mixed/lessthan10/mammographic_masses.csv"),
+mammographic_masses <- read_csv(file.path(path_to_data, "data/binary/mixed/lessthan10/mammographic_masses.csv"),
                                col_types = cols(.default = col_factor(NULL),
                                                 age = col_number()),
                                col_names = c("bi_rads",

@@ -3,21 +3,22 @@
 # breast_cancer -----------------------------------------------------------
 
 
-#b <- predict(dummyVars(~., breast_cancer[,-1]), breast_cancer[,-1])
-#b <- as.data.frame(cbind(class = breast_cancer[,1], b))
+b <- predict(dummyVars(~., breast_cancer[,-1]), breast_cancer[,-1])
+b <- as.data.frame(cbind(class = breast_cancer[,1], b))
+b[,1] <- as.factor(b[,1])
 
 # da mejores resultados con est encoding
-#b <- model.matrix(~., breast_cancer)[,-1]
-#b <- as.data.frame(b)
-#b[,1] <- as.factor(b[,1])
+# b <- model.matrix(~., breast_cancer)[,-1]
+# b <- as.data.frame(b)
+# b[,1] <- as.factor(b[,1])
 
 set.seed(123)
-fit_breast_cancer_b <- train(
+fit_breast_cancer_d <- train(
    x =  b[, -1],
    y = b[, 1],
    data = b,
    method = dknn,
-   trControl = fitControl,
+   trControl = binary_fitControl,
    tuneGrid = dgrid_num
 )
 
@@ -27,7 +28,7 @@ fit_breast_cancer_r <- train(
    y = b[, 1],
    data = b,
    method = rknn,
-   trControl = fitControl,
+   trControl = binary_fitControl,
    tuneGrid = rgrid
 )
 
@@ -50,7 +51,7 @@ fit_mini_ncars_d <- train(
    y = mini_ncars[, 1],
    data = mini_ncars,
    method = dknn,
-   trControl = fitControl,
+   trControl = binary_fitControl,
    tuneGrid = dgrid_num
 )
 
@@ -59,8 +60,9 @@ fit_mini_ncars_r <- train(x =  mini_ncars[,-1],
                        y = mini_ncars[,1],
                        data = mini_ncars,
                        method = rknn,
-                       trControl = fitControl,
+                       trControl = binary_fitControl,
                        tuneGrid = rgrid_num)
+
 # somerville --------------------------------------------------------------
 
 somerville <- as.data.frame(somerville)
@@ -70,7 +72,7 @@ fit_somerville_d <- train(
    y = somerville[, 1],
    data = somerville,
    method = dknn,
-   trControl = fitControl,
+   trControl = binary_fitControl,
    tuneGrid = dgrid_num
 )
 
@@ -80,7 +82,7 @@ fit_somerville_r <- train(
    y = somerville[, 1],
    data = somerville,
    method = rknn,
-   trControl = fitControl,
+   trControl = binary_fitControl,
    tuneGrid = dgrid_num
 )
 
@@ -95,7 +97,7 @@ fit_mini_tic_tac_toe <- train(x =  mini_tic_tac_toe[,-10],
       y = mini_tic_tac_toe[,10],
       data = mini_tic_tac_toe,
       method = dknn,
-      trControl = fitControl,
+      trControl = binary_fitControl,
       tuneGrid = dgrid_num)
 
 set.seed(123)
@@ -103,7 +105,7 @@ fit_mini_tic_tac_toe_r <- train(x =  mini_tic_tac_toe[,-10],
                               y = mini_tic_tac_toe[,10],
                               data = mini_tic_tac_toe,
                               method = rknn,
-                              trControl = fitControl,
+                              trControl = binary_fitControl,
                               tuneGrid = dgrid_num)
 
 

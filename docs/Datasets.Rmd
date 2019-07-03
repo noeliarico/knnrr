@@ -161,7 +161,9 @@ __Description of the attributes:__
 
 The class:
 
-* Caesarian { 0,1 } -> {0 = No, 1 = Yes } 
+* Caesarian 0 or 1 {0 = No, 1 = Yes } 
+
+caesarian
 
 ```{r echo=FALSE}
 plot_dist_cols(caesarian)
@@ -198,8 +200,8 @@ indication of how well a CAD system performs compared to the radiologists.
 Class Distribution: benign: 516; malignant: 445 
 
 * __Source__: [UCI Machile Learning Repository](http://archive.ics.uci.edu/ml/datasets/Mammographic+Mass)
-* __Number of rows__: `r nrow(mammographic)`
-* __Number of attributes__: `r ncol(mammographic) - 1`
+* __Number of rows__: `r nrow(mammographic_masses)`
+* __Number of attributes__: `r ncol(mammographic_masses) - 1`
 
 __Description of the attributes:__
 
@@ -211,22 +213,23 @@ __Description of the attributes:__
 * Severity: benign=0 or malignant=1 (binominal, goal field!) 
 
 Missing Attribute Values: 
-- BI-RADS assessment: 2 
-- Age: 5 
-- Shape: 31 
-- Margin: 48 
-- Density: 76 
-- Severity: 0 
+
+* BI-RADS assessment: 2 
+* Age: 5 
+* Shape: 31 
+* Margin: 48 
+* Density: 76 
+* Severity: 0 
 
 
 ```{r echo=FALSE}
-plot_dist_cols(mammograpic_masses)
+plot_dist_cols(mammographic_masses)
 ```
 
-#####  Vertebral column 2 {#Vertebral-column-2
+#####  Vertebral column 2 {#Vertebral-column-2}
 
 
-##### Weight, height, gender ´#Weight-height-gender}
+##### Weight, height, gender {#Weight-height-gender}
       
 #### 10 or more attributes
 

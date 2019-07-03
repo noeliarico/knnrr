@@ -10,6 +10,6 @@ purrr
 dplyr
 stringr
 forcats
+kableExtra
 foreign
 cowplot
-kableExtra
