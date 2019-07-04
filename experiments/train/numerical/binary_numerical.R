@@ -89,7 +89,7 @@ fit_vertebral_column2_d <- train(x =  vertebral_colum2[,-7],
       tuneGrid = dgrid_num)
 
 set.seed(123)
-fit_vertebral_colum2_r <- train(x =  vertebral_colum2[,-7],
+fit_vertebral_column2_r <- train(x =  vertebral_colum2[,-7],
       y = vertebral_colum2[,7],
       data = vertebral_colum2,
       method = rknn,
@@ -123,11 +123,13 @@ fit_mini_weight_height_r <- train(x =  mini_weight_height[,-1],
       tuneGrid = rgrid_num)
 
 
+#--------------------------------------------------------------------------
 # results -----------------------------------------------------------------
-
+#--------------------------------------------------------------------------
+   
 # se cargan con load
-# save(fit_mini_bank_note_d, fit_mini_bank_note_r, file = "experiments/results/binary/numerical/fit_mini_bank_note.RData")
-# save(fit_haberman_d, fit_haberman_r, file = "experiments/results/binary/numerical/fit_haberman.RData")
-# save(fit_mini_skin_d, fit_mini_skin_r, file = "experiments/results/binary/numerical/fit_mini_skin.RData")
-# save(fit_vertebral_column2_d, fit_vertebral_column2_r, file = "experiments/results/binary/numerical/fit_vertebral_column2.RData")
-# save(fit_mini_weight_height_d, fit_mini_weight_height_r, file = "experiments/results/binary/numerical/fit_mini_weight_height.RData")
+# save(fit_mini_bank_note_d, fit_mini_bank_note_r, file = "experiments/results/numerical_input/binary/fit_mini_bank_note.RData")
+# save(fit_haberman_d, fit_haberman_r, file = "experiments/results/numerical_input/binary/fit_haberman.RData")
+# save(fit_mini_skin_d, fit_mini_skin_r, file = "experiments/results/numerical_input/binary/fit_mini_skin.RData")
+# save(fit_vertebral_column2_d, fit_vertebral_column2_r, file = "experiments/results/numerical_input/binary/fit_vertebral_column2.RData")
+# save(fit_mini_weight_height_d, fit_mini_weight_height_r, file = "experiments/results/numerical_input/binary/fit_mini_weight_height.RData")

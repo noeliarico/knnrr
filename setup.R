@@ -1,16 +1,17 @@
 # Libraries ---------------------------------------------------------------
 
-library(devtools)
-
+library(ade4)
 library(caret)
 library(cluster)
+library(devtools)
 library(foreign)
-library(tidyverse)
-library(parallel)
+library(GGally)
+library(ggplot2)
+library(ggpubr)
 library(nnet)
+library(parallel)
+library(tidyverse)
 library(usedist)
-library(ade4)
-
 
 # Load consensus ---------------------------------------------------------
 
@@ -31,3 +32,7 @@ files <- file.path("methods", files)
 sapply(files, source)
 rm(files)
 
+
+# Distances ---------------------------------------------------------------
+
+# custom distnaces y sets

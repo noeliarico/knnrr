@@ -2,11 +2,10 @@ get_distances <- function(atttype) {
   
   if(atttype == "numerical") {
     # distances that will be use to create the ranking 
-    #distance_methods <- c("manhattan", "euclidean", "chebyshev", "0.5", "0.25")
     distance_methods <- c("manhattan", "euclidean", "chebyshev", "3", "4")
   }
-  else if(atttype == "categorical") {
-    distance_methods <- c("jaccard", "nominal_add", "nominal_avg", "gower")
+  else if(atttype == "categorical") { # binary es jaccard
+    distance_methods <- c("binary", "euclidean", "smc")
   }
   else if(atttype == "mixed") {
     distance_methods <- c("manhattan", "euclidean", "gower")

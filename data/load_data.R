@@ -21,15 +21,27 @@ abalone_age <- read_csv(file.path(path_to_data, "data/multiclass/mixed/lessthan1
 
 # Acute Inflammation ------------------------------------------------------
 
-# todo
-acute_inflammations <- c("temperature",
-                          "nausea",
-                          "lumbar_pain",
-                          "urine_pushing",
-                          "micturition_pains",
-                          "burning",
-                          "inflammation", # class
-                          "nephritis") # class
+acute <-
+  read.csv(
+    file.path(
+      path_to_data,
+      "data/multiclass/mixed/lessthan10/diagnosis.csv"
+    ),
+    fileEncoding = "UTF-16LE",
+    header = FALSE
+  )
+colnames(acute) <- c(
+  "temperature",
+  "nausea",
+  "lumbar_pain",
+  "urine_pushing",
+  "micturition_pains",
+  "burning",
+  "inflammation",
+  # class
+  "nephritis"
+) # class
+
 
 # Balance Scale Data Set --------------------------------------------------
 balance_scale <- read_csv(file.path(path_to_data, "data/multiclass/categorical/lessthan10/balance_scale.csv"), 
@@ -89,6 +101,40 @@ chess <- read_csv(file.path(path_to_data, "data/multiclass/categorical/lessthan1
 
 
 
+# Cmc ---------------------------------------------------------------------
+
+# https://archive.ics.uci.edu/ml/datasets/Contraceptive+Method+Choice
+
+contraceptive <-
+  read_csv(
+    file.path(path_to_data, "data/multiclass/mixed/lessthan10/cmc.data"),
+    col_names =
+      c(
+        "age",
+        "education",
+        "husband_education",
+        "number_of_children",
+        "religion",
+        "working",
+        "husband_occupation",
+        "standard_of_living",
+        "exposure",
+        "contraceptive"
+      ),
+    col_types = cols(.default = col_factor(NULL),
+                     age = col_number(),
+                     number_of_children = col_number()))
+
+# Crx ---------------------------------------------------------------------
+
+# https://archive.ics.uci.edu/ml/datasets/Credit+Approval
+
+contraceptive <-
+  read_csv(
+    file.path(path_to_data, "data/binary/mixed/lessthan10/crx.csv"),
+    col_names = FALSE))
+
+
 # Connect 4 ---------------------------------------------------------------
 
 connect4 <- read_csv(file.path(path_to_data, "data/multiclass/categorical/10ormore/connect-4.csv"),
@@ -104,6 +150,11 @@ ecoli <- read_table(file.path(path_to_data, "data/multiclass/numerical/lessthan1
   mutate(sequence = NULL)
 
 
+# Echocardiograms ---------------------------------------------------------
+
+# https://archive.ics.uci.edu/ml/datasets/Echocardiogram
+
+echocardiogram <- read_table()
 
 # Flags -------------------------------------------------------------------
 
@@ -177,27 +228,11 @@ post_operative <- read_csv(file.path(path_to_data, "data/multiclass/categorical/
 
 # Primary tumor -----------------------------------------------------------
 
-post_operative <- read_csv(file.path(path_to_data, "data/multiclass/categorical/10ormore/primary_tumor.csv"), 
-                           col_types = cols(.default = col_factor(NULL)),
-                           col_names = c("class",
-                                         "age",
-                                         "sex",
-                                         "histologic_type",
-                                         "degree_of_diffe",
-                                         "bone",
-                                         "bone_marrow",
-                                         "lung",
-                                         "pleura",
-                                         "peritoneum",
-                                         "liver",
-                                         "brain",
-                                         "skin",
-                                         "neck",
-                                         "supraclavicular",
-                                         "axillar",
-                                         "mediastinum",
-                                         "abdominal"),
-                           na = "?") %>% drop_na 
+primary_tumor <- read_csv(file.path(path_to_data, "data/multiclass/categorical/10ormore/primary_tumor.csv"),
+                                      col_types = cols(.default = col_factor(NULL),
+                                                       X1 = col_number()),
+                                     col_names = FALSE,
+                          na = "?") %>% drop_na 
 
 
 # Seeds -------------------------------------------------------------------
@@ -402,6 +437,11 @@ travel_insurance <- read_csv(file.path(path_to_data, "data/binary/mixed/10ormore
 
 vertebral_colum2 <- read.arff(file.path(path_to_data, "data/binary/numerical/lessthan10/vetebral_column_2.arff"))
 vertebral_colum3 <- read.arff(file.path(path_to_data, "data/multiclass/numerical/lessthan10/vertebral_column_3.arff"))
+
+# Wine quality data -------------------------------------------------------
+
+# https://archive.ics.uci.edu/ml/datasets/Wine+Quality
+white_wine_q <- read_csv2("data/multiclass/mixed/10ormore/winequality-white.csv", col_names = T)
 
 # Wireless Indoor Localization --------------------------------------------
 

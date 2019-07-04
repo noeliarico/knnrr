@@ -1,18 +1,28 @@
-num_binary <- c("mini_bank_note","haberman","mini_skin", "mini_weight_height", "vertebral_colum2")
+num_binary <- c("mini_bank_note","haberman","mini_skin", "mini_weight_height", "vertebral_column2")
 num_multiclass <-c("filtered_ecoli", "iris", "life_expectancy", "seeds", "vertebral_column3", "wifi_localization", "mini_yeast")
 
-mixed_binary <- c("caesarian", "mini_mammographic_masses")
+mix_binary <- c("caesarian", "mini_mammographic_masses")
+mix_multiclass <- c("", "")
 
-data_list <- mixed_binary
-append_plot <- function(name) {
+cat_binary <- c("balance_scale", "breast_cancer", "mini_cars", "somerville", "mini_tic_tac_toe")
+cat_multiclass <- c("post_operative", "mini_connect4","soybean_large", "zoo")
+
+
+append_plot <- function(name, metric) {
   paramr <- get(paste0("fit_", name, "_r"))
   paramd <- get(paste0("fit_", name, "_d"))
-  p <- compare_F1(paramr, paramd, name)
+  p <- compare_metric(paramr, paramd, metric, name)
   return(p)
 }
 
-all_plots <- lapply(data_list, append_plot)
+# all_plots_num_binary <- lapply(num_binary, append_plot, metric = "F1")
+# all_plots_num_multiclass <- lapply(num_multiclass, append_plot, metric = "Mean_F1")
+# all_plots_car_binary <- lapply(cat_binary, append_plot, metric = "F1")
+all_plots_cat_multiclass <- lapply(cat_multiclass, append_plot, metric = "Mean_F1")
 
+# all_plots <- list(all_plots_num_binary, all_plots_num_multiclass)
+
+all_plots <- all_plots_cat_multiclass
 
 #library(gridExtra)
 #n <- length(plist)

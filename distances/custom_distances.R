@@ -50,32 +50,35 @@ compute_distances <- function(data, distance, verbose = FALSE) {
   }
   else if(distance == "binary") {
     if(verbose) print("binary distance...")
+    if(any(sapply(data, is.factor))) {
+      data <-  predict(dummyVars(~.,data), data)
+    }
     return(as.matrix(dist(data, method = "binary")))
   }
   # else if(distance == "matching") {
   #   if(verbose) print("simple matching distance...")
   #   return(as.matrix(matching_distance(data)))
   # }
-  else if(distance == "nominal_add") {
-    if(verbose) print("nominal_add distance...")
-    return(as.matrix(nominal_distances_add(data)))
-  }
-  else if(distance == "nominal_avg") {
-    if(verbose) print("nominal_avg distance...")
-    return(as.matrix(nominal_distances_avg(data)))
-  }
+  # else if(distance == "nominal_add") {
+  #   if(verbose) print("nominal_add distance...")
+  #   return(as.matrix(nominal_distances_add(data)))
+  # }
+  # else if(distance == "nominal_avg") {
+  #   if(verbose) print("nominal_avg distance...")
+  #   return(as.matrix(nominal_distances_avg(data)))
+  # }
   # else if(distance == "jaccard") {
   #   if(verbose) print("jaccard distance...")
   #   return(as.matrix(jaccard_all(data)))
   # }
-  else if(distance == "jaccard_add") {
-    if(verbose) print("jaccard_add distance...")
-    return(as.matrix(jaccard_add(data)))
-  }
-  else if(distance == "jaccard_avg") {
-    if(verbose) print("jaccard_avg distance...")
-    return(as.matrix(jaccard_avg(data)))
-  }
+  # else if(distance == "jaccard_add") {
+  #   if(verbose) print("jaccard_add distance...")
+  #   return(as.matrix(jaccard_add(data)))
+  # }
+  # else if(distance == "jaccard_avg") {
+  #   if(verbose) print("jaccard_avg distance...")
+  #   return(as.matrix(jaccard_avg(data)))
+  # }
   else if(distance == "jaccard") {
     if(verbose) print("jaccard distance...")
     datan <- predict(dummyVars(~., data), data)
@@ -86,11 +89,11 @@ compute_distances <- function(data, distance, verbose = FALSE) {
     datan <- predict(dummyVars(~., data), data)
     return(as.matrix(dist.binary(datan, method = 2)))
   }
-  else if(distance == "ss3") {
-    if(verbose) print("ss3 distance...")
-    datan <- predict(dummyVars(~., data), data)
-    return(as.matrix(dist.binary(datan, method = 3)))
-  }
+  # else if(distance == "ss3") {
+  #   if(verbose) print("ss3 distance...")
+  #   datan <- predict(dummyVars(~., data), data)
+  #   return(as.matrix(dist.binary(datan, method = 3)))
+  # }
   else if(distance == "gower") {
     if(verbose) print("gower distance...")
     i <- sapply(data, is.character)

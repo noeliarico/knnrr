@@ -13,18 +13,18 @@ ranking_rules <- c("plurality", "borda_count", "two", "three", "five", "seven")
 
 # Categorical -------------------------------------------------------------
 
-# dgrid_cat <-  expand.grid(k = ks,
-#                       #distance = c("jaccard", "smc", "ss3"),
-#                       distance = c("nominal_add", "nominal_avg"),
-#                       ties = c("randomly", "threshold"),
-#                       verbose = FALSE,
-#                       developer = FALSE)
-# 
-# rgrid_cat <-  expand.grid(k = ks,
-#                           rr = ranking_rules,
-#                           ties = c("randomly", "threshold"),
-#                           atttype = "custom",
-#                           developer = FALSE)
+dgrid_cat <-  expand.grid(k = ks,
+                      #distance = c("jaccard", "smc", "ss3"),
+                      distance = get_distances("categorical"),
+                      ties = c("randomly", "threshold"),
+                      verbose = FALSE,
+                      developer = FALSE)
+
+rgrid_cat <-  expand.grid(k = ks,
+                          rr = ranking_rules,
+                          ties = c("randomly", "threshold"),
+                          atttype = "categorical",
+                          developer = FALSE)
 
 
 # Numerical ---------------------------------------------------------------

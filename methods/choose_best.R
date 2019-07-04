@@ -1,6 +1,6 @@
 chooseBest <- function(ranking, method, k, developer = FALSE) {
   
-  developer = TRUE
+  #developer = TRUE
   
   # All the options look for generating the vector(table) 
   # probabilities. This table will store the probability of 
