@@ -1,7 +1,0 @@
-"0","```r
-simple_matching_distance <- function(i, j) {
-  d <- createTable(i, j)
-  t <- d$p + d$q + d$r + d$s
-  return((d$q + d$r) / t)
-}
-```"

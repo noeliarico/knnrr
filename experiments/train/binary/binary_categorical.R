@@ -108,3 +108,5 @@ fit_mini_tic_tac_toe_r <- train(x =  mini_tic_tac_toe[,-10],
 # Save objects ------------------------------------------------------------
 
 save(fit_breast_cancer_d, file = "fit_breast_cancer_d.RData")
+
+
