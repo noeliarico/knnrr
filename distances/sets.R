@@ -13,7 +13,7 @@ get_distances <- function(atttype) {
   }
   else if(atttype == "custom") {
     #distance_methods <- c("jaccard", "smc", "chebyshev")
-    distance_methods <- c("jaccard", "smc", "ss3")
+    distance_methods <- c("manhattan", "euclidean", "chebyshev")
   }
   else {
     stop(paste("Unavailable distances for the chosen types of the attributes: ",atttype))

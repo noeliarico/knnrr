@@ -1,0 +1,89 @@
+
+> knn4Train(mini_iris_train[,-5], mini_iris_test[,-5], mini_iris_train$Species,
++           k = 3, rr = "plurality", atttype = "custom", ties = "rando ..." ... [TRUNCATED] 
+
+-> Train rknn k =  3 , rr =  plurality , ties = randomly , developer =  TRUE , atttype =  custom 
+
+nrow(train) = 9 and nrow(test) = 3 
+
+Calculating the distances for method = manhattan 
+[1] "manhattan distance..."
+
+--> Distances: 
+     1   2   3   5   6   7   9   10  11
+4  3.2 2.3 0.9 8.0 7.0 6.7 6.9 10.8 7.4
+8  5.7 5.8 6.0 1.7 0.7 0.6 2.0  4.7 1.3
+12 8.0 8.1 8.3 1.4 1.8 2.1 1.9  3.0 1.4
+
+--> Rankings: 
+   1 2 3 5 6 7 9 10 11
+4  3 2 1 8 6 4 5  9  7
+8  7 8 9 4 2 1 5  6  3
+12 7 8 9 1 3 5 4  6  2
+
+Calculating the distances for method = euclidean 
+[1] "euclidean distance..."
+
+--> Distances: 
+          1        2         3         5         6         7        9       10        11
+4  2.144761 1.627882 0.7141428 4.5607017 3.9648455 3.8923001 4.160529 6.522270 4.2731721
+8  3.491418 3.295451 3.6687873 0.9643651 0.4358899 0.3464102 1.104536 2.917190 0.7937254
+12 4.713809 4.570558 4.9909919 0.8831761 1.2083046 1.2369317 1.195826 1.838478 0.8366600
+
+--> Rankings: 
+   1 2 3 5 6 7 9 10 11
+4  3 2 1 8 5 4 6  9  7
+8  8 7 9 4 2 1 5  6  3
+12 8 7 9 2 4 5 3  6  1
+
+Calculating the distances for method = chebyshev 
+[1] "chebyshev distance..."
+
+--> Distances: 
+     1   2   3   5   6   7   9  10  11
+4  1.7 1.5 0.7 3.6 3.1 3.3 3.6 5.4 3.6
+8  3.1 2.8 3.0 0.7 0.4 0.3 0.7 2.4 0.6
+12 4.0 3.7 3.9 0.8 0.9 0.9 1.1 1.5 0.6
+
+--> Rankings: 
+   1 2 3 5 6 7 9 10 11
+4  3 2 1 6 4 5 6  7  6
+8  9 7 8 5 2 1 4  6  3
+12 8 6 7 2 3 3 4  5  1
+
+Profile of rankings: 
+3 > 2 > 1 > 7 > 9 > 6 > 11 > 5 > 10 
+3 > 2 > 1 > 7 > 6 > 9 > 11 > 5 > 10 
+3 > 2 > 1 > 6 > 7 > 5 ~ 9 ~ 11 > 10 
+  numberOfVoters                             ranking
+1              1 3 > 2 > 1 > 7 > 9 > 6 > 11 > 5 > 10
+2              1 3 > 2 > 1 > 7 > 6 > 9 > 11 > 5 > 10
+3              1 3 > 2 > 1 > 6 > 7 > 5 ~ 9 ~ 11 > 10
+[1] "-----"
+7 > 6 > 11 > 5 > 9 > 10 > 1 > 2 > 3 
+7 > 6 > 11 > 5 > 9 > 10 > 2 > 1 > 3 
+7 > 6 > 11 > 9 > 5 > 10 > 2 > 3 > 1 
+  numberOfVoters                             ranking
+1              1 7 > 6 > 11 > 5 > 9 > 10 > 1 > 2 > 3
+2              1 7 > 6 > 11 > 5 > 9 > 10 > 2 > 1 > 3
+3              1 7 > 6 > 11 > 9 > 5 > 10 > 2 > 3 > 1
+[1] "-----"
+5 > 11 > 6 > 9 > 7 > 10 > 1 > 2 > 3 
+11 > 5 > 9 > 6 > 7 > 10 > 2 > 1 > 3 
+11 > 5 > 6 ~ 7 > 9 > 10 > 2 > 3 > 1 
+  numberOfVoters                             ranking
+1              1 5 > 11 > 6 > 9 > 7 > 10 > 1 > 2 > 3
+2              1 11 > 5 > 9 > 6 > 7 > 10 > 2 > 1 > 3
+3              1 11 > 5 > 6 ~ 7 > 9 > 10 > 2 > 3 > 1
+[1] "-----"
+[[1]]
+Iris-setosa > Iris-setosa ~ Iris-setosa ~ Iris-versicolor ~ Iris-versicolor ~ Iris-versicolor ~ Iris-virginica ~ Iris-virginica ~ Iris-virginica 
+
+[[2]]
+Iris-versicolor > Iris-setosa ~ Iris-setosa ~ Iris-setosa ~ Iris-versicolor ~ Iris-versicolor ~ Iris-virginica ~ Iris-virginica ~ Iris-virginica 
+
+[[3]]
+Iris-virginica > Iris-versicolor > Iris-setosa ~ Iris-setosa ~ Iris-setosa ~ Iris-versicolor ~ Iris-versicolor ~ Iris-virginica ~ Iris-virginica 
+
+
+> sink()
