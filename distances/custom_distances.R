@@ -63,10 +63,10 @@ compute_distances <- function(data, distance, verbose = FALSE) {
   #   if(verbose) print("nominal_add distance...")
   #   return(as.matrix(nominal_distances_add(data)))
   # }
-  # else if(distance == "nominal_avg") {
-  #   if(verbose) print("nominal_avg distance...")
-  #   return(as.matrix(nominal_distances_avg(data)))
-  # }
+  else if(distance == "nominal") { # cambiar el nombre es nominal!!!
+    if(verbose) print("nominal distance...")
+    return(as.matrix(nominal_distances_avg(data)))
+  }
   # else if(distance == "jaccard") {
   #   if(verbose) print("jaccard distance...")
   #   return(as.matrix(jaccard_all(data)))
@@ -89,11 +89,11 @@ compute_distances <- function(data, distance, verbose = FALSE) {
     datan <- predict(dummyVars(~., data), data)
     return(as.matrix(dist.binary(datan, method = 2)))
   }
-  # else if(distance == "ss3") {
-  #   if(verbose) print("ss3 distance...")
-  #   datan <- predict(dummyVars(~., data), data)
-  #   return(as.matrix(dist.binary(datan, method = 3)))
-  # }
+  else if(distance == "ss3") {
+    if(verbose) print("ss3 distance...")
+    datan <- predict(dummyVars(~., data), data)
+    return(as.matrix(dist.binary(datan, method = 3)))
+  }
   else if(distance == "gower") {
     if(verbose) print("gower distance...")
     i <- sapply(data, is.character)

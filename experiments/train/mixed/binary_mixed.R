@@ -91,16 +91,16 @@ primary_tumor <- as.data.frame(primary_tumor)
 
 
 set.seed(123)
-fit_primary_tumor_d <- train(x =  primary_tumor[,-43],
-                             y = primary_tumor[,43],
+fit_primary_tumor_d <- train(x =  primary_tumor[,-18],
+                             y = primary_tumor[,18],
                              data = primary_tumor,
                              method = dknn,
                              trControl = multi_fitControl,
                              tuneGrid = dgrid_cat)
 
 set.seed(123)
-fit_primary_tumor_r <- train(x =  primary_tumor[,-43],
-                             y = primary_tumor[,43],
+fit_primary_tumor_r <- train(x =  primary_tumor[,-18],
+                             y = primary_tumor[,18],
                              data = primary_tumor,
                              method = rknn,
                              trControl = multi_fitControl,

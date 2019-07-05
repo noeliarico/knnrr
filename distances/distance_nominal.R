@@ -4,6 +4,7 @@ nominal_distances_avg <- function(data){
   }
   else {
     names <- colnames(data)
+    print(names)
     x <- predict(dummyVars(~., data), data)
     return(dist_make(x, nominal_distance_avg, names))
   }

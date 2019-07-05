@@ -1,12 +1,20 @@
 num_binary <- c("mini_bank_note","haberman","mini_skin", "mini_weight_height", "vertebral_column2")
 num_multiclass <-c("filtered_ecoli", "iris", "life_expectancy", "seeds", "vertebral_column3", "wifi_localization", "mini_yeast")
 
-mix_binary <- c("caesarian", "mini_mammographic_masses")
-mix_multiclass <- c("", "")
+mix_binary <- c("acute_inflammations1", "acute_inflammations2", "caesarian", "mini_mammographic_masses", "statlog", "primary_tumor")
+mix_multiclass <- c("teaching_assistant", "contraceptive")
 
-cat_binary <- c("balance_scale", "breast_cancer", "mini_cars", "somerville", "mini_tic_tac_toe")
+cat_binary <- c("balance_scale", "breast_cancer", "mini_cars", "somerville", "mini_tic_tac_toe")#, "mini_chess")
 cat_multiclass <- c("post_operative", "mini_connect4","soybean_large", "zoo")
 
+all_data <- c(
+  num_binary, num_multiclass,
+  mix_binary, mix_multiclass,
+  cat_binary, cat_multiclass
+)
+
+
+# Compare distances and rankings ------------------------------------------
 
 append_plot <- function(name, metric) {
   paramr <- get(paste0("fit_", name, "_r"))
@@ -15,22 +23,18 @@ append_plot <- function(name, metric) {
   return(p)
 }
 
-# all_plots_num_binary <- lapply(num_binary, append_plot, metric = "F1")
-# all_plots_num_multiclass <- lapply(num_multiclass, append_plot, metric = "Mean_F1")
-# all_plots_car_binary <- lapply(cat_binary, append_plot, metric = "F1")
+all_plots_num_binary <- lapply(num_binary, append_plot, metric = "F1")
+all_plots_num_multiclass <- lapply(num_multiclass, append_plot, metric = "Mean_F1")
+all_plots_cat_binary <- lapply(cat_binary, append_plot, metric = "F1")
 all_plots_cat_multiclass <- lapply(cat_multiclass, append_plot, metric = "Mean_F1")
+all_plots_mix_binary <- lapply(mix_binary, append_plot, metric = "F1")
+all_plots_mix_multiclass <- lapply(mix_multiclass, append_plot, metric = "Mean_F1")
 
-# all_plots <- list(all_plots_num_binary, all_plots_num_multiclass)
+all_plots <- all_plots_cat_binary
 
-all_plots <- all_plots_cat_multiclass
 
-#library(gridExtra)
-#n <- length(plist)
-#nCol <- floor(sqrt(n))
-#do.call("grid.arrange", c(all_plots, ncol=2))
-
-#library(ggpubr)
-figure <- ggarrange(plotlist = all_plots, common.legend = TRUE) 
+figure <- ggarrange(plotlist = all_plots, common.legend = TRUE)
+figure
 # annotate_figure(figure,
 #                 top = text_grob("Binary", color = "red", face = "bold", size = 14),
 #                 bottom = text_grob("Data source: \n ToothGrowth data set", color = "blue",
@@ -40,10 +44,15 @@ figure <- ggarrange(plotlist = all_plots, common.legend = TRUE)
 #                 fig.lab = "Figure 1", fig.lab.face = "bold"
 # )
 
+# Compare random and threshold --------------------------------------------
+
 append_plot_ties <- function(name) {
-  paramr <- get(paste0("fit_", name, "_d"))
-  p <- compare_ties(paramd$results)
+  paramd <- get(paste0("fit_", name, "_d"))
+  p <- compare_ties(paramd$results, metric = "Kappa", name = name)
   return(p)
 }
-all_plots <- lapply(data_list, append_plot_ties)
-compare_ties
+
+all_plots <- lapply(all_data, append_plot_ties)
+figure <- ggarrange(plotlist = all_plots, common.legend = TRUE) 
+figure
+

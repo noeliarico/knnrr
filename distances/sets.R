@@ -5,6 +5,7 @@ get_distances <- function(atttype) {
     distance_methods <- c("manhattan", "euclidean", "chebyshev", "3", "4")
   }
   else if(atttype == "categorical") { # binary es jaccard
+    #distance_methods <- c("binary", "manhattan", "euclidean", "smc", "ss3", "jaccard")
     distance_methods <- c("binary", "euclidean", "smc")
   }
   else if(atttype == "mixed") {

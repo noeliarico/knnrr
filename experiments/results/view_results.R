@@ -1,6 +1,4 @@
 compare_metric <- function(rdata, ddata, metric, name = "", breakties = "randomly", input = "numerical") {
-
-  print(metric)
   
 colors <- c(
 "#ff6f61",
@@ -44,12 +42,11 @@ colors <- c(
   
   print(all_data)
   
-  all_data$method <- ordered(all_data$method,
-                             levels = c("binary", "euclidean", "smc",
-                                        "borda_count", "plurality", "two", "three", "five", "seven"))
+  # all_data$method <- ordered(all_data$method,
+  #                            levels = c("binary", "euclidean", "smc",
+  #                                       "borda_count", "plurality", "two", "three", "five", "seven"))
 
-  p <- ggplot(all_data, aes_string("type", y = metric)) +
-    geom_point(
+  geom_point(
       aes(color = method, shape = method),
       size = 5,
       alpha = 0.85,
