@@ -18,7 +18,7 @@ row.names(mini_iris) <- paste0("X", 1:12)
 
 
 set.seed(123)
-itest <- c(4,8,12)
+itest <- c(1,5,9)
 mini_iris_train <- mini_iris[-itest,]
 mini_iris_test <- mini_iris[itest,]
 sink("iris_euclidean_randomly")

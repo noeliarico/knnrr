@@ -4,7 +4,7 @@ compare_ties <- function(data, metric, name = "") {
   tryCatch({
   ggplot(data, aes_string("k", metric, color = "ties")) +
     geom_point() +
-    facet_grid(~distance) + 
+    facet_grid(k ~ distance) + 
     ggtitle(name)
   })
 }

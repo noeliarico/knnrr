@@ -129,12 +129,14 @@ $$
 ```{r}
 data <- tribble(~color, ~doors, ~wheels,
                 "red", 2, "winter",
+                "red", 5, "winter",
+                "red", 2, "summer",
                 "red", 5, "winter"
                 )
 ```
 
 ```{r}
-apply(data, 1, function(x) x == data)
+mapply(function(x, y) paste(x, y), data, data)
 ```
 
 

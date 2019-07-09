@@ -329,7 +329,7 @@ dknnfTrain <- function(train,
   }
  
   # create a ranking of instances
-  distances <- t(apply(distances, 1, consensus::ranking))
+  distances <- t(apply(distances, 1, ranking2))
   
   if(developer) {
     cat('\nRanking for each instance:\n')

@@ -100,6 +100,61 @@ compute_distances <- function(data, distance, verbose = FALSE) {
     data[i] <- lapply(data[i], as.numeric)
     return(as.matrix(daisy(data, metric = "gower")))
   }
+  else if(distance == "s1") {
+    if(verbose) print("s1 distance...")
+    datan <- predict(dummyVars(~., data), data)
+    return(as.matrix(dist.binary(datan, method = 1)))
+  }
+  else if(distance == "s2") {
+    if(verbose) print("s2 distance...")
+    datan <- predict(dummyVars(~., data), data)
+    return(as.matrix(dist.binary(datan, method = 2)))
+  }
+  else if(distance == "s3") {
+    if(verbose) print("s3 distance...")
+    datan <- predict(dummyVars(~., data), data)
+    return(as.matrix(dist.binary(datan, method = 3)))
+  }
+  else if(distance == "s4") {
+    if(verbose) print("s4 distance...")
+    datan <- predict(dummyVars(~., data), data)
+    return(as.matrix(dist.binary(datan, method = 4)))
+  }
+  else if(distance == "s5") {
+    if(verbose) print("s5 distance...")
+    datan <- predict(dummyVars(~., data), data)
+    return(as.matrix(dist.binary(datan, method = 5)))
+  }
+  else if(distance == "s6") {
+    if(verbose) print("s6 distance...")
+    datan <- predict(dummyVars(~., data), data)
+    return(as.matrix(dist.binary(datan, method = 6)))
+  }
+  else if(distance == "s7") {
+    if(verbose) print("s7 distance...")
+    datan <- predict(dummyVars(~., data), data)
+    return(as.matrix(dist.binary(datan, method = 7)))
+  }
+  else if(distance == "s8") {
+    if(verbose) print("s8 distance...")
+    datan <- predict(dummyVars(~., data), data)
+    return(as.matrix(dist.binary(datan, method = 8)))
+  }
+  else if(distance == "s9") {
+    if(verbose) print("s9 distance...")
+    datan <- predict(dummyVars(~., data), data)
+    return(as.matrix(dist.binary(datan, method = 9)))
+  }
+  else if(distance == "s10") {
+    if(verbose) print("s10 distance...")
+    datan <- predict(dummyVars(~., data), data)
+    return(as.matrix(dist.binary(datan, method = 10)))
+  }
+  else if(distance == "cosine") {
+    if(verbose) print("cosine distance...")
+    datan <- predict(dummyVars(~., data), data)
+    return(as.matrix(cos_dis(datan)))
+  }
  
   # --------------
   
@@ -107,6 +162,13 @@ compute_distances <- function(data, distance, verbose = FALSE) {
     if(verbose) print("Invalid distance!!!")
     stop("Invalid distance")
   }
+}
+
+cos_dis <- function(m) {
+  sim <- m / sqrt(rowSums(m * m))
+  sim <- sim %*% t(sim)
+  d_sim <- as.dist(1 - sim)
+  return(d_sim)
 }
 
 # -------------------------------------------------------------------------

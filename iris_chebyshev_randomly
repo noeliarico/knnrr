@@ -1,0 +1,26 @@
+
+> set.seed(123)
+
+> out <- dknnfTrain(mini_iris_train[,-5], mini_iris_test[,-5], mini_iris_train$Species,
++           k = 3, distance = "chebyshev", ties = "randomly",  .... [TRUNCATED] 
+-> Train dknn k = 3, distance = chebyshev, ties = randomly
+nrow(train) = 9 and nrow(test) = 3 
+[1] "chebyshev distance..."
+
+Matrix of distances:
+    X2  X3  X4  X6  X7  X8 X10 X11 X12
+X1 0.7 1.4 1.7 3.2 3.4 3.1 5.5 3.7 4.0
+X5 3.4 3.6 3.6 0.5 0.8 0.7 1.8 0.8 0.8
+X9 3.4 3.6 3.6 1.0 0.6 0.7 2.1 0.5 1.1
+
+Ranking for each instance:
+   X2 X3 X4 X6 X7 X8 X10 X11 X12
+X1  1  2  3  5  6  4   9   7   8
+X5  6  7  7  1  4  2   5   4   3
+X9  7  8  8  4  2  3   6   1   5
+
+> predict_for_k(out$distances, out$cl, "randomly")
+--------> Predict: ties = randomly and k = 3
+[1] "setosa"     "versicolor" "versicolor"
+
+> sink.reset()

@@ -9,15 +9,15 @@ path_to_data <- tryCatch({
 
 # Abalone -----------------------------------------------------------------
 
-abalone_age <- read_csv(file.path(path_to_data, "data/multiclass/mixed/lessthan10/abalone.csv"), 
-                          col_types = cols(sex = col_factor(NULL),
-                                           rings = col_factor(NULL)
+abalone <- read_csv(file.path(path_to_data, "data/multiclass/mixed/lessthan10/abalone.csv"), 
+                          col_types = cols(sex = col_factor(NULL)
                                            # the other are numbers
                                            ),
                           col_names = c("sex", "length", "diameter", "height",
                                         "whole_weight", "shucked_weight",
                                         "viscera_weight", "shell_weight",
                                         "rings"))
+abalone$rings <- discretize(abalone$rings, method = "frequency")
 
 # Acute Inflammation ------------------------------------------------------
 
@@ -488,4 +488,109 @@ zoo <- read_csv(file.path(path_to_data, "data/multiclass/categorical/10ormore/zo
 
 
 
-                          
+
+# other -------------------------------------------------------------------
+
+adult <- read_csv("data/other/adult.csv",
+                  col_names = 
+                    c("age",
+                      "workclass",
+                      "fnlwgt",
+                      "education",
+                      "education_num",
+                      "marital_status",
+                      "occupation",
+                      "relationship",
+                      "race",
+                      "sex",
+                      "capital_gain",
+                      "capital_loss",
+                      "hours_per_week",
+                      "native_country",
+                      "class"),
+                  col_types = cols(age = col_number(),
+                                   fnlwgt = col_number(),
+                                   capital_gain = col_number(),
+                                   capital_loss = col_number(),
+                                   hours_per_week = col_number()))                
+
+
+# Flags -------------------------------------------------------------------
+
+flags <- read_csv("data/other/flag.csv", 
+                  col_names = c("name",
+                                "landmass",
+                                "zone",
+                                "area",
+                                "population",
+                                "language",
+                                "religion",
+                                "bars",
+                                "stripes",
+                                "colours",
+                                "red",
+                                "green",
+                                "blue",
+                                "gold",
+                                "white",
+                                "black",
+                                "orange",
+                                "mainhue",
+                                "circles",
+                                "crosses",
+                                "saltires",
+                                "quarters",
+                                "sunstars",
+                                "crescent",
+                                "triangle",
+                                "icon",
+                                "animate",
+                                "text",
+                                "topleft",
+                                "botright"),
+                  col_types = cols(.default = col_factor(NULL),
+                                   area = col_number(),
+                                   population = col_number())) %>%
+        mutate(name = NULL,
+               language = fct_collapse(language, other = c("3","4","5", "6", "7", "9"))) 
+
+
+# Lenses ------------------------------------------------------------------
+
+lenses <- read.table("data/other/lenses.csv")
+colnames(lenses) <- c("id",
+                      "age",
+                      "spectacle",
+                      "astigmatic",
+                      "tear_production_rate",
+                      "class")
+lenses$id <- NULL
+lenses[] <- lapply(lenses, function(x) as.factor(x))
+
+
+# Waves -------------------------------------------------------------------
+
+waves <- read_csv("data/other/waves.csv", col_names = FALSE)
+waves$X22 <- as.factor(waves$X22)
+
+
+# Diabetes ----------------------------------------------------------------
+
+diabetes <- read.arff("data/other/diabetes.arff")
+
+
+# cpu ---------------------------------------------------------------------
+
+
+cpu <- read.arff("data/other/cpu.arff.txt")
+cpu$class <- (discretize(cpu$class, breaks = 2))
+
+# egg_eye_state -----------------------------------------------------------
+
+egg_eye_state <- read.arff("data/other/eeg_eye_state")
+
+
+# glass -------------------------------------------------------------------
+
+glass <- read.arff("data/other/glass.arff.txt")
+head(glass)

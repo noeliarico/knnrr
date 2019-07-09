@@ -1,6 +1,7 @@
 # Libraries ---------------------------------------------------------------
 
 library(ade4)
+library(arules)
 library(caret)
 library(cluster)
 library(devtools)

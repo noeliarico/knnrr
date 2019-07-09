@@ -71,8 +71,10 @@ predict_for_k(out$distances, out$cl, "threshold", k = 4)
 sink()
 
 
+sink("experiments/examples/zoo_rknn")
 set.seed(123)
 out <- knn4Train(mini_zoo_train[,-13], mini_zoo_test[,-13], mini_zoo_train$type,
                  k = 3, rr = "borda_count", atttype = "custom", 
                  ties = "threshold", developer = TRUE)
 predict_using_por(out, k = 3, ties = "threshold")
+sink()

@@ -5,14 +5,16 @@ get_distances <- function(atttype) {
     distance_methods <- c("manhattan", "euclidean", "chebyshev", "3", "4")
   }
   else if(atttype == "categorical") { # binary es jaccard
-    #distance_methods <- c("binary", "manhattan", "euclidean", "smc", "ss3", "jaccard")
-    distance_methods <- c("binary", "euclidean", "smc")
+    distance_methods <- c("binary", "manhattan", "euclidean", "s1", "s2")
+    #distance_methods <- c("binary", "euclidean", "cosine")
+    #distance_methods <- paste0("s", 1:10)
   }
   else if(atttype == "mixed") {
     distance_methods <- c("manhattan", "euclidean", "gower")
   }
   else if(atttype == "custom") {
     #distance_methods <- c("jaccard", "smc", "chebyshev")
+    #distance_methods <- paste0("s", 1:10)
     distance_methods <- c("manhattan", "euclidean", "chebyshev")
   }
   else {

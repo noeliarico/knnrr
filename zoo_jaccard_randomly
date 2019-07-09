@@ -1,0 +1,30 @@
+
+> set.seed(123)
+
+> out <- dknnfTrain(mini_zoo_train[,-13], mini_zoo_test[,-13], mini_zoo_train$type,
++                   k = 3, distance = "jaccard", ties = "randomly" .... [TRUNCATED] 
+-> Train dknn k = 3, distance = jaccard, ties = randomly
+nrow(train) = 14 and nrow(test) = 3 
+[1] "jaccard distance..."
+
+Matrix of distances:
+           2         4        12        13        15        21        25        26
+1  0.5547002 0.9486833 0.4082483 0.8819171 0.8401681 0.4082483 0.8401681 0.8401681
+11 0.9176629 0.6546537 0.8819171 0.4082483 0.5547002 0.8819171 0.0000000 0.0000000
+19 0.9176629 0.7905694 0.8819171 0.6546537 0.5547002 0.7905694 0.5547002 0.5547002
+          27        28        29        30        31        33
+1  0.4082483 0.9176629 0.5547002 0.9176629 0.4082483 0.9176629
+11 0.8819171 0.5547002 0.9176629 0.5547002 0.8819171 0.5547002
+19 0.8819171 0.7302967 0.8401681 0.5547002 0.7905694 0.7302967
+
+Ranking for each instance:
+   2 4 12 13 15 21 25 26 27 28 29 30 31 33
+1  2 6  1  4  3  1  3  3  1  5  2  5  1  5
+11 6 4  5  2  3  5  1  1  5  3  6  3  5  3
+19 7 4  6  2  1  4  1  1  6  3  5  1  4  3
+
+> predict_for_k(out$distances, out$cl, "randomly")
+--------> Predict: ties = randomly and k = 3
+[1] "Fish" "Bird" "Bird"
+
+> sink()

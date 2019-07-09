@@ -307,7 +307,6 @@ knn4Train <- function(train,
     stop('Invalid value for ties')
   
   # distances that will be used to create the ranking 
-  #distance_methods <- c("manhattan", "euclidean", "maximum")
   distance_methods <- get_distances(atttype)
   
   # rows of the training set and rows of the test set
@@ -343,9 +342,6 @@ knn4Train <- function(train,
   test_list <- rep(list(por), rows_test)
    
   # index of the distance name in the predefined vector of distances
-  # 1 for chebyshev
-  # 2 for manhattan
-  # 3 for euclidean
   dist_index <- 0
   
   # merge the data of the train and test set for calculating the distances
@@ -378,9 +374,9 @@ knn4Train <- function(train,
       cat(paste('\n--> Distances: \n'))
       print(distance_values)
     }
-    
+
     # translate those distances to rankings   
-    rankings <- t(apply(distance_values, 1, ranking))
+    rankings <- t(apply(distance_values, 1, ranking2))
     
     if(developer) {
       cat(paste('\n--> Rankings: \n'))

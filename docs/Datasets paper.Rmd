@@ -1,0 +1,81 @@
+---
+title: "Datasets paper"
+output: html_notebook
+---
+
+# Numerical
+
+## Binary
+
+### < 10
+#### mini_bank_note
+#### haberman
+#### mini_skin
+#### mini_weight_height
+#### vertebral_column
+
+### >= 10
+
+#### ionosphere
+#### sonar
+
+
+
+## Multiclass
+
+### < 10
+
+#### filtered_ecoli
+#### iris
+#### life_expectancy
+#### seeds
+#### vertebral_column3
+#### wifi_localization
+#### mini_yeast
+
+### >=10
+
+# Mixed
+
+## Binary
+
+### <10
+
+#### acute_inflammations1
+#### acute_inflammations2
+#### caesarian
+#### mini_mammographic_masses
+
+### >= 10
+
+#### statlog
+#### primary_tumor
+
+## Multiclass
+
+### < 10
+
+#### abalone
+#### teaching_assistant
+
+### >= 10
+
+#### contraceptive
+
+# Categorical
+
+## Binary
+#### balance_scale
+#### breast_cancer
+#### mini_cars
+#### somerville
+#### mini_tic_tac_toe
+
+## Multiclass
+#### post_operative
+#### mini_connect4
+#### soybean_large
+#### zoo
+
+
+"mini_chess"
