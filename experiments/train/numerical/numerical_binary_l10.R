@@ -1,3 +1,7 @@
+sink("executed", append = TRUE)
+cat("Numerical binary < 10 \n")
+sink()
+
 # bank_note ---------------------------------------------------------------
 
 bank_note <- as.data.frame(bank_note)
@@ -27,6 +31,9 @@ fit_mini_bank_note_r <- train(
    tuneGrid = rgrid_num
 )
 
+sink("executed", append = TRUE)
+cat(paste0("- mini_bank_note ---> nrow = ", nrow(mini_bank_note), ", ncol = ", ncol(mini_bank_note), " ///// ", now(), "\n"))
+sink()
 
 # cpu ---------------------------------------------------------------------
 
@@ -47,6 +54,10 @@ fit_cpu_r <- train(x =  cpu[,-7],
                                  preProcess = c("center", "scale"),
                                  trControl = binary_fitControl,
                                  tuneGrid = rgrid_num)
+
+sink("executed", append = TRUE)
+cat(paste0("- cpu ---> nrow = ", nrow(cpu), ", ncol = ", ncol(cpu), " ///// ", now(), "\n"))
+sink()
 
 # haberman ----------------------------------------------------------------
 
@@ -70,6 +81,9 @@ fit_haberman_r <- train(x =  haberman[,-4],
       trControl = binary_fitControl,
       tuneGrid = rgrid_num)
 
+sink("executed", append = TRUE)
+cat(paste0("- haberman ---> nrow = ", nrow(haberman), ", ncol = ", ncol(haberman), " ///// ", now(), "\n"))
+sink()
 
 # skin --------------------------------------------------------------------
 
@@ -96,26 +110,33 @@ fit_mini_skin_r <- train(x =  mini_skin[,-4],
       trControl = binary_fitControl,
       tuneGrid = rgrid_num)
 
+sink("executed", append = TRUE)
+cat(paste0("- mini_skin ---> nrow = ", nrow(mini_skin), ", ncol = ", ncol(mini_skin), " ///// ", now(), "\n"))
+sink()
 
 # vertebral column --------------------------------------------------------
 
 set.seed(123)
-fit_vertebral_column2_d <- train(x =  vertebral_colum2[,-7],
-      y = vertebral_colum2[,7],
-      data = vertebral_colum2,
+fit_vertebral_column2_d <- train(x =  vertebral_column2[,-7],
+      y = vertebral_column2[,7],
+      data = vertebral_column2 ,
       method = dknn,
       preProcess = c("center", "scale"),
       trControl = binary_fitControl,
       tuneGrid = dgrid_num)
 
 set.seed(123)
-fit_vertebral_column2_r <- train(x =  vertebral_colum2[,-7],
-      y = vertebral_colum2[,7],
-      data = vertebral_colum2,
+fit_vertebral_column2_r <- train(x =  vertebral_column2[,-7],
+      y = vertebral_column2[,7],
+      data = vertebral_column2,
       method = rknn,
       preProcess = c("center", "scale"),
       trControl = binary_fitControl,
       tuneGrid = rgrid_num)
+
+sink("executed", append = TRUE)
+cat(paste0("- vertebral_column2 ---> nrow = ", nrow(vertebral_column2), ", ncol = ", ncol(vertebral_column2), " ///// ", now(), "\n"))
+sink()
 
 # weight_height -----------------------------------------------------------
 
@@ -143,6 +164,9 @@ fit_mini_weight_height_r <- train(x =  mini_weight_height[,-1],
       tuneGrid = rgrid_num)
 
 
+sink("executed", append = TRUE)
+cat(paste0("- mini_weight_height ---> nrow = ", nrow(mini_weight_height), ", ncol = ", ncol(mini_weight_height), " ///// ", now(), "\n"))
+sink()
 
 #--------------------------------------------------------------------------
 # results -----------------------------------------------------------------

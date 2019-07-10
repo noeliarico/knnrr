@@ -1,3 +1,7 @@
+sink("executed", append = TRUE)
+cat("Numerical multiclass < 10 \n")
+sink()
+
 # Ecoli -------------------------------------------------------------------
 
 filtered_ecoli <- ecoli %>% filter(!class %in% c("imL", "imS", "imU", "omL")) %>% droplevels()
@@ -25,6 +29,11 @@ fit_filtered_ecoli_r <- train(
   tuneGrid = rgrid_num
 )
 
+sink("executed", append = TRUE)
+cat(paste0("- filtered_ecoli ---> nrow = ", nrow(filtered_ecoli), ", ncol = ", ncol(filtered_ecoli), " ///// ", now(), "\n"))
+sink()
+
+
 # Glass -------------------------------------------------------------------
 
 set.seed(123)
@@ -48,6 +57,10 @@ fit_glass_r <- train(
   trControl = multi_fitControl,
   tuneGrid = rgrid_num
 )
+
+sink("executed", append = TRUE)
+cat(paste0("- glass ---> nrow = ", nrow(glass), ", ncol = ", ncol(glass), " ///// ", now(), "\n"))
+sink()
 
 # Iris --------------------------------------------------------------------
 
@@ -75,6 +88,10 @@ fit_iris_r <- train(
   tuneGrid = rgrid_num
 )
 
+sink("executed", append = TRUE)
+cat(paste0("- iris ---> nrow = ", nrow(iris), ", ncol = ", ncol(iris), " ///// ", now(), "\n"))
+sink()
+
 # Life expectancy ---------------------------------------------------------
 
 life_expectancy <- data.frame(life_expectancy)
@@ -100,6 +117,10 @@ fit_life_expectancy_r <- train(
   trControl = multi_fitControl,
   tuneGrid = rgrid_num
 )
+
+sink("executed", append = TRUE)
+cat(paste0("- life_expectancy ---> nrow = ", nrow(life_expectancy), ", ncol = ", ncol(life_expectancy), " ///// ", now(), "\n"))
+sink()
 
 # Seeds -------------------------------------------------------------------
 
@@ -128,13 +149,17 @@ fit_seeds_r <- train(
   tuneGrid = rgrid_num
 )
 
+sink("executed", append = TRUE)
+cat(paste0("- seeds ---> nrow = ", nrow(seeds), ", ncol = ", ncol(seeds), " ///// ", now(), "\n"))
+sink()
+
 # Vertebral column 3 ------------------------------------------------------
 
 set.seed(123)
 fit_vertebral_column3_d <- train(
-  x =  vertebral_colum3[, -7],
-  y = vertebral_colum3[, 7],
-  data = vertebral_colum3,
+  x =  vertebral_column3[, -7],
+  y = vertebral_column3[, 7],
+  data = vertebral_column3,
   method = dknn,
   preProcess = c("center", "scale"),
   trControl = multi_fitControl,
@@ -143,14 +168,18 @@ fit_vertebral_column3_d <- train(
 
 set.seed(123)
 fit_vertebral_column3_r <- train(
-  x =  vertebral_colum3[, -7],
-  y = vertebral_colum3[, 7],
-  data = vertebral_colum3,
+  x =  vertebral_column3[, -7],
+  y = vertebral_column3[, 7],
+  data = vertebral_column3,
   method = rknn,
   preProcess = c("center", "scale"),
   trControl = multi_fitControl,
   tuneGrid = rgrid_num
 )
+
+sink("executed", append = TRUE)
+cat(paste0("- vertebral_column3 ---> nrow = ", nrow(vertebral_column3), ", ncol = ", ncol(vertebral_column3), " ///// ", now(), "\n"))
+sink()
 
 # Wifi localization -------------------------------------------------------
 
@@ -182,6 +211,10 @@ fit_wifi_localization_r <- train(
   trControl = multi_fitControl,
   tuneGrid = rgrid_num
 )
+
+sink("executed", append = TRUE)
+cat(paste0("- mini_wifi_localization ---> nrow = ", nrow(mini_wifi_localization), ", ncol = ", ncol(mini_wifi_localization), " ///// ", now(), "\n"))
+sink()
 
 # Yeast -------------------------------------------------------------------
 
@@ -218,6 +251,10 @@ fit_mini_yeast_r <- train(
   trControl = multi_fitControl,
   tuneGrid = rgrid_num
 )
+
+sink("executed", append = TRUE)
+cat(paste0("- mini_yeast ---> nrow = ", nrow(mini_yeast), ", ncol = ", ncol(mini_yeast), " ///// ", now(), "\n"))
+sink()
 
 #--------------------------------------------------------------------------
 # results -----------------------------------------------------------------

@@ -1,11 +1,11 @@
 library(caret)
 
 set.seed(123)
-multi_fitControl <- trainControl(method = "cv", 2,
+multi_fitControl <- trainControl(method = "cv", 3,
                            summaryFunction = multiClassSummary)
 
 set.seed(123)
-binary_fitControl <- trainControl(method = "cv", 2,
+binary_fitControl <- trainControl(method = "cv", 3,
                                  summaryFunction = multiClassSummary)
 
 ks = c(1,2,3,5,7,9)

@@ -1,5 +1,5 @@
 compare_metric <- function(rdata, ddata, metric, name = "", 
-                           input = "numerical", breakties = "randomly") { #, low_limit = 1) {
+                           input = "numerical", breakties = "randomly", filter = "") { #, low_limit = 1) {
   
 colors <- c(
 "#ff6f61",
@@ -9,15 +9,15 @@ colors <- c(
 "#5f4b8b",
 "#db9e23",
 "#381452",
-"#80bab0",
 "#9e6fb8",
 "#004000",
 "#a85a72",
 "#750c41",
-"#00294f",
 "#232b2b",
 "#3b444b",
-"#0e1111")
+"#0e1111",
+"#00294f",
+"#80bab0")
   
   rdata <- rdata$results
   ddata <- ddata$results
@@ -37,6 +37,10 @@ colors <- c(
     mutate(method = distance, 
            distance = NULL,
            type = "distance")
+  
+  if(filter != "") {
+    ddata <- data %>% file(rr = filter)
+  }
   
   all_data <- bind_rows(rdata, ddata) %>%
     filter(k < 9) %>%
@@ -77,12 +81,12 @@ colors <- c(
   p <- ggplot(all_data, aes_string(x = "type", y = metric)) + 
   geom_point(
       aes(color = method, shape = method),
-      size = 2,
+      size = 4,
       alpha = 0.85,
       position = position_jitter(w = 0.1, h = 0)
     ) +
     #scale_alpha_discrete(range = c(0.6)) +
-    facet_grid( ~ k) +
+    facet_grid(~k) +
     #scale_shape_manual(values = c(15:19, 5:10)) +
     scale_shape_manual(values = c(1:16)) +
     #scale_color_brewer(palette="Spectral") + 

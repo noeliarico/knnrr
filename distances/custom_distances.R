@@ -19,6 +19,8 @@ compute_distances <- function(data, distance, verbose = FALSE) {
   
   if(distance == "manhattan") {
     if(verbose) print("manhattan distance...")
+    i <- sapply(data, is.character)
+    if(sum(i)>0) data[i] <- lapply(data[i], as.numeric)
     if(any(sapply(data, is.factor))) {
       data <-  predict(dummyVars(~.,data), data)
     }
@@ -26,6 +28,8 @@ compute_distances <- function(data, distance, verbose = FALSE) {
   }
   else if(distance == "euclidean") {
     if(verbose) print("euclidean distance...")
+    i <- sapply(data, is.character)
+    if(sum(i)>0) data[i] <- lapply(data[i], as.numeric)
     if(any(sapply(data, is.factor))) {
       data <-  predict(dummyVars(~.,data), data)
     }
@@ -97,7 +101,7 @@ compute_distances <- function(data, distance, verbose = FALSE) {
   else if(distance == "gower") {
     if(verbose) print("gower distance...")
     i <- sapply(data, is.character)
-    data[i] <- lapply(data[i], as.numeric)
+    if(sum(i)>0) data[i] <- lapply(data[i], as.numeric)
     return(as.matrix(daisy(data, metric = "gower")))
   }
   else if(distance == "s1") {

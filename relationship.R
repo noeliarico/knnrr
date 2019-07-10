@@ -33,6 +33,19 @@ ggplot(ds, aes(x, y)) +
 
 ds <- tribble(~iter, ~manhattan, ~euclidean)
 for(i in 1:1000) {
+  vs <- data.frame(replicate(10,rnorm(0:10,2)))
+  manhattan <- dist(vs, method = "manhattan")[1]
+  euclidean <- dist(vs, method = "euclidean")[1]
+  ds <- bind_rows(ds, tibble(iter = i, manhattan = manhattan, euclidean = euclidean))
+}
+
+# Behavior of manhattan and euclidean distances for numeric vectors
+ggplot(ds, aes(manhattan, euclidean)) +
+  geom_point(alpha = 0.3) +
+  geom_line()
+
+ds <- tribble(~iter, ~manhattan, ~euclidean)
+for(i in 1:1000) {
   vs <- data.frame(replicate(10,sample(0:10,2,rep=TRUE)))
   manhattan <- dist(vs, method = "manhattan")[1]
   euclidean <- dist(vs, method = "euclidean")[1]
@@ -133,4 +146,6 @@ for(i in 1:10000) {
 }
 
 ggpairs(ds[,-1], upper = "blank", diag = "blank", switch = "both")  
+
+
 

@@ -287,6 +287,13 @@ dknnfTrain <- function(train,
     cat(paste('nrow(train) =',nrow(train),'and nrow(test) =',nrow(test),'\n')) 
   }
   
+  if(developer) {
+    cat("-- TRAIN -----------------------")
+    print(train)
+    cat("-- TEST -----------------------")
+    print(test)
+  }
+  
   # -> original parameter tests of the knn3 method
   if(is.null(dim(test))) dim(test) <- c(1, length(test))
   test <- as.matrix(test)
@@ -313,8 +320,7 @@ dknnfTrain <- function(train,
   rows_test <- nrow(test)
   
   all_data <- rbind(train, test)
-  
-  
+
   distances <- compute_distances(all_data, distance)
   
   # distances contains the distance of each test point to a training instance
@@ -327,7 +333,7 @@ dknnfTrain <- function(train,
     cat('\nMatrix of distances:\n')
     print(distances)
   }
- 
+
   # create a ranking of instances
   distances <- t(apply(distances, 1, ranking2))
   
@@ -335,7 +341,7 @@ dknnfTrain <- function(train,
     cat('\nRanking for each instance:\n')
     print(distances)
   }
-
+  
   # if (prob) 
   #   attr(res, "prob") <- classProbs
   

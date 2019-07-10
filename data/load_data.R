@@ -435,8 +435,8 @@ travel_insurance <- read_csv(file.path(path_to_data, "data/binary/mixed/10ormore
 
 # Vertebral column --------------------------------------------------------
 
-vertebral_colum2 <- read.arff(file.path(path_to_data, "data/binary/numerical/lessthan10/vetebral_column_2.arff"))
-vertebral_colum3 <- read.arff(file.path(path_to_data, "data/multiclass/numerical/lessthan10/vertebral_column_3.arff"))
+vertebral_column2 <- read.arff(file.path(path_to_data, "data/binary/numerical/lessthan10/vetebral_column_2.arff"))
+vertebral_column3 <- read.arff(file.path(path_to_data, "data/multiclass/numerical/lessthan10/vertebral_column_3.arff"))
 
 # Wine quality data -------------------------------------------------------
 
@@ -594,3 +594,13 @@ egg_eye_state <- read.arff("data/other/eeg_eye_state")
 
 glass <- read.arff("data/other/glass.arff.txt")
 head(glass)
+
+
+# kidney disease ----------------------------------------------------------
+
+kidney_disease <- read.arff("data/other/chronic_kidney_disease_full.arff")
+nrow(kidney_disease)
+kidney_disease <- read.arff("data/other/chronic_kidney_disease.arff")
+nrow(kidney_disease)
+head(glass)
+

@@ -85,6 +85,7 @@ set.seed(123)
 mini_contraceptive <- createDataPartition(contraceptive$contraceptive, p = 0.25, list = FALSE)
 mini_contraceptive <- contraceptive[mini_contraceptive,]
 
+sink("contraceptive")
 set.seed(123)
 fit_contraceptive_d <- train(
   x =  mini_contraceptive[, -10],
@@ -95,6 +96,7 @@ fit_contraceptive_d <- train(
   trControl = multi_fitControl,
   tuneGrid = dgrid_mix
 )
+sink()
 
 set.seed(123)
 fit_contraceptive_r <- train(
@@ -106,6 +108,7 @@ fit_contraceptive_r <- train(
   trControl = binary_fitControl,
   tuneGrid = rgrid_mix
 )
+
 
 # Covertype ---------------------------------------------------------------
 

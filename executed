@@ -1,0 +1,36 @@
+[1] "2019-07-10"
+[1] "- mini_bank_note ---> nrow = 138, ncol = 5 ///// 2019-07-10 10:55:53"
+[1] "- cpu ---> nrow = 209, ncol = 7 ///// 2019-07-10 11:01:20"
+[1] "- haberman ---> nrow = 306, ncol = 4 ///// 2019-07-10 11:14:02"
+[1] "- mini_skin ---> nrow = 246, ncol = 4 ///// 2019-07-10 11:22:39"
+[1] "- vertebral_column2 ---> nrow = 310, ncol = 7 ///// 2019-07-10 11:31:01"
+[1] "- mini_weight_height ---> nrow = 200, ncol = 3 ///// 2019-07-10 11:34:10"
+Numerical binary >= 10 
+- mini_egg_eye_state ---> nrow = 151, ncol = 15 ///// 2019-07-10 11:47:29
+- ionospheren ---> nrow = 351, ncol = 33 ///// 2019-07-10 12:02:35
+- sonar ---> nrow = 208, ncol = 61 ///// 2019-07-10 12:06:36
+Numerical multiclass >= 10 
+- mini_waves ---> nrow = 251, ncol = 22 ///// 2019-07-10 12:17:43
+Numerical multiclass < 10 
+- filtered_ecoli ---> nrow = 292, ncol = 8 ///// 2019-07-10 12:25:21
+- glass ---> nrow = 214, ncol = 10 ///// 2019-07-10 12:31:04
+- iris ---> nrow = 150, ncol = 5 ///// 2019-07-10 12:33:49
+- life_expectancy ---> nrow = 223, ncol = 4 ///// 2019-07-10 12:39:23
+- seeds ---> nrow = 210, ncol = 8 ///// 2019-07-10 12:43:32
+- vertebral_column3 ---> nrow = 310, ncol = 7 ///// 2019-07-10 12:51:59
+- mini_wifi_localization ---> nrow = 200, ncol = 8 ///// 2019-07-10 12:55:24
+- mini_yeast ---> nrow = 153, ncol = 9 ///// 2019-07-10 12:57:42
+
+Mixed binary < 10 
+- caesarian ---> nrow = 80, ncol = 6 ///// 2019-07-10 16:24:17
+Mixed binary < 10 
+Mixed binary < 10 
+- caesarian ---> nrow = 80, ncol = 6 ///// 2019-07-10 16:26:47
+Mixed binary < 10 
+- caesarian ---> nrow = 80, ncol = 6 ///// 2019-07-10 16:32:18
+- mini_mammographic_masses ---> nrow = 208, ncol = 6 ///// 2019-07-10 16:35:14
+Mixed binary < 10 
+- caesarian ---> nrow = 80, ncol = 6 ///// 2019-07-10 16:37:03
+- mini_mammographic_masses ---> nrow = 208, ncol = 6 ///// 2019-07-10 16:40:05
+Numerical multiclass < 10 
+Numerical multiclass < 10 

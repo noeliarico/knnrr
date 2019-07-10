@@ -1,0 +1,659 @@
+---------------------------------------------------
+---------------------------------------------------
+
+-- Grid -- 
+   k          rr      ties atttype developer
+1  1   plurality  randomly   mixed     FALSE
+2  2   plurality  randomly   mixed     FALSE
+3  3   plurality  randomly   mixed     FALSE
+4  5   plurality  randomly   mixed     FALSE
+5  7   plurality  randomly   mixed     FALSE
+6  9   plurality  randomly   mixed     FALSE
+7  1 borda_count  randomly   mixed     FALSE
+8  2 borda_count  randomly   mixed     FALSE
+9  3 borda_count  randomly   mixed     FALSE
+10 5 borda_count  randomly   mixed     FALSE
+11 7 borda_count  randomly   mixed     FALSE
+12 9 borda_count  randomly   mixed     FALSE
+13 1         two  randomly   mixed     FALSE
+14 2         two  randomly   mixed     FALSE
+15 3         two  randomly   mixed     FALSE
+16 5         two  randomly   mixed     FALSE
+17 7         two  randomly   mixed     FALSE
+18 9         two  randomly   mixed     FALSE
+19 1       three  randomly   mixed     FALSE
+20 2       three  randomly   mixed     FALSE
+21 3       three  randomly   mixed     FALSE
+22 5       three  randomly   mixed     FALSE
+23 7       three  randomly   mixed     FALSE
+24 9       three  randomly   mixed     FALSE
+25 1        five  randomly   mixed     FALSE
+26 2        five  randomly   mixed     FALSE
+27 3        five  randomly   mixed     FALSE
+28 5        five  randomly   mixed     FALSE
+29 7        five  randomly   mixed     FALSE
+30 9        five  randomly   mixed     FALSE
+31 1       seven  randomly   mixed     FALSE
+32 2       seven  randomly   mixed     FALSE
+33 3       seven  randomly   mixed     FALSE
+34 5       seven  randomly   mixed     FALSE
+35 7       seven  randomly   mixed     FALSE
+36 9       seven  randomly   mixed     FALSE
+37 1   plurality threshold   mixed     FALSE
+38 2   plurality threshold   mixed     FALSE
+39 3   plurality threshold   mixed     FALSE
+40 5   plurality threshold   mixed     FALSE
+41 7   plurality threshold   mixed     FALSE
+42 9   plurality threshold   mixed     FALSE
+43 1 borda_count threshold   mixed     FALSE
+44 2 borda_count threshold   mixed     FALSE
+45 3 borda_count threshold   mixed     FALSE
+46 5 borda_count threshold   mixed     FALSE
+47 7 borda_count threshold   mixed     FALSE
+48 9 borda_count threshold   mixed     FALSE
+49 1         two threshold   mixed     FALSE
+50 2         two threshold   mixed     FALSE
+51 3         two threshold   mixed     FALSE
+52 5         two threshold   mixed     FALSE
+53 7         two threshold   mixed     FALSE
+54 9         two threshold   mixed     FALSE
+55 1       three threshold   mixed     FALSE
+56 2       three threshold   mixed     FALSE
+57 3       three threshold   mixed     FALSE
+58 5       three threshold   mixed     FALSE
+59 7       three threshold   mixed     FALSE
+60 9       three threshold   mixed     FALSE
+61 1        five threshold   mixed     FALSE
+62 2        five threshold   mixed     FALSE
+63 3        five threshold   mixed     FALSE
+64 5        five threshold   mixed     FALSE
+65 7        five threshold   mixed     FALSE
+66 9        five threshold   mixed     FALSE
+67 1       seven threshold   mixed     FALSE
+68 2       seven threshold   mixed     FALSE
+69 3       seven threshold   mixed     FALSE
+70 5       seven threshold   mixed     FALSE
+71 7       seven threshold   mixed     FALSE
+72 9       seven threshold   mixed     FALSE
+-- Loop -- 
+   k          rr      ties atttype developer
+6  9   plurality  randomly   mixed     FALSE
+12 9 borda_count  randomly   mixed     FALSE
+18 9         two  randomly   mixed     FALSE
+24 9       three  randomly   mixed     FALSE
+30 9        five  randomly   mixed     FALSE
+36 9       seven  randomly   mixed     FALSE
+42 9   plurality threshold   mixed     FALSE
+48 9 borda_count threshold   mixed     FALSE
+54 9         two threshold   mixed     FALSE
+60 9       three threshold   mixed     FALSE
+66 9        five threshold   mixed     FALSE
+72 9       seven threshold   mixed     FALSE
+-- Submodels -- 
+[[1]]
+   k        rr      ties atttype developer
+1  1 plurality  randomly   mixed     FALSE
+2  2 plurality  randomly   mixed     FALSE
+3  3 plurality  randomly   mixed     FALSE
+4  5 plurality  randomly   mixed     FALSE
+5  7 plurality  randomly   mixed     FALSE
+6  1 plurality threshold   mixed     FALSE
+7  2 plurality threshold   mixed     FALSE
+8  3 plurality threshold   mixed     FALSE
+9  5 plurality threshold   mixed     FALSE
+10 7 plurality threshold   mixed     FALSE
+
+[[2]]
+   k          rr      ties atttype developer
+1  1 borda_count  randomly   mixed     FALSE
+2  2 borda_count  randomly   mixed     FALSE
+3  3 borda_count  randomly   mixed     FALSE
+4  5 borda_count  randomly   mixed     FALSE
+5  7 borda_count  randomly   mixed     FALSE
+6  1 borda_count threshold   mixed     FALSE
+7  2 borda_count threshold   mixed     FALSE
+8  3 borda_count threshold   mixed     FALSE
+9  5 borda_count threshold   mixed     FALSE
+10 7 borda_count threshold   mixed     FALSE
+
+[[3]]
+   k  rr      ties atttype developer
+1  1 two  randomly   mixed     FALSE
+2  2 two  randomly   mixed     FALSE
+3  3 two  randomly   mixed     FALSE
+4  5 two  randomly   mixed     FALSE
+5  7 two  randomly   mixed     FALSE
+6  1 two threshold   mixed     FALSE
+7  2 two threshold   mixed     FALSE
+8  3 two threshold   mixed     FALSE
+9  5 two threshold   mixed     FALSE
+10 7 two threshold   mixed     FALSE
+
+[[4]]
+   k    rr      ties atttype developer
+1  1 three  randomly   mixed     FALSE
+2  2 three  randomly   mixed     FALSE
+3  3 three  randomly   mixed     FALSE
+4  5 three  randomly   mixed     FALSE
+5  7 three  randomly   mixed     FALSE
+6  1 three threshold   mixed     FALSE
+7  2 three threshold   mixed     FALSE
+8  3 three threshold   mixed     FALSE
+9  5 three threshold   mixed     FALSE
+10 7 three threshold   mixed     FALSE
+
+[[5]]
+   k   rr      ties atttype developer
+1  1 five  randomly   mixed     FALSE
+2  2 five  randomly   mixed     FALSE
+3  3 five  randomly   mixed     FALSE
+4  5 five  randomly   mixed     FALSE
+5  7 five  randomly   mixed     FALSE
+6  1 five threshold   mixed     FALSE
+7  2 five threshold   mixed     FALSE
+8  3 five threshold   mixed     FALSE
+9  5 five threshold   mixed     FALSE
+10 7 five threshold   mixed     FALSE
+
+[[6]]
+   k    rr      ties atttype developer
+1  1 seven  randomly   mixed     FALSE
+2  2 seven  randomly   mixed     FALSE
+3  3 seven  randomly   mixed     FALSE
+4  5 seven  randomly   mixed     FALSE
+5  7 seven  randomly   mixed     FALSE
+6  1 seven threshold   mixed     FALSE
+7  2 seven threshold   mixed     FALSE
+8  3 seven threshold   mixed     FALSE
+9  5 seven threshold   mixed     FALSE
+10 7 seven threshold   mixed     FALSE
+
+[[7]]
+   k        rr      ties atttype developer
+1  1 plurality  randomly   mixed     FALSE
+2  2 plurality  randomly   mixed     FALSE
+3  3 plurality  randomly   mixed     FALSE
+4  5 plurality  randomly   mixed     FALSE
+5  7 plurality  randomly   mixed     FALSE
+6  1 plurality threshold   mixed     FALSE
+7  2 plurality threshold   mixed     FALSE
+8  3 plurality threshold   mixed     FALSE
+9  5 plurality threshold   mixed     FALSE
+10 7 plurality threshold   mixed     FALSE
+
+[[8]]
+   k          rr      ties atttype developer
+1  1 borda_count  randomly   mixed     FALSE
+2  2 borda_count  randomly   mixed     FALSE
+3  3 borda_count  randomly   mixed     FALSE
+4  5 borda_count  randomly   mixed     FALSE
+5  7 borda_count  randomly   mixed     FALSE
+6  1 borda_count threshold   mixed     FALSE
+7  2 borda_count threshold   mixed     FALSE
+8  3 borda_count threshold   mixed     FALSE
+9  5 borda_count threshold   mixed     FALSE
+10 7 borda_count threshold   mixed     FALSE
+
+[[9]]
+   k  rr      ties atttype developer
+1  1 two  randomly   mixed     FALSE
+2  2 two  randomly   mixed     FALSE
+3  3 two  randomly   mixed     FALSE
+4  5 two  randomly   mixed     FALSE
+5  7 two  randomly   mixed     FALSE
+6  1 two threshold   mixed     FALSE
+7  2 two threshold   mixed     FALSE
+8  3 two threshold   mixed     FALSE
+9  5 two threshold   mixed     FALSE
+10 7 two threshold   mixed     FALSE
+
+[[10]]
+   k    rr      ties atttype developer
+1  1 three  randomly   mixed     FALSE
+2  2 three  randomly   mixed     FALSE
+3  3 three  randomly   mixed     FALSE
+4  5 three  randomly   mixed     FALSE
+5  7 three  randomly   mixed     FALSE
+6  1 three threshold   mixed     FALSE
+7  2 three threshold   mixed     FALSE
+8  3 three threshold   mixed     FALSE
+9  5 three threshold   mixed     FALSE
+10 7 three threshold   mixed     FALSE
+
+[[11]]
+   k   rr      ties atttype developer
+1  1 five  randomly   mixed     FALSE
+2  2 five  randomly   mixed     FALSE
+3  3 five  randomly   mixed     FALSE
+4  5 five  randomly   mixed     FALSE
+5  7 five  randomly   mixed     FALSE
+6  1 five threshold   mixed     FALSE
+7  2 five threshold   mixed     FALSE
+8  3 five threshold   mixed     FALSE
+9  5 five threshold   mixed     FALSE
+10 7 five threshold   mixed     FALSE
+
+[[12]]
+   k    rr      ties atttype developer
+1  1 seven  randomly   mixed     FALSE
+2  2 seven  randomly   mixed     FALSE
+3  3 seven  randomly   mixed     FALSE
+4  5 seven  randomly   mixed     FALSE
+5  7 seven  randomly   mixed     FALSE
+6  1 seven threshold   mixed     FALSE
+7  2 seven threshold   mixed     FALSE
+8  3 seven threshold   mixed     FALSE
+9  5 seven threshold   mixed     FALSE
+10 7 seven threshold   mixed     FALSE
+
+---------------------------------------------------
+---------------------------------------------------
+
+--> Create profile of rankings --> k =  9  ranking rule =  plurality  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  plurality , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  borda_count  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  borda_count , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  two  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  two , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  three  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  three , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  five  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  five , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  seven  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  seven , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  plurality  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  plurality , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  borda_count  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  borda_count , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  two  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  two , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  three  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  three , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  five  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  five , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  seven  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  seven , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  plurality  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  plurality , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  borda_count  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  borda_count , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  two  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  two , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  three  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  three , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  five  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  five , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  seven  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  seven , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  plurality  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  plurality , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  borda_count  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  borda_count , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  two  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  two , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  three  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  three , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  five  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  five , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  seven  atttype =  mixed 
+
+-> Train rknn k =  9 , rr =  seven , ties = randomly , developer =  FALSE , atttype =  mixed 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "gower distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
