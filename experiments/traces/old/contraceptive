@@ -1,0 +1,403 @@
+---------------------------------------------------
+---------------------------------------------------
+
+-- Grid -- 
+   k  distance      ties verbose developer
+1  1 manhattan  randomly   FALSE     FALSE
+2  2 manhattan  randomly   FALSE     FALSE
+3  3 manhattan  randomly   FALSE     FALSE
+4  5 manhattan  randomly   FALSE     FALSE
+5  7 manhattan  randomly   FALSE     FALSE
+6  9 manhattan  randomly   FALSE     FALSE
+7  1 euclidean  randomly   FALSE     FALSE
+8  2 euclidean  randomly   FALSE     FALSE
+9  3 euclidean  randomly   FALSE     FALSE
+10 5 euclidean  randomly   FALSE     FALSE
+11 7 euclidean  randomly   FALSE     FALSE
+12 9 euclidean  randomly   FALSE     FALSE
+13 1     gower  randomly   FALSE     FALSE
+14 2     gower  randomly   FALSE     FALSE
+15 3     gower  randomly   FALSE     FALSE
+16 5     gower  randomly   FALSE     FALSE
+17 7     gower  randomly   FALSE     FALSE
+18 9     gower  randomly   FALSE     FALSE
+19 1 manhattan threshold   FALSE     FALSE
+20 2 manhattan threshold   FALSE     FALSE
+21 3 manhattan threshold   FALSE     FALSE
+22 5 manhattan threshold   FALSE     FALSE
+23 7 manhattan threshold   FALSE     FALSE
+24 9 manhattan threshold   FALSE     FALSE
+25 1 euclidean threshold   FALSE     FALSE
+26 2 euclidean threshold   FALSE     FALSE
+27 3 euclidean threshold   FALSE     FALSE
+28 5 euclidean threshold   FALSE     FALSE
+29 7 euclidean threshold   FALSE     FALSE
+30 9 euclidean threshold   FALSE     FALSE
+31 1     gower threshold   FALSE     FALSE
+32 2     gower threshold   FALSE     FALSE
+33 3     gower threshold   FALSE     FALSE
+34 5     gower threshold   FALSE     FALSE
+35 7     gower threshold   FALSE     FALSE
+36 9     gower threshold   FALSE     FALSE
+
+-- Loop -- 
+   k  distance      ties verbose developer
+6  9 manhattan  randomly   FALSE     FALSE
+12 9 euclidean  randomly   FALSE     FALSE
+18 9     gower  randomly   FALSE     FALSE
+24 9 manhattan threshold   FALSE     FALSE
+30 9 euclidean threshold   FALSE     FALSE
+36 9     gower threshold   FALSE     FALSE
+
+-- Submodels -- 
+[[1]]
+   k  distance      ties verbose developer
+1  1 manhattan  randomly   FALSE     FALSE
+2  2 manhattan  randomly   FALSE     FALSE
+3  3 manhattan  randomly   FALSE     FALSE
+4  5 manhattan  randomly   FALSE     FALSE
+5  7 manhattan  randomly   FALSE     FALSE
+6  1 manhattan threshold   FALSE     FALSE
+7  2 manhattan threshold   FALSE     FALSE
+8  3 manhattan threshold   FALSE     FALSE
+9  5 manhattan threshold   FALSE     FALSE
+10 7 manhattan threshold   FALSE     FALSE
+
+[[2]]
+   k  distance      ties verbose developer
+1  1 euclidean  randomly   FALSE     FALSE
+2  2 euclidean  randomly   FALSE     FALSE
+3  3 euclidean  randomly   FALSE     FALSE
+4  5 euclidean  randomly   FALSE     FALSE
+5  7 euclidean  randomly   FALSE     FALSE
+6  1 euclidean threshold   FALSE     FALSE
+7  2 euclidean threshold   FALSE     FALSE
+8  3 euclidean threshold   FALSE     FALSE
+9  5 euclidean threshold   FALSE     FALSE
+10 7 euclidean threshold   FALSE     FALSE
+
+[[3]]
+   k distance      ties verbose developer
+1  1    gower  randomly   FALSE     FALSE
+2  2    gower  randomly   FALSE     FALSE
+3  3    gower  randomly   FALSE     FALSE
+4  5    gower  randomly   FALSE     FALSE
+5  7    gower  randomly   FALSE     FALSE
+6  1    gower threshold   FALSE     FALSE
+7  2    gower threshold   FALSE     FALSE
+8  3    gower threshold   FALSE     FALSE
+9  5    gower threshold   FALSE     FALSE
+10 7    gower threshold   FALSE     FALSE
+
+[[4]]
+   k  distance      ties verbose developer
+1  1 manhattan  randomly   FALSE     FALSE
+2  2 manhattan  randomly   FALSE     FALSE
+3  3 manhattan  randomly   FALSE     FALSE
+4  5 manhattan  randomly   FALSE     FALSE
+5  7 manhattan  randomly   FALSE     FALSE
+6  1 manhattan threshold   FALSE     FALSE
+7  2 manhattan threshold   FALSE     FALSE
+8  3 manhattan threshold   FALSE     FALSE
+9  5 manhattan threshold   FALSE     FALSE
+10 7 manhattan threshold   FALSE     FALSE
+
+[[5]]
+   k  distance      ties verbose developer
+1  1 euclidean  randomly   FALSE     FALSE
+2  2 euclidean  randomly   FALSE     FALSE
+3  3 euclidean  randomly   FALSE     FALSE
+4  5 euclidean  randomly   FALSE     FALSE
+5  7 euclidean  randomly   FALSE     FALSE
+6  1 euclidean threshold   FALSE     FALSE
+7  2 euclidean threshold   FALSE     FALSE
+8  3 euclidean threshold   FALSE     FALSE
+9  5 euclidean threshold   FALSE     FALSE
+10 7 euclidean threshold   FALSE     FALSE
+
+[[6]]
+   k distance      ties verbose developer
+1  1    gower  randomly   FALSE     FALSE
+2  2    gower  randomly   FALSE     FALSE
+3  3    gower  randomly   FALSE     FALSE
+4  5    gower  randomly   FALSE     FALSE
+5  7    gower  randomly   FALSE     FALSE
+6  1    gower threshold   FALSE     FALSE
+7  2    gower threshold   FALSE     FALSE
+8  3    gower threshold   FALSE     FALSE
+9  5    gower threshold   FALSE     FALSE
+10 7    gower threshold   FALSE     FALSE
+
+---------------------------------------------------
+---------------------------------------------------
+
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = randomly
+[1] "manhattan distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = randomly
+[1] "euclidean distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  gower 
+-> Train dknn k = 9, distance = gower, ties = randomly
+[1] "gower distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = threshold
+[1] "manhattan distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = threshold
+[1] "euclidean distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  gower 
+-> Train dknn k = 9, distance = gower, ties = threshold
+[1] "gower distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = randomly
+[1] "manhattan distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = randomly
+[1] "euclidean distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  gower 
+-> Train dknn k = 9, distance = gower, ties = randomly
+[1] "gower distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = threshold
+[1] "manhattan distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = threshold
+[1] "euclidean distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  gower 
+-> Train dknn k = 9, distance = gower, ties = threshold
+[1] "gower distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = randomly
+[1] "manhattan distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = randomly
+[1] "euclidean distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  gower 
+-> Train dknn k = 9, distance = gower, ties = randomly
+[1] "gower distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = threshold
+[1] "manhattan distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = threshold
+[1] "euclidean distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  gower 
+-> Train dknn k = 9, distance = gower, ties = threshold
+[1] "gower distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7

@@ -50,7 +50,7 @@ fit_mini_chess_r <- train(x =  mini_chess[,-7],
 # post_operative ----------------------------------------------------------
 
 post_operative <- as.data.frame(post_operative) %>% droplevels()
-new_post_operative <- post_operative %>% mutate(class = as.numeric(class),
+new_post_operative <- post_operative %>% mutate(class = as.numeric(decision),
                           new_class = ifelse(class < 8, ifelse(class < 3, "less_than_3", "less_than_8"), 
                                              ifelse(class < 14, "less_than_14", "less_than_22")
                                              ),
@@ -58,16 +58,16 @@ new_post_operative <- post_operative %>% mutate(class = as.numeric(class),
                           new_class = NULL)
 
 set.seed(123)
-fit_post_operative_d <- train(x =  new_post_operative[,-1],
-                          y = new_post_operative[,1],
+fit_post_operative_d <- train(x =  new_post_operative[,-10],
+                          y = new_post_operative[,10],
                           data = new_post_operative,
                           method = dknn,
                           trControl = multi_fitControl,
                           tuneGrid = dgrid_cat)
 
 set.seed(123)
-fit_post_operative_r <- train(x =  new_post_operative[,-1],
-                          y = new_post_operative[,1],
+fit_post_operative_r <- train(x =  new_post_operative[,-10],
+                          y = new_post_operative[,10],
                           data = new_post_operative,
                           method = rknn,
                           trControl = multi_fitControl,

@@ -1,0 +1,1854 @@
+---------------------------------------------------
+---------------------------------------------------
+
+-- Grid -- 
+   k  distance      ties verbose developer
+1  1 manhattan  randomly   FALSE     FALSE
+2  2 manhattan  randomly   FALSE     FALSE
+3  3 manhattan  randomly   FALSE     FALSE
+4  5 manhattan  randomly   FALSE     FALSE
+5  7 manhattan  randomly   FALSE     FALSE
+6  9 manhattan  randomly   FALSE     FALSE
+7  1 euclidean  randomly   FALSE     FALSE
+8  2 euclidean  randomly   FALSE     FALSE
+9  3 euclidean  randomly   FALSE     FALSE
+10 5 euclidean  randomly   FALSE     FALSE
+11 7 euclidean  randomly   FALSE     FALSE
+12 9 euclidean  randomly   FALSE     FALSE
+13 1 chebyshev  randomly   FALSE     FALSE
+14 2 chebyshev  randomly   FALSE     FALSE
+15 3 chebyshev  randomly   FALSE     FALSE
+16 5 chebyshev  randomly   FALSE     FALSE
+17 7 chebyshev  randomly   FALSE     FALSE
+18 9 chebyshev  randomly   FALSE     FALSE
+19 1 manhattan threshold   FALSE     FALSE
+20 2 manhattan threshold   FALSE     FALSE
+21 3 manhattan threshold   FALSE     FALSE
+22 5 manhattan threshold   FALSE     FALSE
+23 7 manhattan threshold   FALSE     FALSE
+24 9 manhattan threshold   FALSE     FALSE
+25 1 euclidean threshold   FALSE     FALSE
+26 2 euclidean threshold   FALSE     FALSE
+27 3 euclidean threshold   FALSE     FALSE
+28 5 euclidean threshold   FALSE     FALSE
+29 7 euclidean threshold   FALSE     FALSE
+30 9 euclidean threshold   FALSE     FALSE
+31 1 chebyshev threshold   FALSE     FALSE
+32 2 chebyshev threshold   FALSE     FALSE
+33 3 chebyshev threshold   FALSE     FALSE
+34 5 chebyshev threshold   FALSE     FALSE
+35 7 chebyshev threshold   FALSE     FALSE
+36 9 chebyshev threshold   FALSE     FALSE
+
+-- Loop -- 
+   k  distance      ties verbose developer
+6  9 manhattan  randomly   FALSE     FALSE
+12 9 euclidean  randomly   FALSE     FALSE
+18 9 chebyshev  randomly   FALSE     FALSE
+24 9 manhattan threshold   FALSE     FALSE
+30 9 euclidean threshold   FALSE     FALSE
+36 9 chebyshev threshold   FALSE     FALSE
+
+-- Submodels -- 
+[[1]]
+   k  distance      ties verbose developer
+1  1 manhattan  randomly   FALSE     FALSE
+2  2 manhattan  randomly   FALSE     FALSE
+3  3 manhattan  randomly   FALSE     FALSE
+4  5 manhattan  randomly   FALSE     FALSE
+5  7 manhattan  randomly   FALSE     FALSE
+6  1 manhattan threshold   FALSE     FALSE
+7  2 manhattan threshold   FALSE     FALSE
+8  3 manhattan threshold   FALSE     FALSE
+9  5 manhattan threshold   FALSE     FALSE
+10 7 manhattan threshold   FALSE     FALSE
+
+[[2]]
+   k  distance      ties verbose developer
+1  1 euclidean  randomly   FALSE     FALSE
+2  2 euclidean  randomly   FALSE     FALSE
+3  3 euclidean  randomly   FALSE     FALSE
+4  5 euclidean  randomly   FALSE     FALSE
+5  7 euclidean  randomly   FALSE     FALSE
+6  1 euclidean threshold   FALSE     FALSE
+7  2 euclidean threshold   FALSE     FALSE
+8  3 euclidean threshold   FALSE     FALSE
+9  5 euclidean threshold   FALSE     FALSE
+10 7 euclidean threshold   FALSE     FALSE
+
+[[3]]
+   k  distance      ties verbose developer
+1  1 chebyshev  randomly   FALSE     FALSE
+2  2 chebyshev  randomly   FALSE     FALSE
+3  3 chebyshev  randomly   FALSE     FALSE
+4  5 chebyshev  randomly   FALSE     FALSE
+5  7 chebyshev  randomly   FALSE     FALSE
+6  1 chebyshev threshold   FALSE     FALSE
+7  2 chebyshev threshold   FALSE     FALSE
+8  3 chebyshev threshold   FALSE     FALSE
+9  5 chebyshev threshold   FALSE     FALSE
+10 7 chebyshev threshold   FALSE     FALSE
+
+[[4]]
+   k  distance      ties verbose developer
+1  1 manhattan  randomly   FALSE     FALSE
+2  2 manhattan  randomly   FALSE     FALSE
+3  3 manhattan  randomly   FALSE     FALSE
+4  5 manhattan  randomly   FALSE     FALSE
+5  7 manhattan  randomly   FALSE     FALSE
+6  1 manhattan threshold   FALSE     FALSE
+7  2 manhattan threshold   FALSE     FALSE
+8  3 manhattan threshold   FALSE     FALSE
+9  5 manhattan threshold   FALSE     FALSE
+10 7 manhattan threshold   FALSE     FALSE
+
+[[5]]
+   k  distance      ties verbose developer
+1  1 euclidean  randomly   FALSE     FALSE
+2  2 euclidean  randomly   FALSE     FALSE
+3  3 euclidean  randomly   FALSE     FALSE
+4  5 euclidean  randomly   FALSE     FALSE
+5  7 euclidean  randomly   FALSE     FALSE
+6  1 euclidean threshold   FALSE     FALSE
+7  2 euclidean threshold   FALSE     FALSE
+8  3 euclidean threshold   FALSE     FALSE
+9  5 euclidean threshold   FALSE     FALSE
+10 7 euclidean threshold   FALSE     FALSE
+
+[[6]]
+   k  distance      ties verbose developer
+1  1 chebyshev  randomly   FALSE     FALSE
+2  2 chebyshev  randomly   FALSE     FALSE
+3  3 chebyshev  randomly   FALSE     FALSE
+4  5 chebyshev  randomly   FALSE     FALSE
+5  7 chebyshev  randomly   FALSE     FALSE
+6  1 chebyshev threshold   FALSE     FALSE
+7  2 chebyshev threshold   FALSE     FALSE
+8  3 chebyshev threshold   FALSE     FALSE
+9  5 chebyshev threshold   FALSE     FALSE
+10 7 chebyshev threshold   FALSE     FALSE
+
+---------------------------------------------------
+---------------------------------------------------
+
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = randomly
+[1] "manhattan distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = randomly
+[1] "euclidean distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  chebyshev 
+-> Train dknn k = 9, distance = chebyshev, ties = randomly
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = threshold
+[1] "manhattan distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = threshold
+[1] "euclidean distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  chebyshev 
+-> Train dknn k = 9, distance = chebyshev, ties = threshold
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = randomly
+[1] "manhattan distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = randomly
+[1] "euclidean distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  chebyshev 
+-> Train dknn k = 9, distance = chebyshev, ties = randomly
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = threshold
+[1] "manhattan distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = threshold
+[1] "euclidean distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  chebyshev 
+-> Train dknn k = 9, distance = chebyshev, ties = threshold
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = randomly
+[1] "manhattan distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = randomly
+[1] "euclidean distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  chebyshev 
+-> Train dknn k = 9, distance = chebyshev, ties = randomly
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = threshold
+[1] "manhattan distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = threshold
+[1] "euclidean distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  chebyshev 
+-> Train dknn k = 9, distance = chebyshev, ties = threshold
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = randomly
+[1] "manhattan distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = randomly
+[1] "euclidean distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  chebyshev 
+-> Train dknn k = 9, distance = chebyshev, ties = randomly
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = threshold
+[1] "manhattan distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = threshold
+[1] "euclidean distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  chebyshev 
+-> Train dknn k = 9, distance = chebyshev, ties = threshold
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = randomly
+[1] "manhattan distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = randomly
+[1] "euclidean distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  chebyshev 
+-> Train dknn k = 9, distance = chebyshev, ties = randomly
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  manhattan 
+-> Train dknn k = 9, distance = manhattan, ties = threshold
+[1] "manhattan distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  euclidean 
+-> Train dknn k = 9, distance = euclidean, ties = threshold
+[1] "euclidean distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+
+ --> Create profile of rankings... distance =  chebyshev 
+-> Train dknn k = 9, distance = chebyshev, ties = threshold
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold and k = 9
+--------> Predict: ties = randomly and k = 1
+--------> Predict: ties = randomly and k = 2
+--------> Predict: ties = randomly and k = 3
+--------> Predict: ties = randomly and k = 5
+--------> Predict: ties = randomly and k = 7
+--------> Predict: ties = threshold and k = 1
+--------> Predict: ties = threshold and k = 2
+--------> Predict: ties = threshold and k = 3
+--------> Predict: ties = threshold and k = 5
+--------> Predict: ties = threshold and k = 7
+---------------------------------------------------
+---------------------------------------------------
+
+-- Grid -- 
+   k          rr      ties   atttype developer
+1  1   plurality  randomly numerical     FALSE
+2  2   plurality  randomly numerical     FALSE
+3  3   plurality  randomly numerical     FALSE
+4  5   plurality  randomly numerical     FALSE
+5  7   plurality  randomly numerical     FALSE
+6  9   plurality  randomly numerical     FALSE
+7  1 borda_count  randomly numerical     FALSE
+8  2 borda_count  randomly numerical     FALSE
+9  3 borda_count  randomly numerical     FALSE
+10 5 borda_count  randomly numerical     FALSE
+11 7 borda_count  randomly numerical     FALSE
+12 9 borda_count  randomly numerical     FALSE
+13 1         two  randomly numerical     FALSE
+14 2         two  randomly numerical     FALSE
+15 3         two  randomly numerical     FALSE
+16 5         two  randomly numerical     FALSE
+17 7         two  randomly numerical     FALSE
+18 9         two  randomly numerical     FALSE
+19 1       three  randomly numerical     FALSE
+20 2       three  randomly numerical     FALSE
+21 3       three  randomly numerical     FALSE
+22 5       three  randomly numerical     FALSE
+23 7       three  randomly numerical     FALSE
+24 9       three  randomly numerical     FALSE
+25 1        five  randomly numerical     FALSE
+26 2        five  randomly numerical     FALSE
+27 3        five  randomly numerical     FALSE
+28 5        five  randomly numerical     FALSE
+29 7        five  randomly numerical     FALSE
+30 9        five  randomly numerical     FALSE
+31 1       seven  randomly numerical     FALSE
+32 2       seven  randomly numerical     FALSE
+33 3       seven  randomly numerical     FALSE
+34 5       seven  randomly numerical     FALSE
+35 7       seven  randomly numerical     FALSE
+36 9       seven  randomly numerical     FALSE
+37 1   plurality threshold numerical     FALSE
+38 2   plurality threshold numerical     FALSE
+39 3   plurality threshold numerical     FALSE
+40 5   plurality threshold numerical     FALSE
+41 7   plurality threshold numerical     FALSE
+42 9   plurality threshold numerical     FALSE
+43 1 borda_count threshold numerical     FALSE
+44 2 borda_count threshold numerical     FALSE
+45 3 borda_count threshold numerical     FALSE
+46 5 borda_count threshold numerical     FALSE
+47 7 borda_count threshold numerical     FALSE
+48 9 borda_count threshold numerical     FALSE
+49 1         two threshold numerical     FALSE
+50 2         two threshold numerical     FALSE
+51 3         two threshold numerical     FALSE
+52 5         two threshold numerical     FALSE
+53 7         two threshold numerical     FALSE
+54 9         two threshold numerical     FALSE
+55 1       three threshold numerical     FALSE
+56 2       three threshold numerical     FALSE
+57 3       three threshold numerical     FALSE
+58 5       three threshold numerical     FALSE
+59 7       three threshold numerical     FALSE
+60 9       three threshold numerical     FALSE
+61 1        five threshold numerical     FALSE
+62 2        five threshold numerical     FALSE
+63 3        five threshold numerical     FALSE
+64 5        five threshold numerical     FALSE
+65 7        five threshold numerical     FALSE
+66 9        five threshold numerical     FALSE
+67 1       seven threshold numerical     FALSE
+68 2       seven threshold numerical     FALSE
+69 3       seven threshold numerical     FALSE
+70 5       seven threshold numerical     FALSE
+71 7       seven threshold numerical     FALSE
+72 9       seven threshold numerical     FALSE
+-- Loop -- 
+   k          rr      ties   atttype developer
+6  9   plurality  randomly numerical     FALSE
+12 9 borda_count  randomly numerical     FALSE
+18 9         two  randomly numerical     FALSE
+24 9       three  randomly numerical     FALSE
+30 9        five  randomly numerical     FALSE
+36 9       seven  randomly numerical     FALSE
+42 9   plurality threshold numerical     FALSE
+48 9 borda_count threshold numerical     FALSE
+54 9         two threshold numerical     FALSE
+60 9       three threshold numerical     FALSE
+66 9        five threshold numerical     FALSE
+72 9       seven threshold numerical     FALSE
+-- Submodels -- 
+[[1]]
+   k        rr      ties   atttype developer
+1  1 plurality  randomly numerical     FALSE
+2  2 plurality  randomly numerical     FALSE
+3  3 plurality  randomly numerical     FALSE
+4  5 plurality  randomly numerical     FALSE
+5  7 plurality  randomly numerical     FALSE
+6  1 plurality threshold numerical     FALSE
+7  2 plurality threshold numerical     FALSE
+8  3 plurality threshold numerical     FALSE
+9  5 plurality threshold numerical     FALSE
+10 7 plurality threshold numerical     FALSE
+
+[[2]]
+   k          rr      ties   atttype developer
+1  1 borda_count  randomly numerical     FALSE
+2  2 borda_count  randomly numerical     FALSE
+3  3 borda_count  randomly numerical     FALSE
+4  5 borda_count  randomly numerical     FALSE
+5  7 borda_count  randomly numerical     FALSE
+6  1 borda_count threshold numerical     FALSE
+7  2 borda_count threshold numerical     FALSE
+8  3 borda_count threshold numerical     FALSE
+9  5 borda_count threshold numerical     FALSE
+10 7 borda_count threshold numerical     FALSE
+
+[[3]]
+   k  rr      ties   atttype developer
+1  1 two  randomly numerical     FALSE
+2  2 two  randomly numerical     FALSE
+3  3 two  randomly numerical     FALSE
+4  5 two  randomly numerical     FALSE
+5  7 two  randomly numerical     FALSE
+6  1 two threshold numerical     FALSE
+7  2 two threshold numerical     FALSE
+8  3 two threshold numerical     FALSE
+9  5 two threshold numerical     FALSE
+10 7 two threshold numerical     FALSE
+
+[[4]]
+   k    rr      ties   atttype developer
+1  1 three  randomly numerical     FALSE
+2  2 three  randomly numerical     FALSE
+3  3 three  randomly numerical     FALSE
+4  5 three  randomly numerical     FALSE
+5  7 three  randomly numerical     FALSE
+6  1 three threshold numerical     FALSE
+7  2 three threshold numerical     FALSE
+8  3 three threshold numerical     FALSE
+9  5 three threshold numerical     FALSE
+10 7 three threshold numerical     FALSE
+
+[[5]]
+   k   rr      ties   atttype developer
+1  1 five  randomly numerical     FALSE
+2  2 five  randomly numerical     FALSE
+3  3 five  randomly numerical     FALSE
+4  5 five  randomly numerical     FALSE
+5  7 five  randomly numerical     FALSE
+6  1 five threshold numerical     FALSE
+7  2 five threshold numerical     FALSE
+8  3 five threshold numerical     FALSE
+9  5 five threshold numerical     FALSE
+10 7 five threshold numerical     FALSE
+
+[[6]]
+   k    rr      ties   atttype developer
+1  1 seven  randomly numerical     FALSE
+2  2 seven  randomly numerical     FALSE
+3  3 seven  randomly numerical     FALSE
+4  5 seven  randomly numerical     FALSE
+5  7 seven  randomly numerical     FALSE
+6  1 seven threshold numerical     FALSE
+7  2 seven threshold numerical     FALSE
+8  3 seven threshold numerical     FALSE
+9  5 seven threshold numerical     FALSE
+10 7 seven threshold numerical     FALSE
+
+[[7]]
+   k        rr      ties   atttype developer
+1  1 plurality  randomly numerical     FALSE
+2  2 plurality  randomly numerical     FALSE
+3  3 plurality  randomly numerical     FALSE
+4  5 plurality  randomly numerical     FALSE
+5  7 plurality  randomly numerical     FALSE
+6  1 plurality threshold numerical     FALSE
+7  2 plurality threshold numerical     FALSE
+8  3 plurality threshold numerical     FALSE
+9  5 plurality threshold numerical     FALSE
+10 7 plurality threshold numerical     FALSE
+
+[[8]]
+   k          rr      ties   atttype developer
+1  1 borda_count  randomly numerical     FALSE
+2  2 borda_count  randomly numerical     FALSE
+3  3 borda_count  randomly numerical     FALSE
+4  5 borda_count  randomly numerical     FALSE
+5  7 borda_count  randomly numerical     FALSE
+6  1 borda_count threshold numerical     FALSE
+7  2 borda_count threshold numerical     FALSE
+8  3 borda_count threshold numerical     FALSE
+9  5 borda_count threshold numerical     FALSE
+10 7 borda_count threshold numerical     FALSE
+
+[[9]]
+   k  rr      ties   atttype developer
+1  1 two  randomly numerical     FALSE
+2  2 two  randomly numerical     FALSE
+3  3 two  randomly numerical     FALSE
+4  5 two  randomly numerical     FALSE
+5  7 two  randomly numerical     FALSE
+6  1 two threshold numerical     FALSE
+7  2 two threshold numerical     FALSE
+8  3 two threshold numerical     FALSE
+9  5 two threshold numerical     FALSE
+10 7 two threshold numerical     FALSE
+
+[[10]]
+   k    rr      ties   atttype developer
+1  1 three  randomly numerical     FALSE
+2  2 three  randomly numerical     FALSE
+3  3 three  randomly numerical     FALSE
+4  5 three  randomly numerical     FALSE
+5  7 three  randomly numerical     FALSE
+6  1 three threshold numerical     FALSE
+7  2 three threshold numerical     FALSE
+8  3 three threshold numerical     FALSE
+9  5 three threshold numerical     FALSE
+10 7 three threshold numerical     FALSE
+
+[[11]]
+   k   rr      ties   atttype developer
+1  1 five  randomly numerical     FALSE
+2  2 five  randomly numerical     FALSE
+3  3 five  randomly numerical     FALSE
+4  5 five  randomly numerical     FALSE
+5  7 five  randomly numerical     FALSE
+6  1 five threshold numerical     FALSE
+7  2 five threshold numerical     FALSE
+8  3 five threshold numerical     FALSE
+9  5 five threshold numerical     FALSE
+10 7 five threshold numerical     FALSE
+
+[[12]]
+   k    rr      ties   atttype developer
+1  1 seven  randomly numerical     FALSE
+2  2 seven  randomly numerical     FALSE
+3  3 seven  randomly numerical     FALSE
+4  5 seven  randomly numerical     FALSE
+5  7 seven  randomly numerical     FALSE
+6  1 seven threshold numerical     FALSE
+7  2 seven threshold numerical     FALSE
+8  3 seven threshold numerical     FALSE
+9  5 seven threshold numerical     FALSE
+10 7 seven threshold numerical     FALSE
+
+---------------------------------------------------
+---------------------------------------------------
+
+--> Create profile of rankings --> k =  9  ranking rule =  plurality  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  plurality , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  borda_count  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  borda_count , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  two  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  two , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  three  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  three , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  five  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  five , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  seven  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  seven , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  plurality  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  plurality , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  borda_count  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  borda_count , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  two  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  two , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  three  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  three , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  five  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  five , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  seven  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  seven , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  plurality  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  plurality , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  borda_count  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  borda_count , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  two  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  two , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  three  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  three , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  five  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  five , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  seven  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  seven , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  plurality  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  plurality , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  borda_count  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  borda_count , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  two  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  two , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  three  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  three , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  five  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  five , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  seven  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  seven , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  plurality  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  plurality , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  borda_count  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  borda_count , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  two  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  two , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  three  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  three , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  five  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  five , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  seven  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  seven , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  plurality  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  plurality , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  borda_count  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  borda_count , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  two  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  two , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  three  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  three , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  five  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  five , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  seven  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  seven , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  plurality  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  plurality , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  borda_count  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  borda_count , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  two  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  two , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  three  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  three , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  five  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  five , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  seven  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  seven , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  plurality  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  plurality , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  borda_count  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  borda_count , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  two  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  two , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  three  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  three , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  five  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  five , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  seven  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  seven , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  plurality  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  plurality , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  borda_count  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  borda_count , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  two  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  two , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  three  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  three , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  five  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  five , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  seven  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  seven , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = randomly, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  plurality  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  plurality , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  borda_count  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  borda_count , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  two  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  two , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  three  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  three , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  five  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  five , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7
+--> Create profile of rankings --> k =  9  ranking rule =  seven  atttype =  numerical 
+
+-> Train rknn k =  9 , rr =  seven , ties = randomly , developer =  FALSE , atttype =  numerical 
+[1] "manhattan distance..."
+[1] "euclidean distance..."
+[1] "chebyshev distance..."
+--------> Predict: ties = threshold, k = 9
+--------> Predict: ties = randomly, k = 1
+--------> Predict: ties = randomly, k = 2
+--------> Predict: ties = randomly, k = 3
+--------> Predict: ties = randomly, k = 5
+--------> Predict: ties = randomly, k = 7
+--------> Predict: ties = threshold, k = 1
+--------> Predict: ties = threshold, k = 2
+--------> Predict: ties = threshold, k = 3
+--------> Predict: ties = threshold, k = 5
+--------> Predict: ties = threshold, k = 7

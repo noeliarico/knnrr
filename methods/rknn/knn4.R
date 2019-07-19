@@ -406,6 +406,7 @@ knn4Train <- function(train,
   if(developer) {
     cat(paste('\nProfile of rankings: \n'))
     for(eachpor in por) {
+      print("-----")
       print(eachpor)
       print("-----")
     }

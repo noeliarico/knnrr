@@ -267,6 +267,13 @@ sonar <- read_csv(file.path(path_to_data, "data/binary/numerical/10ormore/sonar.
                   col_types = cols(class = col_factor(NULL)),
                   col_names = c(paste0("V", 1:60), "class"))
 
+sonar_5noise <- read.keel(file.path(path_to_data, "data/binary/numerical/10ormore/sonar-5an-nn.dat"))
+change <- colnames(sonar_5noise)[colnames(sonar_5noise) != "Type"]
+sonar_5noise <- sonar_5noise %>% mutate_each_(list(as.numeric), change)
+
+sonar_20noise <- read.keel(file.path(path_to_data, "data/binary/numerical/10ormore/sonar-20an-nn.dat"))
+change <- colnames(sonar_20noise)[colnames(sonar_20noise) != "Type"]
+sonar_20noise <- sonar_20noise %>% mutate_each_(list(as.numeric), change)
 
 # Soybean -----------------------------------------------------------------
 
@@ -603,4 +610,26 @@ nrow(kidney_disease)
 kidney_disease <- read.arff("data/other/chronic_kidney_disease.arff")
 nrow(kidney_disease)
 head(glass)
+
+
+# ionosphere --------------------------------------------------------------
+
+ionospheren_5n <- read.keel("data/binary/numerical/10ormore/ionosphere-5an-nn.dat")
+ionospheren_5n[,1] <- NULL
+change <- colnames(ionospheren_5n)[colnames(ionospheren_5n) != "Class"]
+ionospheren_5n <- ionospheren_5n %>% mutate_each_(list(as.numeric), change)
+
+
+ionospheren_20n <- read.keel("data/binary/numerical/10ormore/ionosphere-20an-nn.dat")
+ionospheren_20n[,1] <- NULL
+change <- colnames(ionospheren_20n)[colnames(ionospheren_20n) != "Class"]
+ionospheren_20n <- ionospheren_20n %>% mutate_each_(list(as.numeric), change)
+
+
+# audit risk --------------------------------------------------------------
+
+audit_risk <- read.table("data/multiclass/numerical/10ormore/audit_risk.csv",
+                         header = TRUE, sep = ",")
+audit_risk$LOCATION_ID <- NULL
+audit_risk$Detection_Risk <- NULL
 

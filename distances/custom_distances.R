@@ -22,7 +22,7 @@ compute_distances <- function(data, distance, verbose = FALSE) {
     i <- sapply(data, is.character)
     if(sum(i)>0) data[i] <- lapply(data[i], as.numeric)
     if(any(sapply(data, is.factor))) {
-      data <-  predict(dummyVars(~.,data), data)
+        data <-  predict(dummyVars(~.,data), data)
     }
     return(as.matrix(dist(data, method = "manhattan")))
   }
