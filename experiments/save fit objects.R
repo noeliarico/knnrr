@@ -4,7 +4,7 @@ save_fit <- function(name, caret) {
     namer <- paste0("fit_", name, "_r")
     d <- get(named)
     r <- get(namer)
-    save(list = c(named, namer), file = paste0("experiments/results/5cv/keel/imbalance/ratio2/", name, ".RData"))
+    save(list = c(named, namer), file = paste0("experiments/results/5cv/mixed/multiclass/", name, ".RData"))
   }
   else {
     save(list = name, file = paste0("experiments/results/5cv/keel/imbalance/ratio2/", name, ".RData"))
@@ -12,6 +12,6 @@ save_fit <- function(name, caret) {
   
 }
 
-lapply(imbalance2, save_fit, caret = TRUE)
+lapply("contraceptive", save_fit, caret = TRUE)
 
 

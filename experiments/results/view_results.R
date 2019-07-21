@@ -1,3 +1,14 @@
+color_manhattan <- "Turquoise"
+color_euclidean <- "Hot Pink"
+color_chebyshev <- "Gold"
+
+colors <-  c(
+  # ranking rules
+  "#e6beff", "#e6194B", "#f58231", "#ffe119", "#bfef45", "#3cb44b", 
+  #distances
+  color_manhattan, color_euclidean, color_chebyshev)
+
+
 compare_type <- function(datasets, metric, caret = TRUE, breakties = "randomly", the_k = 1, input = "numerical") {
   
   data_all <- tibble()
@@ -115,29 +126,7 @@ compare_metric <- function(rdata, ddata, metric, name = "",
                            input = "numerical", breakties = "randomly", filter = "",
                            fix_axis = FALSE, min = 0, max = 1,
                            problem = "binary") { #, low_limit = 1) {
-  
-# colors <- c(
-# "#9e6fb8",
-# "#45b5aa",
-# "#ff6f61",
-# "#88b04b",
-# "#d94f70",
-# "#db9e23",
-# "#5f4b8b",
-# "#0e1111",
-# "#381452",
-# "#004000",
-# "#a85a72",
-# "#750c41",
-# "#232b2b",
-# "#3b444b",
-# 
-# "#00294f",
-# "#80bab0")
-  
-colors <-  c("#e6beff", "#e6194B", "#f58231", "#ffe119", "#bfef45", "#3cb44b", 
-             "#42d4f4", "#4363d8", "#911eb4")
-  
+
   rdata <- rdata$results
   ddata <- ddata$results
   

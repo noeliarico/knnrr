@@ -30,13 +30,13 @@ rgrid_cat <-  expand.grid(k = ks,
 
 dgrid_num <-  expand.grid(k = ks,
                           distance = get_distances("numerical"),
-                          ties = c("randomly", "threshold"),
+                          ties = c("randomly"),#, "threshold"),
                           verbose = FALSE,
                           developer = FALSE)
 
 rgrid_num <-  expand.grid(k = ks,
                           rr = ranking_rules,
-                          ties = c("randomly", "threshold"),
+                          ties = c("randomly"),#, "threshold"),
                           atttype = "numerical",
                           developer = FALSE)
 
