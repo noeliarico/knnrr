@@ -45,12 +45,12 @@ rgrid_num <-  expand.grid(k = ks,
 
 dgrid_mix <-  expand.grid(k = ks,
                           distance = get_distances("mixed"),
-                          ties = c("randomly", "threshold"),
+                          ties = c("randomly"),#, "threshold"),
                           verbose = FALSE,
                           developer = FALSE)
 
 rgrid_mix <-  expand.grid(k = ks,
                           rr = ranking_rules,
-                          ties = c("randomly", "threshold"),
+                          ties = c("randomly"),#, "threshold"),
                           atttype = "mixed",
                           developer = FALSE)

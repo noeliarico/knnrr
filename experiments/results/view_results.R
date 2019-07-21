@@ -4,7 +4,7 @@ color_chebyshev <- "Gold"
 
 colors <-  c(
   # ranking rules
-  "#e6beff", "#e6194B", "#f58231", "#ffe119", "#bfef45", "#3cb44b", 
+  "#e6beff", "#e6194B", "#f58231", "#99A3A4" , "#bfef45", "#3cb44b", 
   #distances
   color_manhattan, color_euclidean, color_chebyshev)
 
@@ -195,7 +195,7 @@ compare_metric <- function(rdata, ddata, metric, name = "",
   geom_point(
       aes(color = method, shape = method),
       size = 4,
-      alpha = 0.90,
+      #alpha = 0.90,
       position = position_jitter(w = 0.1, h = 0)
     ) +
     #scale_alpha_discrete(range = c(0.6)) +

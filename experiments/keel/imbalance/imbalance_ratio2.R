@@ -1,218 +1,100 @@
 # yeast_0_3_5_9_vs_7_8 ---------------------------------------------------
 
-set.seed(123)
-fit_yeast_0_3_5_9_vs_7_8_d <- train(x =  yeast_0_3_5_9_vs_7_8[,-1],
-                             y = yeast_0_3_5_9_vs_7_8[,1],
-                             data = yeast_0_3_5_9_vs_7_8,
-                             method = dknn,
-                             preProcess = c("center", "scale"),
-                             trControl = binary_fitControl,
-                             tuneGrid = dgrid_num)
+out <- fitNum(yeast_0_3_5_9_vs_7_8)
+fit_yeast_0_3_5_9_vs_7_8_d <- out$fitd
+fit_yeast_0_3_5_9_vs_7_8_r <- out$fitr
 
-set.seed(123)
-fit_yeast_0_3_5_9_vs_7_8_r <- train(x =  yeast_0_3_5_9_vs_7_8[,-1],
-                             y = yeast_0_3_5_9_vs_7_8[,1],
-                             data = yeast_0_3_5_9_vs_7_8,
-                             method = rknn,
-                             preProcess = c("center", "scale"),
-                             trControl = binary_fitControl,
-                             tuneGrid = rgrid_num)
-
-# compare_metric(fit_yeast_0_3_5_9_vs_7_8_r, fit_yeast_0_3_5_9_vs_7_8_d, metric = "F1", input = "numerical")
-
+sink("executed", append = TRUE)
+cat(paste0("- yeast_0_3_5_9_vs_7_8 ---> ", now(), "\n"))
+sink()
 
 # yeast6 ------------------------------------------------------------------
 
-set.seed(123)
-fit_yeast6_d <- train(x =  yeast6[,-1],
-                                        y = yeast6[,1],
-                                        data = yeast6,
-                                        method = dknn,
-                                        preProcess = c("center", "scale"),
-                                        trControl = binary_fitControl,
-                                        tuneGrid = dgrid_num)
+out <- fitNum(yeast6)
+fit_yeast6_d <- out$fitd
+fit_yeast6_r <- out$fitr
 
-set.seed(123)
-fit_yeast6_r <- train(x =  yeast6[,-1],
-                                        y = yeast6[,1],
-                                        data = yeast6,
-                                        method = rknn,
-                                        preProcess = c("center", "scale"),
-                                        trControl = binary_fitControl,
-                                        tuneGrid = rgrid_num)
-
-# compare_metric(fit_yeast6_r, fit_yeast6_d, metric = "Kappa", input = "numerical")
-# 
+sink("executed", append = TRUE)
+cat(paste0("- yeast6 ---> ", now(), "\n"))
+sink()
 
 # glass2 ------------------------------------------------------------------
 
-set.seed(123)
-fit_glass2_d <- train(x =  glass2[,-1],
-                          y = glass2[,1],
-                          data = glass2,
-                          method = dknn,
-                          preProcess = c("center", "scale"),
-                          trControl = binary_fitControl,
-                          tuneGrid = dgrid_num)
+out <- fitNum(glass2)
+fit_glass2_d <- out$fitd
+fit_glass2_r <- out$fitr
 
-set.seed(123)
-fit_glass2_r <- train(x =  glass2[,-1],
-                          y = glass2[,1],
-                          data = glass2,
-                          method = rknn,
-                          preProcess = c("center", "scale"),
-                          trControl = binary_fitControl,
-                          tuneGrid = rgrid_num)
+sink("executed", append = TRUE)
+cat(paste0("- glass2 ---> ", now(), "\n"))
+sink()
 
 
 # glass4 ------------------------------------------------------------------
 
-set.seed(123)
-fit_glass4_d <- train(x =  glass4[,-1],
-                          y = glass4[,1],
-                          data = glass4,
-                          method = dknn,
-                          preProcess = c("center", "scale"),
-                          trControl = binary_fitControl,
-                          tuneGrid = dgrid_num)
+out <- fitNum(glass4)
+fit_glass4_d <- out$fitd
+fit_glass4_r <- out$fitr
 
-set.seed(123)
-fit_glass4_r <- train(x =  glass4[,-1],
-                          y = glass4[,1],
-                          data = glass4,
-                          method = rknn,
-                          preProcess = c("center", "scale"),
-                          trControl = binary_fitControl,
-                          tuneGrid = rgrid_num)
+sink("executed", append = TRUE)
+cat(paste0("- glass4 ---> ", now(), "\n"))
+sink()
 
 # glass5 ------------------------------------------------------------------
 
-set.seed(123)
-fit_glass5_d <- train(x =  glass5[,-1],
-                          y = glass5[,1],
-                          data = glass5,
-                          method = dknn,
-                          preProcess = c("center", "scale"),
-                          trControl = binary_fitControl,
-                          tuneGrid = dgrid_num)
+out <- fitNum(glass5)
+fit_glass5_d <- out$fitd
+fit_glass5_r <- out$fitr
 
-set.seed(123)
-fit_glass5_r <- train(x =  glass5[,-1],
-                          y = glass5[,1],
-                          data = glass5,
-                          method = rknn,
-                          preProcess = c("center", "scale"),
-                          trControl = binary_fitControl,
-                          tuneGrid = rgrid_num)
-
-# compare_metric(fit_glass5_r, fit_glass5_d, metric = "F1", input = "numerical")
-
+sink("executed", append = TRUE)
+cat(paste0("- glass5 ---> ", now(), "\n"))
+sink()
 
 # ecoli4 ------------------------------------------------------------------
 
-set.seed(123)
-fit_ecoli4_d <- train(x =  ecoli4[,-1],
-                                        y = ecoli4[,1],
-                                        data = ecoli4,
-                                        method = dknn,
-                                        preProcess = c("center", "scale"),
-                                        trControl = binary_fitControl,
-                                        tuneGrid = dgrid_num)
+out <- fitNum(ecoli4)
+fit_ecoli4_d <- out$fitd
+fit_ecoli4_r <- out$fitr
 
-set.seed(123)
-fit_ecoli4_r <- train(x =  ecoli4[,-1],
-                                        y = ecoli4[,1],
-                                        data = ecoli4,
-                                        method = rknn,
-                                        preProcess = c("center", "scale"),
-                                        trControl = binary_fitControl,
-                                        tuneGrid = rgrid_num)
-
-compare_metric(fit_ecoli4_r, fit_ecoli4_d, metric = "F1", input = "numerical")
+sink("executed", append = TRUE)
+cat(paste0("- ecoli4 ---> ", now(), "\n"))
+sink()
 
 # ecoli_0_1_4_6_vs_5 ---------------------------------------------------
 
-set.seed(123)
-fit_ecoli_0_1_4_6_vs_5_d <- train(x =  ecoli_0_1_4_6_vs_5[,-1],
-                                      y = ecoli_0_1_4_6_vs_5[,1],
-                                      data = ecoli_0_1_4_6_vs_5,
-                                      method = dknn,
-                                      preProcess = c("center", "scale"),
-                                      trControl = binary_fitControl,
-                                      tuneGrid = dgrid_num)
+out <- fitNum(ecoli_0_1_4_6_vs_5)
+fit_ecoli_0_1_4_6_vs_5_d <- out$fitd
+fit_ecoli_0_1_4_6_vs_5_r <- out$fitr
 
-set.seed(123)
-fit_ecoli_0_1_4_6_vs_5_r <- train(x =  ecoli_0_1_4_6_vs_5[,-1],
-                                      y = ecoli_0_1_4_6_vs_5[,1],
-                                      data = ecoli_0_1_4_6_vs_5,
-                                      method = rknn,
-                                      preProcess = c("center", "scale"),
-                                      trControl = binary_fitControl,
-                                      tuneGrid = rgrid_num)
-
-# compare_metric(fit_ecoli_0_1_4_6_vs_5_r, fit_ecoli_0_1_4_6_vs_5_d, metric = "F1", input = "numerical")
+sink("executed", append = TRUE)
+cat(paste0("- ecoli_0_1_4_6_vs_5 ---> ", now(), "\n"))
+sink()
 
 # ecoli_0_1_4_7_vs_2_3_5_6 ---------------------------------------------------
 
-set.seed(123)
-fit_ecoli_0_1_4_7_vs_2_3_5_6_d <- train(x =  ecoli_0_1_4_7_vs_2_3_5_6[,-1],
-                                            y = ecoli_0_1_4_7_vs_2_3_5_6[,1],
-                                            data = ecoli_0_1_4_7_vs_2_3_5_6,
-                                            method = dknn,
-                                            preProcess = c("center", "scale"),
-                                            trControl = binary_fitControl,
-                                            tuneGrid = dgrid_num)
+out <- fitNum(ecoli_0_1_4_7_vs_2_3_5_6)
+fit_ecoli_0_1_4_7_vs_2_3_5_6_d <- out$fitd
+fit_ecoli_0_1_4_7_vs_2_3_5_6_r <- out$fitr
 
-set.seed(123)
-fit_ecoli_0_1_4_7_vs_2_3_5_6_r <- train(x =  ecoli_0_1_4_7_vs_2_3_5_6[,-1],
-                                            y = ecoli_0_1_4_7_vs_2_3_5_6[,1],
-                                            data = ecoli_0_1_4_7_vs_2_3_5_6,
-                                            method = rknn,
-                                            preProcess = c("center", "scale"),
-                                            trControl = binary_fitControl,
-                                            tuneGrid = rgrid_num)
-
-# compare_metric(fit_ecoli_0_1_4_7_vs_2_3_5_6_r, fit_ecoli_0_1_4_7_vs_2_3_5_6_d, metric = "F1", input = "numerical")
-
-# ecoli_0_6_7_vs_5 --------------------------------------------------------
-
-set.seed(123)
-fit_ecoli_0_6_7_vs_5_d <- train(x =  ecoli_0_6_7_vs_5[,-1],
-                                    y = ecoli_0_6_7_vs_5[,1],
-                                    data = ecoli_0_6_7_vs_5,
-                                    method = dknn,
-                                    preProcess = c("center", "scale"),
-                                    trControl = binary_fitControl,
-                                    tuneGrid = dgrid_num)
-
-set.seed(123)
-fit_ecoli_0_6_7_vs_5_r <- train(x =  ecoli_0_6_7_vs_5[,-1],
-                                    y = ecoli_0_6_7_vs_5[,1],
-                                    data = ecoli_0_6_7_vs_5,
-                                    method = rknn,
-                                    preProcess = c("center", "scale"),
-                                    trControl = binary_fitControl,
-                                    tuneGrid = rgrid_num)
+sink("executed", append = TRUE)
+cat(paste0("- ecoli_0_1_4_7_vs_2_3_5_6 ---> ", now(), "\n"))
+sink()
 
 # ecoli_0_1_4_7_vs_5_6 --------------------------------------------------------
 
-set.seed(123)
-fit_ecoli_0_1_4_7_vs_5_6_d <- train(x =  ecoli_0_1_4_7_vs_5_6[,-1],
-                                        y = ecoli_0_1_4_7_vs_5_6[,1],
-                                        data = ecoli_0_1_4_7_vs_5_6,
-                                        method = dknn,
-                                        preProcess = c("center", "scale"),
-                                        trControl = binary_fitControl,
-                                        tuneGrid = dgrid_num)
+out <- fitNum(ecoli_0_1_4_7_vs_5_6)
+fit_ecoli_0_1_4_7_vs_5_6_d <- out$fitd
+fit_ecoli_0_1_4_7_vs_5_6_r <- out$fitr
 
-set.seed(123)
-fit_ecoli_0_1_4_7_vs_5_6_r <- train(x =  ecoli_0_1_4_7_vs_5_6[,-1],
-                                        y = ecoli_0_1_4_7_vs_5_6[,1],
-                                        data = ecoli_0_1_4_7_vs_5_6,
-                                        method = rknn,
-                                        preProcess = c("center", "scale"),
-                                        trControl = binary_fitControl,
-                                        tuneGrid = rgrid_num)
+sink("executed", append = TRUE)
+cat(paste0("- ecoli_0_1_4_7_vs_5_6 ---> ", now(), "\n"))
+sink()
 
+# ecoli_0_6_7_vs_5 --------------------------------------------------------
 
-# compare_metric(fit_ecoli_0_1_4_7_vs_5_6_r, fit_ecoli_0_1_4_7_vs_5_6_d, metric = "F1", input = "numerical")
+out <- fitNum(ecoli_0_6_7_vs_5)
+fit_ecoli_0_6_7_vs_5_d <- out$fitd
+fit_ecoli_0_6_7_vs_5_r <- out$fitr
+
+sink("executed", append = TRUE)
+cat(paste0("- ecoli_0_6_7_vs_5 ---> ", now(), "\n"))
+sink()
