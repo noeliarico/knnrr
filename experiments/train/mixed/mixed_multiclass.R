@@ -1,11 +1,11 @@
 # Abalone -----------------------------------------------------------------
 
-out <- fitMix(mini_abalone)
-fit_mini_abalone_d <- out$fitd
-fit_mini_abalone_r <- out$fitr
+out <- fitMix(mini_abalone_sex)
+fit_mini_abalone_sex_d <- out$fitd
+fit_mini_abalone_sex_r <- out$fitr
 
 sink("executed", append = TRUE)
-cat(paste0("- mini_abalone ---> ", now(), "\n"))
+cat(paste0("- mini_abalone_sex ---> ", now(), "\n"))
 sink()
 
 # Contraceptive method ----------------------------------------------------
@@ -20,8 +20,6 @@ sink()
 
 
 # Covertype ---------------------------------------------------------------
-
-
 # Flags -------------------------------------------------------------------
 
 out <- fitMix(flags)

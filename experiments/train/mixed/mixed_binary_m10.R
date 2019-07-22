@@ -13,15 +13,6 @@ cat(paste0("- mini_adult ---> ", now(), "\n"))
 sink()
 
 
-# Primary tumor -----------------------------------------------------------
-
-out <- fitMix(primary_tumor)
-fit_primary_tumor_d <- out$fitd
-fit_primary_tumor_r <- out$fitr
-
-sink("executed", append = TRUE)
-cat(paste0("- primary_tumor ---> ", now(), "\n"))
-sink()
 
 # Travel insurance --------------------------------------------------------
 
