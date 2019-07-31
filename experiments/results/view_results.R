@@ -11,6 +11,12 @@ colors <-  c(
 
 compare_type <- function(datasets, metric, caret = TRUE, breakties = "randomly", the_k = 1, input = "numerical") {
   
+  colors <-  c(
+    # ranking rules
+    "#e6beff", 
+    #distances
+    color_manhattan, color_euclidean, color_chebyshev)
+  
   data_all <- tibble()
   rm <- metric
   
@@ -114,10 +120,13 @@ compare_type <- function(datasets, metric, caret = TRUE, breakties = "randomly",
   
   ggplot(results, aes(x = metric, y = dataset)) + 
     geom_line() +
-    geom_point(aes(col = method, size = method, shape = method), alpha = 0.8) +
+    geom_point(aes(col = method, size = method, shape = method)) +
     scale_size_manual(values=c(4, 2, 2, 2)) +
     scale_shape_manual(values=c(17, 16, 16, 16)) +
-    labs(x = rm)
+    labs(x = rm) +
+    ggtitle(paste("k =", the_k)) +
+    theme(axis.text.y = element_text(size = 12))
+   # scale_color_manual(values = colors) 
 }
 
 
@@ -190,7 +199,6 @@ compare_metric <- function(rdata, ddata, metric, name = "",
   head(all_data)
   
   
-  
   p <- ggplot(all_data, aes_string(x = "type", y = metric)) + 
   geom_point(
       aes(color = method, shape = method),
@@ -240,8 +248,8 @@ compare_metric_noisy <- function(all_data, metric,
   #   "#00294f",
   #   "#80bab0")
   
-  colors <-  c("#e6beff", "#e6194B", "#f58231", "#ffe119", "#bfef45", "#3cb44b", 
-               "#42d4f4", "#4363d8", "#911eb4")
+  # colors <-  c("#e6beff", "#e6194B", "#f58231", "#ffe119", "#bfef45", "#3cb44b", 
+  #              "#42d4f4", "#4363d8", "#911eb4")
   
   # all_data <- all_data %>%
   #   mutate(k = as.factor(k),
@@ -286,7 +294,7 @@ compare_metric_noisy <- function(all_data, metric,
     geom_point(
       aes(color = method, shape = method),
       size = 4,
-      alpha = 0.7,
+      #alpha = 0.7,
       position = position_jitter(w = 0.1, h = 0)
     ) +
     #scale_alpha_discrete(range = c(0.6)) +
@@ -298,7 +306,8 @@ compare_metric_noisy <- function(all_data, metric,
     ggtitle(name) +
     theme_light() +
     guides(shape = guide_legend(ncol = 6, byrow = TRUE),
-           col = guide_legend(ncol = 6, byrow = TRUE)) 
+           col = guide_legend(ncol = 6, byrow = TRUE)) +
+    theme(axis.text.y = element_text(size = 16))
   
   if(fix_axis) {
     p <- p + scale_y_continuous(limits = c(min,max), breaks = seq(min,max,0.05))
@@ -306,6 +315,21 @@ compare_metric_noisy <- function(all_data, metric,
   
   
   return(p)
+}
+
+
+compare_ties <- function(data, metric, name = "") {
+  col <- c("#4ca7ad", "#d04261")
+  print(head(data))
+  data <- data %>% select(k, distance, ties, {{metric}}) %>% mutate(k = as.factor(k))
+  tryCatch({
+    ggplot(data, aes_string("k", metric, color = "ties")) +
+      geom_point(size = 5, alpha = 0.8) +
+      #facet_grid(. ~ distance) + 
+      scale_color_manual(values = col) +
+      ggtitle(name) +
+      theme_light()
+  })
 }
 
 

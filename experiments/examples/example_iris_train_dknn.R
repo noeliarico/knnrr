@@ -14,7 +14,7 @@ data("iris")
 set.seed(123)
 indexes <- createDataPartition(iris$Species, times = 1, p = 0.08, list = FALSE)
 mini_iris <- iris[indexes,]
-row.names(mini_iris) <- paste0("X", 1:12)
+row.names(mini_iris) <- c(LETTERS[1:3], "X1", LETTERS[4:6], "X2", LETTERS[7:9], "X3")
 
 
 set.seed(123)

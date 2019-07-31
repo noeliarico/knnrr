@@ -60,7 +60,7 @@ train_keel  <- function(train, test, verbose = FALSE) {
       }
       grid <- grid %>% 
         mutate(F1 = replace(F1, (method == the_rr & k == the_k), f), 
-               Balanced_Accuracy = replace(Balanced_Accuracy, (method == d & k == the_k), ba), 
+               Balanced_Accuracy = replace(Balanced_Accuracy, (method == the_rr & k == the_k), ba), 
                Kappa = replace(Kappa, (method == the_rr & k == the_k), cm$overall['Kappa'])) %>%
         as.data.frame()
     }

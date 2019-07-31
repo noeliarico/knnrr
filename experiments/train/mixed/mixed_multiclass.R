@@ -1,6 +1,6 @@
 # Abalone -----------------------------------------------------------------
 
-out <- fitMix(mini_abalone_sex)
+out <- fitNum(mini_abalone_sex)
 fit_mini_abalone_sex_d <- out$fitd
 fit_mini_abalone_sex_r <- out$fitr
 
