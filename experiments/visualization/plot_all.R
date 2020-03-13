@@ -24,7 +24,7 @@ figure
 
 # Compare distances and ranking rules -------------------------------------
 
-all_plots <- lapply(mixed$name, append_plot, metric = "Balanced_Accuracy", input = "numerical")
+all_plots <- lapply(numerical_binary_imb2, append_plot, metric = "Balanced_Accuracy", input = "numerical")
 
 figure <- ggarrange(plotlist = all_plots, common.legend = TRUE)
 figure

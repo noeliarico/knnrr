@@ -16,8 +16,9 @@ all_plots <- lapply(numerical_binary_imb1$name[-10], append_plot, metric = "Bala
 figure <- ggarrange(plotlist = all_plots, common.legend = TRUE)
 figure
 
-all_plots <- lapply(numerical_binary_imb2$name, append_plot, metric = "Balanced_Accuracy", input = "numerical")
-figure <- ggarrange(plotlist = all_plots, common.legend = TRUE)
+
+all_plots <- lapply(numerical_binary_imb2[4:9, ]$name, append_plot, metric = "Balanced_Accuracy", input = "numerical")
+figure <- ggarrange(plotlist = all_plots, common.legend = TRUE, nrow = 3, ncol = 2)
 figure
 
 
